@@ -51,7 +51,7 @@ This is what we plan to export to another app.
 
 UI Specialist: Vismaya Manchaiah
 
-Business Logic/Persistance: Puran Kansakar
+Business Logic/Persistance: Puran Kansakar and Tianzuo Huang
 
 DevOps/Product Owner/Scrum Master/Github Admin: Michael Williams
 
