@@ -49,7 +49,7 @@ This is what we plan to export to another app.
 
 ## Team Members and Roles 
 
-UI Specialist: Vismaya Manchaiah
+UI Specialist: Vismaya Manchaiah and Erich Wagner
 
 Business Logic/Persistance: Puran Kansakar and Tianzuo Huang
 
