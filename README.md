@@ -20,7 +20,17 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 **Then**:
 
-2.
+2. As a
+
+### Example
+
+**Given**:
+
+**When**:
+
+**When**:
+
+**Then**:
 
 ## Class Diagram
 
