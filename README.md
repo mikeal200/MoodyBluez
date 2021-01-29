@@ -50,5 +50,15 @@ This is what we plan to export to another app.
 ## Team Members and Roles 
 
 UI Specialist: Vismaya Manchaiah
+
 Business Logic/Persistance: Puran Kansakar
+
 DevOps/Product Owner/Scrum Master/Github Admin: Michael Williams
+
+## Milestones
+
+[Milestones](https://github.com/mikeal200/MoodyBluez/milestones)
+
+## Standup
+
+[We meet 8:00 PM Eastern on Discord](https://discord.gg/N6qNra5f36)
