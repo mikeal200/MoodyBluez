@@ -28,7 +28,7 @@ d. Click on submit;
 
 ### Example
 
-**Given**: The application will be able to record and show users' mood tendency
+**Given**: The application will be able to record and show users' mood tendency.
 
 **When**:
 a. The user get into the calendar page from the dashboard;
