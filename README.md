@@ -6,7 +6,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Storyboard
 
-![storyboard](Storyboard/storyboard.png)
+![storyboard](ReadmeAssets/storyboard.png)
 
 ## Requirments
 
@@ -36,7 +36,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Class Diagram
 
-![class diagram](classdiagram.jpg)
+![classdiagram](ReadmeAssets/classdiagram.JPG)
 
 
 ### Class Diagram Description
