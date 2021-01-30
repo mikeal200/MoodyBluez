@@ -71,6 +71,10 @@ DevOps/Product Owner/Scrum Master/Github Admin: Michael Williams
 
 [Milestones](https://github.com/mikeal200/MoodyBluez/milestones)
 
+## Projects
+
+[Projects](https://github.com/mikeal200/MoodyBluez/projects)
+
 ## Standup
 
 [We meet 8:00 PM Eastern on Discord](https://discord.gg/N6qNra5f36)
