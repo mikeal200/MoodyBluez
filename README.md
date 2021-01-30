@@ -17,9 +17,9 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 **Given**: The application will record or change the mood and the description when the users want to.
 
 **When**: a. The user get into the calendar page from the dashboard;
-	b. click on the "create entry" button to create a mood entry;
-	c. Fill out the date, mood, and description;
-	d. Click on submit;
+b. click on the "create entry" button to create a mood entry;
+c. Fill out the date, mood, and description;
+d. Click on submit;
 
 **Then**: The user should be able to create a mood entry on the calendar.
 
