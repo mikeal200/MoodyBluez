@@ -36,6 +36,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Class Diagram
 
+![class diagram](classdiagram.jpg)
 
 
 ### Class Diagram Description
