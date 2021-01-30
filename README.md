@@ -10,29 +10,29 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Requirments
 
-1. As a
+1. As a user I want the application be able to record my mood and my mood description, and the application will allow me to change them during the day.
 
 ### Example
 
-**Given**:
+**Given**: The application will record or change the mood and the description when the users want to.
 
-**When**:
+**When**: a. The user get into the calendar page from the dashboard;
+	b. click on the "create entry" button to create a mood entry;
+	c. Fill out the date, mood, and description;
+	d. Click on submit;
 
-**When**:
+**Then**: The user should be able to create a mood entry on the calendar.
 
-**Then**:
-
-2. As a
+2. As a user I want to see my mood tendency after a period of time of recording. So I can see the status of my mental health.
 
 ### Example
 
-**Given**:
+**Given**: The application will be able to record and show users' mood tendency
 
-**When**:
+**When**: a. The user get into the calendar page from the dashboard;
+	b. click on the metrics icon on the top left corner;
 
-**When**:
-
-**Then**:
+**Then**: The user should be able to see the mood tendency.
 
 ## Class Diagram
 
