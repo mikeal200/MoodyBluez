@@ -41,7 +41,11 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ### Class Diagram Description
 
-The day class will handle the date, string, and description. The day class will have methods to set and get the date and mood. The mood class will deal with the mood and description and will connect to the Day class. The entry class will deal with all the details of each entry such as the entry, description, and day. 
+The day class will handle the date, string, and description. The day class will have methods to set and get the date and mood. 
+
+The mood class will deal with the mood and description and will connect to the Day class. 
+
+The entry class will deal with all the details of each entry such as the entry, description, and day. 
 
 ## JSON Schema
 
