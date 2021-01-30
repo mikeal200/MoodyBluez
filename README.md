@@ -6,6 +6,8 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Storyboard
 
+![image](https://user-images.githubusercontent.com/58800020/106340737-daafb080-6268-11eb-94f4-ccfd63dcb87e.png)
+
 ## Requirments
 
 1. As a
