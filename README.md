@@ -14,7 +14,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 #### Scenario
 
-As a user I want the application be able to record my mood and my mood description.
+As a user I want the application to be able to record my mood and my mood description.
 
 #### Dependencies
 
@@ -22,7 +22,7 @@ User mood data and description data are available and accessible.
 
 #### Assumptions
 
-User is access to the mood recording and description during the day.
+User has access to the mood recording and description during the day.
 
 ### Example
 1.1
