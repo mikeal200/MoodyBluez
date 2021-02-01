@@ -33,7 +33,7 @@ User is access to the mood recording and description during the day.
 
 **When** I fill out the date, mood, and description, and cick submit;
 
-**Then**: I should be able to create a mood entry on the calendar.
+**Then** I should be able to create a mood entry on the calendar.
 
 1.2
 
@@ -42,7 +42,7 @@ User is access to the mood recording and description during the day.
 
 **When** I fill out the date with "aduhuibnudah:jiuoda", mood, and description, and cick submit
 
-**Then**: I should receive an error of unknown date data.
+**Then** I should receive an error of unknown date data.
 
 
 ### Requirement 101: Change Mood and mood description recording
@@ -67,7 +67,7 @@ User accesses to the mood recording and description during the day.
 
 **When** I fill out the date, mood, and description, and cick submit;
 
-**Then**: I should be able to change the mood and mood description of the concrete date on the calendar.
+**Then** I should be able to change the mood and mood description of the concrete date on the calendar.
 
 1.2
 
@@ -76,7 +76,7 @@ User accesses to the mood recording and description during the day.
 
 **When** I fill out the date with "aduhuibnudah:jiuoda", mood, and description, and cick submit
 
-**Then**: I should receive an error with unknown date data.
+**Then** I should receive an error with unknown date data.
 
 ### Requirement 102: View mood tendency
 
@@ -99,7 +99,7 @@ User accesses to the mood recording and mood tendency.
 
 **When** I get into metrics page
 
-**Then**: I should be able to see the mood tendency.
+**Then** I should be able to see the mood tendency.
 
 1.2
 
@@ -108,7 +108,7 @@ User accesses to the mood recording and mood tendency.
 
 **When** I get into metrics page, and click on "Anger" mood.
 
-**Then**: I should receive no data for the "Anger" mood tendency.
+**Then** I should receive no data for the "Anger" mood tendency.
 
 ## Class Diagram
 
