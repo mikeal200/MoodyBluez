@@ -10,7 +10,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Functional Requirements
 
-### Requirement 100.0: Search for breweries
+### Requirement 100.0: Mood and mood description recording
 
 #### Scenario
 
