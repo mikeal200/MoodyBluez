@@ -8,102 +8,56 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ![storyboard](ReadmeAssets/storyboard.png)
 
-## Functional Requirements
+## Requirements
 
-### Requirement 100: Create Mood and mood description recording
-
-#### Scenario
-
-As a user I want the application to be able to record my mood and my mood description.
-
-#### Dependencies
-
-User mood data and description data are available and accessible.
-
-#### Assumptions
-
-User has access to the mood recording and description during the day.
+1. As a user I want the application to be able to record my mood and my mood description.
 
 ### Example
-1.1
 
-**Given** User mood recording data is available  
-**Given** User mood description recording data is available
+**Given**: User mood recording data is available.
 
+**When**: I fill out the date, mood, and description, and cick submit.
 
-**When** I fill out the date, mood, and description, and cick submit;
-
-**Then** I should be able to create a mood entry on the calendar.
-
-1.2
-
-**Given** User mood recording data is available  
-**Given** User mood description recording data is available
-
-**When** I fill out the date with "aduhuibnudah:jiuoda", mood, and description, and cick submit
-
-**Then** I should receive an error of unknown date data.
-
-
-### Requirement 101: Change Mood and mood description recording
-
-#### Scenario
-
-As a user I want the application be able to change the recording of my mood and my mood description during the day.
-
-#### Dependencies
-
-User mood data and description data are available and accessible.
-
-#### Assumptions
-
-User accesses to the mood recording and description during the day.
+**Then**: An entry will be saved on the calendar.
 
 ### Example
-1.1
 
-**Given** User mood recording data is available  
-**Given** User mood description recording data is available
+**Given**: User mood recording data is available.
 
-**When** I fill out the date, mood, and description, and cick submit;
+**When**: I fill out the date with "aduhuibnudah:jiuoda" and cick submit.
 
-**Then** I should be able to change the mood and mood description of the concrete date on the calendar.
+**Then**: I should receive an error of unknown date data.
 
-1.2
-
-**Given** User mood recording data is available  
-**Given** User mood description recording data is available
-
-**When** I fill out the date with "aduhuibnudah:jiuoda", mood, and description, and cick submit
-
-**Then** I should receive an error with unknown date data.
-
-### Requirement 102: View mood tendency
-
-#### Scenario
-
-As a user I want to see my mood tendency after a period of time of recording. So I can see the status of my mental health.
-
-#### Dependencies
-
-User mood data is available and accessible.
-
-#### Assumptions
-
-User accesses to the mood recording and mood tendency.
+2. As a user I want to be able to modify my entry of the day prior.
 
 ### Example
-1.1
 
-**Given** User mood recording data is available 
+**Given**: User mood and description data is available.  
 
-**When** I get into metrics page
+**When**: I modify the mood and description.
 
-**Then** I should be able to see the mood tendency.
+**Then**: The modified entry will persist on the calendar.
 
-1.2
+### Example
 
-**Given** User mood recording data is available  
+**Given** User mood and description data is available 
+
+**When** I fill out the mood or description with "aduhuibnudah:jiuoda"
+
+**Then** I should receive an error with unknown input.
+
+3. As a user I want to see my mood tendency after a period of time of recording. So I can see the status of my mental health.
+
+### Example
+
+**Given** User is on metrics page. 
+
+**When** I select "Sad" mood.
+
+**Then** MoodyBluez will return the sad mood object, that will display the amount of times that mood has an entry on each day of the week.
+
+### Example
+
 **Given** There is no mood recording data for mood "Anger"
 
 **When** I get into metrics page, and click on "Anger" mood.
