@@ -66,7 +66,7 @@ Moody Bluez allows users to record their overall mood daily. At the end of the d
 
 ## Class Diagram
 
-![classdiagram](ReadmeAssets/classdiagram.JPG)
+![classdiagram](ReadmeAssets/MoodyBluezClassDiagram.PNG)
 
 
 ### Class Diagram Description
