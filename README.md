@@ -77,6 +77,19 @@ The mood class will deal with identifying each mood and a string that will hold 
 
 The entry class will deal with all the details of each entry. It will identify the day of the week, connects it with the mood, and a string will hold the reason for the user.
 
+Interfaces:
+
+iMoodDAO: Interface that will allow users to enter information about their mood.
+iDateDAO: Interface that will display dates and allow user to edit dates.
+iEntryDAO: Interface that will show the various entries the user inputs.
+
+Resources:
+
+MainActivity
+MainViewModel
+ContextAwareViewModel
+RetrofitClientInstance
+
 ## JSON Schema
 
 This is what we plan to export to another app.
