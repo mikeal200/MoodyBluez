@@ -3,6 +3,7 @@ package com.moodybluez.enterprise;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.service.IMoodService;
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,6 +20,7 @@ class EnterpriseApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
 	void fetchMoodByID_returnsSadForID3() {
 		givenMoodDataAreAvailable();
 		whenMoodWithID3();
@@ -33,7 +35,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void thenReturnOneSadMoodForID3() {
-		String moodDesription = mood.getMoodDesc();
-		assertEquals("Sad", moodDesription);
+		String moodDescription = mood.getMoodDesc();
+		assertEquals("Sad", moodDescription);
 	}
 }
