@@ -7,5 +7,4 @@ class Date {
     private String date;
     private int dayOfWeekID;
     private String dayOfWeekDesc;
-    private Entry entry;
 }

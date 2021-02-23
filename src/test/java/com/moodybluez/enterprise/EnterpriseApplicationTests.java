@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -76,25 +77,49 @@ class EnterpriseApplicationTests {
 		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
 
 		Entry entry = new Entry();
-		entry.setDayOfWeekID(dayOfWeek.getValue());
 		entry.setMoodID(moodID);
 		entry.setReasonDesc(reasonForMood);
 		entry.setDate(new Date());
+		entry.date.setDate(entryDate);
+		entry.date.setDayOfWeekID(dayOfWeek.getValue());
+		entry.date.setDayOfWeekDesc(dayOfWeek.name());
+		entry.date.setDayOfWeekID(dayOfWeek.getValue());
 
 		entryService.saveEntry(entry);
 	}
 
 	private void thenReturnMoodEntry() throws Exception {
-		List<Entry> moodEntries = entryService.fetchAll();
+		Map<String, Entry> moodEntries = entryService.fetchAll();
 		boolean moodEntryPresent = false;
-		for (Entry ent : moodEntries) {
-			if (ent.getDayOfWeekID() == 1 && ent.getMoodID() == 3
-					&& ent.getReasonDesc() == "I laid in bed all day.") {
+		for (Map.Entry mapElement : moodEntries.entrySet()) {
+			String date = (String) mapElement.getKey();
+			Entry entry = (Entry) mapElement.getValue();
+
+			if (entry.getMoodID() == 3 && entry.getReasonDesc() == "I laid in bed all day."
+					&& date == "2/22/2021") {
 				moodEntryPresent = true;
 				break;
 			}
 		}
 
 		assertTrue(moodEntryPresent);
+	}
+
+	@Test
+	void fetchEntryByDate_DateHasEntry() {
+		givenMoodDataAreAvailable();
+		whenDateIsClickedOnCalendar();
+		thenReturnsEntryOnDate();
+	}
+
+	private void whenDateIsClickedOnCalendar() {
+		entry = entryService.fetchByDate("2/22/2021");
+	}
+
+	private void thenReturnsEntryOnDate() {
+		String reason = entry.getReasonDesc();
+		int mood = entry.getMoodID();
+		assertEquals("I laid in bed all day.", reason);
+		assertEquals(3, mood);
 	}
 }
