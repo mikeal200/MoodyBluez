@@ -4,7 +4,7 @@ import com.moodybluez.enterprise.dto.Mood;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MooodServiceStub implements IMoodService {
+public class MoodServiceStub implements IMoodService {
     @Override
     public Mood fetchById(int id) {
         Mood mood = new Mood();
