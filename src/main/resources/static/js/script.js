@@ -1,3 +1,4 @@
+
 const date = new Date();
 
 const renderCalendar = () => {
@@ -59,7 +60,7 @@ const renderCalendar = () => {
     ) {
       days += `<div class="today">${i}</div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div class="${i}">${i}</div>`;
     }
   }
 
@@ -67,6 +68,46 @@ const renderCalendar = () => {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
+
+  for (let i = 1; i <= lastDay; i++) {
+    if(i === new Date().getDate() &&
+        date.getMonth() === new Date().getMonth()) {
+        document.querySelector(".today").addEventListener("click", () => {
+          date.setMonth(log("date clicked"));
+          renderCalendar();
+        });
+    }
+    else if(i < 10){
+        document.querySelector(".\\3" + i).addEventListener("click", () => {
+          date.setMonth(log("date clicked"));
+          renderCalendar();
+        });
+    }
+    else if(i >= 10 && i < 20) {
+        j = i - 10
+        document.querySelector(".\\31 " + j).addEventListener("click", () => {
+          date.setMonth(log("date clicked"));
+          renderCalendar();
+        });
+    }
+    else if(i >= 20 && i < 30) {
+        j = i - 20
+        document.querySelector(".\\32 " + j).addEventListener("click", () => {
+            date.setMonth(log("date clicked"));
+            renderCalendar();
+        });
+    }
+    else if(i >= 30) {
+        j = i - 30
+        document.querySelector(".\\33 " + j).addEventListener("click", () => {
+            date.setMonth(log("date clicked"));
+            renderCalendar();
+        });
+    }
+
+  }
+
+
 };
 
 document.querySelector(".prev").addEventListener("click", () => {

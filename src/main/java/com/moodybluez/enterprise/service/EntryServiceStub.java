@@ -28,9 +28,6 @@ public class EntryServiceStub implements IEntryService {
 
         Date dateObj = new Date();
         dateObj.setDate("2/22/2021");
-        /*dateObj.setDayOfWeekID(1);
-        dateObj.setDayOfWeekDesc(dayOfWeek.name());
-        dateObj.setDayOfWeekID(dayOfWeek.getValue());*/
 
         moodEntryMap.put(date, entry);
 
