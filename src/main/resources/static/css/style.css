@@ -5,6 +5,11 @@
   font-family: "Quicksand", sans-serif;
 }
 
+body{
+  background-color: #12121f;
+  overflow: hidden;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -12,7 +17,6 @@ html {
 .container {
   width: 100%;
   height: 100vh;
-  background-color: #12121f;
   color: #eee;
   display: flex;
   justify-content: center;
@@ -108,7 +112,8 @@ html {
   background-color: #167e56;
 }
 
-.navbar-nav > li{
+.navbar-nav > li {
   padding-left:30px;
   padding-right:30px;
+  font-size: 1.5rem;
 }
