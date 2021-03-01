@@ -73,34 +73,34 @@ const renderCalendar = () => {
     if(i === new Date().getDate() &&
         date.getMonth() === new Date().getMonth()) {
         document.querySelector(".today").addEventListener("click", () => {
-          date.setMonth(date.getMonth() - 1);
+          date.setMonth(log("date clicked"));
           renderCalendar();
         });
     }
     else if(i < 10){
         document.querySelector(".\\3" + i).addEventListener("click", () => {
-          date.setMonth(date.getMonth() - 1);
+          date.setMonth(log("date clicked"));
           renderCalendar();
         });
     }
     else if(i >= 10 && i < 20) {
         j = i - 10
         document.querySelector(".\\31 " + j).addEventListener("click", () => {
-          date.setMonth(date.getMonth() - 1);
+          date.setMonth(log("date clicked"));
           renderCalendar();
         });
     }
     else if(i >= 20 && i < 30) {
         j = i - 20
         document.querySelector(".\\32 " + j).addEventListener("click", () => {
-            date.setMonth(date.getMonth() - 1);
+            date.setMonth(log("date clicked"));
             renderCalendar();
         });
     }
     else if(i >= 30) {
         j = i - 30
         document.querySelector(".\\33 " + j).addEventListener("click", () => {
-            date.setMonth(date.getMonth() - 1);
+            date.setMonth(log("date clicked"));
             renderCalendar();
         });
     }
