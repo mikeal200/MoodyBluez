@@ -13,26 +13,27 @@ import static java.lang.Integer.parseInt;
 @Component
 public class EntryServiceStub implements IEntryService {
 
-    Map<String, Entry> moodEntryMap = new HashMap<>();
+    Map<String, Entry> moodEntries = new HashMap<>();
 
     @Override
     public void saveEntry(Entry entry) {
-        moodEntryMap.put(entry.date.getDate(), entry);
+        moodEntries.put(entry.getDate().getDate(), entry);
     }
 
     @Override
     public Entry fetchByDate(String date) {
-        Entry entry = new Entry();
-        entry.setMoodID(3);
-        entry.setReasonDesc("I laid in bed all day.");
-
         Date dateObj = new Date();
         dateObj.setDate("2/22/2021");
 
-        moodEntryMap.put(date, entry);
+        Entry entry = new Entry();
+        entry.setMoodID(3);
+        entry.setDescription("I laid in bed all day.");
+        entry.setDate(dateObj);
 
-        if(moodEntryMap.containsKey(date)){
-            return moodEntryMap.get(date);
+        moodEntries.put(date, entry);
+
+        if(moodEntries.containsKey(date)){
+            return moodEntries.get(date);
         }
         else {
             return null;
@@ -41,6 +42,6 @@ public class EntryServiceStub implements IEntryService {
 
     @Override
     public Map<String, Entry> fetchAll() {
-        return moodEntryMap;
+        return moodEntries;
     }
 }

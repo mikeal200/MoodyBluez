@@ -9,7 +9,7 @@ public class MoodServiceStub implements IMoodService {
     public Mood fetchById(int id) {
         Mood mood = new Mood();
         mood.setMoodID(3);
-        mood.setMoodDesc("Sad");
+        mood.setMood("Sad");
         return mood;
     }
 }
