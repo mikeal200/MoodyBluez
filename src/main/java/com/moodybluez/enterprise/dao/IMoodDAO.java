@@ -10,5 +10,7 @@ public interface IMoodDAO {
 
     Mood fetchByMood(String mood);
 
+    Mood fetchByMoodID(int moodID);
+
     Map<Integer, Mood> fetchAll();
 }

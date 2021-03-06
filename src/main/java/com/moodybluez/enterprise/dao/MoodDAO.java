@@ -32,6 +32,20 @@ public class MoodDAO implements IMoodDAO{
     }
 
     @Override
+    public Mood fetchByMoodID(int moodID) {
+        List<Mood> moodList = new ArrayList<>(moods.values());
+        Mood matchedMood = new Mood();
+
+        for (Mood moodDTO : moodList) {
+            if (moodDTO.getMoodID() == moodID) {
+                matchedMood = moodDTO;
+            }
+        }
+
+        return matchedMood;
+    }
+
+    @Override
     public Map<Integer, Mood> fetchAll() {
         return moods;
     }
