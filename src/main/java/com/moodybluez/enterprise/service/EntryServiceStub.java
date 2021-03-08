@@ -15,9 +15,17 @@ public class EntryServiceStub implements IEntryService {
 
     Map<String, Entry> moodEntryMap = new HashMap<>();
 
+    /**
+     * Takes a user inputted entry, pulls the date of the entry (entry.date), and adds them to moodEntryMap where date is the key and entry is the value
+     * @param entry The entry the user wants to save
+     */
     @Override
     public void saveEntry(Entry entry) {
-        moodEntryMap.put(entry.date.getDate(), entry);
+        if (moodEntryMap.containsKey(entry.date.getDate())) {
+            throw new IllegalArgumentException("An entry already exists for that date!");
+        } else {
+            moodEntryMap.put(entry.date.getDate(), entry);
+        }
     }
 
     /**
@@ -34,7 +42,12 @@ public class EntryServiceStub implements IEntryService {
         Date dateObj = new Date();
         dateObj.setDate("2/22/2021");
 
-        moodEntryMap.put(date, entry);
+        if (moodEntryMap.containsKey(date)){
+            throw new IllegalArgumentException("An entry already exists for that date!");
+        } else {
+            moodEntryMap.put(date, entry);
+        }
+
 
         if(moodEntryMap.containsKey(date)){
             return moodEntryMap.get(date);
