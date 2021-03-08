@@ -5,16 +5,29 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+/**
+ * Class representing a particular mood
+ */
 @Component
 public class MoodDAO implements IMoodDAO{
 
     private Map<Integer, Mood> moods = new HashMap<>();
 
+    /**
+     * Adds a Mood to the collection.  If an exception is raised, return false for custom
+     * error trapping so the program doesn't crash.
+     * @param mood representing a Mood object
+     * @return boolean (true if successful)
+     *
+     */
     @Override
     public boolean createEntry(Mood mood) {
-        moods.put(mood.getMoodID(), mood);
-        if (moods.containsKey(mood.getMoodID())) return true;
-        return false;
+        try {
+            moods.put(mood.getMoodID(), mood);
+            return true;
+        } catch( Exception e) {
+            return false;
+        }
     }
 
     @Override
