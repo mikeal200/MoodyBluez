@@ -5,6 +5,7 @@ import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.service.IEntryService;
 import com.moodybluez.enterprise.service.IMoodService;
+import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.lang.Integer.parseInt;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
@@ -42,6 +42,7 @@ class EnterpriseApplicationTests {
 		thenReturnOneSadMoodForID3();
 	}
 
+
 	private void givenMoodDataAreAvailable() {
 	}
 
@@ -60,6 +61,32 @@ class EnterpriseApplicationTests {
 		whenEntryIsCompleted();
 		thenReturnMoodEntry();
 	}
+
+	@Test
+	void entryAlreadyExists() throws Exception {
+		givenMoodDataAreAvailable();
+		Exception e = whenMapAlreadyHasEntryOnDate();
+		thenProcessTheException(e);
+	}
+
+
+	private Exception whenMapAlreadyHasEntryOnDate() {
+		Exception exception = null;
+		entry.setDate(new Date());
+		entry.date.setDate("2/22/2021");
+		entryService.saveEntry(entry);
+		try {
+			entryService.saveEntry(entry);
+		}
+		catch(IllegalArgumentException e){
+			exception = e;
+		}
+		return exception;
+	}
+	private void thenProcessTheException(Exception e) {
+		assertNotNull(e);
+	}
+
 
 	private void whenEntryIsCompleted() {
 		int moodID = 3;

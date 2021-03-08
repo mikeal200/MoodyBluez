@@ -20,7 +20,7 @@ public class EntryServiceStub implements IEntryService {
      * @param entry The entry the user wants to save
      */
     @Override
-    public void saveEntry(Entry entry) {
+    public void saveEntry(Entry entry) throws IllegalArgumentException {
         if (moodEntryMap.containsKey(entry.date.getDate())) {
             throw new IllegalArgumentException("An entry already exists for that date!");
         } else {

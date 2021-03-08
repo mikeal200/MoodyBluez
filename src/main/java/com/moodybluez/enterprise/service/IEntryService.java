@@ -8,7 +8,7 @@ public interface IEntryService {
 
     Map<String, Entry> fetchAll();
 
-    void saveEntry(Entry entry);
+    void saveEntry(Entry entry) throws IllegalArgumentException;
 
     Entry fetchByDate(String date);
 
