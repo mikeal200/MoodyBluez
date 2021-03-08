@@ -81,9 +81,9 @@ class EnterpriseApplicationTests {
 		entry.setReasonDesc(reasonForMood);
 		entry.setDate(new Date());
 		entry.date.setDate(entryDate);
-		entry.date.setDayOfWeekID(dayOfWeek.getValue());
-		entry.date.setDayOfWeekDesc(dayOfWeek.name());
-		entry.date.setDayOfWeekID(dayOfWeek.getValue());
+		entry.date.setDayID(dayOfWeek.getValue());
+		entry.date.setDayDesc(dayOfWeek.name());
+		entry.date.setDayID(dayOfWeek.getValue());
 
 		entryService.saveEntry(entry);
 	}

@@ -20,6 +20,12 @@ public class EntryServiceStub implements IEntryService {
         moodEntryMap.put(entry.date.getDate(), entry);
     }
 
+    /**
+     *
+     * @param date
+     * @return
+     * The method fetches the entries by date
+     */
     @Override
     public Entry fetchByDate(String date) {
         Entry entry = new Entry();
@@ -39,6 +45,11 @@ public class EntryServiceStub implements IEntryService {
         }
     }
 
+    /**
+     *
+     * @return
+     * The method returns all entries from the hash map
+     */
     @Override
     public Map<String, Entry> fetchAll() {
         return moodEntryMap;

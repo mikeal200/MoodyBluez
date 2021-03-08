@@ -14,4 +14,9 @@ public class MoodyBluezController {
     public String index() {
         return "index";
     }
+    @RequestMapping("/metrics")
+    public String metrics() {
+        return "metrics";
+    }
+
 }
