@@ -2,11 +2,16 @@ package com.moodybluez.enterprise;
 
 import com.moodybluez.enterprise.dao.MoodDAO;
 import com.moodybluez.enterprise.dto.Mood;
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
-public class MoodyBluezController {
+public class MoodyBluezController implements ErrorController {
 
     /**
      * Handles the root endpoint and returns index.html
@@ -29,4 +34,19 @@ public class MoodyBluezController {
         return dao.fetchByMoodID(id);
     }
 
+    /**
+     * Returns the error template whenever an error occurs
+     * @param request The request that caused the error
+     * @return the error.html Thymeleaf template
+     * @author Stephen Meckstroth
+     */
+    @RequestMapping("/error")
+    public String handleError(HttpServletRequest request) {
+        return "error";
+    }
+
+    @Override
+    public String getErrorPath() {
+        return null;
+    }
 }
