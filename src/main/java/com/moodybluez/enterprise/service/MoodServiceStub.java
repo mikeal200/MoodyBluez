@@ -6,6 +6,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MoodServiceStub implements IMoodService {
 
+    /**
+     *
+     * @param id unique identifier for a mood
+     * @return The mood retrieved using the provided id
+     */
     @Override
     public Mood fetchById(int id) {
         Mood mood = new Mood();
