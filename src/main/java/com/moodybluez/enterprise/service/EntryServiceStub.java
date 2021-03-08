@@ -20,6 +20,11 @@ public class EntryServiceStub implements IEntryService {
         moodEntryMap.put(entry.date.getDate(), entry);
     }
 
+    /**
+     *
+     * @param date A String consisting of a date in MM/DD/YYYY format
+     * @return The entry data that is paired with the date param within the moodEntryMap
+     */
     @Override
     public Entry fetchByDate(String date) {
         Entry entry = new Entry();
@@ -39,6 +44,10 @@ public class EntryServiceStub implements IEntryService {
         }
     }
 
+    /**
+     *
+     * @return All key-value pairs within moodEntryMap
+     */
     @Override
     public Map<String, Entry> fetchAll() {
         return moodEntryMap;
