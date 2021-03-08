@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class MoodServiceStub implements IMoodService {
 
     /**
-     *
+     * Returns a mood based on the id provided by the user (Currently just generates a new mood and returns it)
      * @param id unique identifier for a mood
      * @return The mood retrieved using the provided id
      */

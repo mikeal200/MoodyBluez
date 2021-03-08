@@ -21,7 +21,7 @@ public class EntryServiceStub implements IEntryService {
     }
 
     /**
-     *
+     * Retrieves the database entry that is paired with the date provided by the user.
      * @param date A String consisting of a date in MM/DD/YYYY format
      * @return The entry data that is paired with the date param within the moodEntryMap
      */
@@ -45,7 +45,7 @@ public class EntryServiceStub implements IEntryService {
     }
 
     /**
-     *
+     * Returns all date/entry pairs within the database.
      * @return All key-value pairs within moodEntryMap
      */
     @Override
