@@ -21,6 +21,7 @@ public class MoodyBluezController {
      * Returns the json representation of a Mood by id
      * @param id integer id of a mood
      * @return Mood in JSON format
+     * @author Stephen Meckstroth
      */
     @GetMapping("/api/Mood/{id}")
     public @ResponseBody Mood moodFetchById(@PathVariable int id){
