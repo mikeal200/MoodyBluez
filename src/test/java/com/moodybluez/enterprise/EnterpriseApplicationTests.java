@@ -15,6 +15,8 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.*;
@@ -93,13 +95,14 @@ class EnterpriseApplicationTests {
 		String reasonForMood = "I laid in bed all day.";
 		String entryDate = "2/22/2021";
 
-		String[] dateSplit = entryDate.split("/");
-		int month = parseInt(dateSplit[0]);
-		int day = parseInt(dateSplit[1]);
-		int year = parseInt(dateSplit[2]);
+		Integer[] dateSplit = Stream.of
+				(entryDate.split("/"))
+				.map(str -> parseInt(str))
+				.toArray(Integer[]::new);
+
 
 		LocalDate localDate
-				= LocalDate.of(year, month, day);
+				= LocalDate.of(dateSplit[2], dateSplit[1], dateSplit[0]);
 
 		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
 
