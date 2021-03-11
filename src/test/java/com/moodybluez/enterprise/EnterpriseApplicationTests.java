@@ -73,9 +73,10 @@ class EnterpriseApplicationTests {
 
 
 	private Exception whenMapAlreadyHasEntryOnDate() {
+		entry = new Entry();
 		Exception exception = null;
 		entry.setDate(new Date());
-		entry.date.setDate("2/22/2021");
+		entry.date.setDate("2/24/2021");
 		entryService.saveEntry(entry);
 		try {
 			entryService.saveEntry(entry);
@@ -93,7 +94,7 @@ class EnterpriseApplicationTests {
 	private void whenEntryIsCompleted() {
 		int moodID = 3;
 		String reasonForMood = "I laid in bed all day.";
-		String entryDate = "2/22/2021";
+		String entryDate = "2/25/2021";
 
 		Integer[] dateSplit = Stream.of
 				(entryDate.split("/"))
@@ -102,7 +103,7 @@ class EnterpriseApplicationTests {
 
 
 		LocalDate localDate
-				= LocalDate.of(dateSplit[2], dateSplit[1], dateSplit[0]);
+				= LocalDate.of(dateSplit[2], dateSplit[0],dateSplit[1] );
 
 		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
 
