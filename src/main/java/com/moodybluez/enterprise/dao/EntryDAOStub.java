@@ -16,9 +16,7 @@ public class EntryDAOStub implements IEntryDAO{
     @Override
     public boolean saveEntry(Entry entry) {
         entries.put(entry.getEntryID(), entry);
-        if (entries.containsKey(entry.getEntryID())) return true;
-
-        return false;
+        return entries.ContainsKey(entry.getEntryID());
     }
 
     @Override
