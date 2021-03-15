@@ -13,8 +13,7 @@ public class MoodDAO implements IMoodDAO{
     @Override
     public boolean createEntry(Mood mood) {
         moods.put(mood.getMoodID(), mood);
-        if (moods.containsKey(mood.getMoodID())) return true;
-        return false;
+        return moods.ContainsKey(mood.getMoodID();
     }
 
     @Override
