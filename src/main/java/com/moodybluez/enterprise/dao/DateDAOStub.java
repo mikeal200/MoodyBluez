@@ -16,9 +16,7 @@ public class DateDAOStub implements IDateDAO{
     @Override
     public boolean createEntry(Date date) {
         dates.put(date.getDateID(), date);
-        if (dates.containsKey(date.getDateID())) return true;
-
-        return false;
+        return dates.ContainsKey(date.getDateID())
     }
 
     @Override
