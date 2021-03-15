@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 @Component
-public class MoodDAO implements IMoodDAO{
+public class MoodDAOStub implements IMoodDAO{
 
     private Map<Integer, Mood> moods = new HashMap<>();
 
     @Override
     public boolean createEntry(Mood mood) {
         moods.put(mood.getMoodID(), mood);
-        return moods.ContainsKey(mood.getMoodID();
+        return moods.containsKey(mood.getMoodID());
     }
 
     @Override
@@ -22,7 +22,7 @@ public class MoodDAO implements IMoodDAO{
         Mood matchedMood = new Mood();
 
         for (Mood moodDTO : moodList) {
-            if (moodDTO.getMood().equals(mood)) {
+            if (moodDTO.getDescription().equals(mood)) {
                 matchedMood = moodDTO;
             }
         }

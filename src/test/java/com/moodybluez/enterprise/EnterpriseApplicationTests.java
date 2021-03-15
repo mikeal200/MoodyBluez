@@ -41,7 +41,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenMoodDataAreAvailable() {
-		mood.setMood("Sad");
+		mood.setDescription("Sad");
 		mood.setMoodID(3);
 		moodDAO.createEntry(mood);
 	}
@@ -51,7 +51,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void thenReturnOneSadMoodForID3() {
-		String moodDescription = mood.getMood();
+		String moodDescription = mood.getDescription();
 		assertEquals("Sad", moodDescription);
 	}
 
