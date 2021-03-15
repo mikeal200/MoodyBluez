@@ -4,7 +4,10 @@ import lombok.Data;
 
 public @Data
 class Entry {
+    private int entryID;
     private int moodID;
-    private String reasonDesc;
-    public Date date;
+    private int weekDayID;
+    private String description;
+    private Date date;
+
 }

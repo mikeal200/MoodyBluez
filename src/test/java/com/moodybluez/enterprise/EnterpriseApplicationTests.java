@@ -1,10 +1,10 @@
 package com.moodybluez.enterprise;
 
+import com.moodybluez.enterprise.dao.IEntryDAO;
+import com.moodybluez.enterprise.dao.IMoodDAO;
 import com.moodybluez.enterprise.dto.Date;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
-import com.moodybluez.enterprise.service.IEntryService;
-import com.moodybluez.enterprise.service.IMoodService;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 
 import static java.lang.Integer.parseInt;
@@ -23,13 +22,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EnterpriseApplicationTests {
 
 	@Autowired
-	private IMoodService moodService;
+	private IMoodDAO moodDAO;
 	@Autowired
-	private IEntryService entryService;
+	private IEntryDAO entryDAO;
 
-	private Mood mood;
-	private Entry entry;
-	private Date date;
+	private Mood mood = new Mood();
+	private Entry entry = new Entry();
 
 	@Test
 	void contextLoads() {
@@ -43,14 +41,17 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenMoodDataAreAvailable() {
+		mood.setMood("Sad");
+		mood.setMoodID(3);
+		moodDAO.createEntry(mood);
 	}
 
 	private void whenMoodWithID3() {
-		mood = moodService.fetchById(3);
+		mood = moodDAO.fetchByMoodID(3);
 	}
 
 	private void thenReturnOneSadMoodForID3() {
-		String moodDescription = mood.getMoodDesc();
+		String moodDescription = mood.getMood();
 		assertEquals("Sad", moodDescription);
 	}
 
@@ -76,27 +77,27 @@ class EnterpriseApplicationTests {
 
 		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
 
-		Entry entry = new Entry();
 		entry.setMoodID(moodID);
-		entry.setReasonDesc(reasonForMood);
+		entry.setDescription(reasonForMood);
 		entry.setDate(new Date());
-		entry.date.setDate(entryDate);
-		entry.date.setDayOfWeekID(dayOfWeek.getValue());
-		entry.date.setDayOfWeekDesc(dayOfWeek.name());
-		entry.date.setDayOfWeekID(dayOfWeek.getValue());
+		entry.setEntryID(1);
+		entry.setWeekDayID(dayOfWeek.getValue());
+		entry.getDate().setDate(entryDate);
+		entry.getDate().setWeekDayID(dayOfWeek.getValue());
+		entry.getDate().setWeekDay(dayOfWeek.name());
 
-		entryService.saveEntry(entry);
+		entryDAO.saveEntry(entry);
 	}
 
 	private void thenReturnMoodEntry() throws Exception {
-		Map<String, Entry> moodEntries = entryService.fetchAll();
+		Map<Integer, Entry> moodEntries = entryDAO.fetchAll();
 		boolean moodEntryPresent = false;
 		for (Map.Entry mapElement : moodEntries.entrySet()) {
-			String date = (String) mapElement.getKey();
+			int entryID = (int) mapElement.getKey();
 			Entry entry = (Entry) mapElement.getValue();
 
-			if (entry.getMoodID() == 3 && entry.getReasonDesc() == "I laid in bed all day."
-					&& date == "2/22/2021") {
+			if (entry.getMoodID() == 3 && entry.getDescription().equals("I laid in bed all day.")
+					&& entryID == 1) {
 				moodEntryPresent = true;
 				break;
 			}
@@ -108,16 +109,17 @@ class EnterpriseApplicationTests {
 	@Test
 	void fetchEntryByDate_DateHasEntry() {
 		givenMoodDataAreAvailable();
+		whenEntryIsCompleted();
 		whenDateIsClickedOnCalendar();
 		thenReturnsEntryOnDate();
 	}
 
 	private void whenDateIsClickedOnCalendar() {
-		entry = entryService.fetchByDate("2/22/2021");
+		entry = entryDAO.fetchByDate("2/22/2021");
 	}
 
 	private void thenReturnsEntryOnDate() {
-		String reason = entry.getReasonDesc();
+		String reason = entry.getDescription();
 		int mood = entry.getMoodID();
 		assertEquals("I laid in bed all day.", reason);
 		assertEquals(3, mood);
