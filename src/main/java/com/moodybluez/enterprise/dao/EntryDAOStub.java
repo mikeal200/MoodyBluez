@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class EntryDAO implements IEntryDAO{
+public class EntryDAOStub implements IEntryDAO{
 
     private Map<Integer, Entry> entries = new HashMap<>();
 
