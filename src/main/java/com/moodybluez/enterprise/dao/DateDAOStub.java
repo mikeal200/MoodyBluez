@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class DateDAO implements IDateDAO{
+public class DateDAOStub implements IDateDAO{
 
     private Map<Integer, Date> dates = new HashMap<>();
 
