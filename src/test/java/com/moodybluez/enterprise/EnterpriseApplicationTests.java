@@ -2,13 +2,19 @@ package com.moodybluez.enterprise;
 
 import com.moodybluez.enterprise.dao.IEntryDAO;
 import com.moodybluez.enterprise.dao.IMoodDAO;
+import com.moodybluez.enterprise.dao.IUserDAO;
 import com.moodybluez.enterprise.dto.Date;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
+import com.moodybluez.enterprise.dto.User;
+import com.moodybluez.enterprise.service.IUserService;
+import com.moodybluez.enterprise.service.UserService;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -17,6 +23,8 @@ import java.util.Map;
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
@@ -28,6 +36,13 @@ class EnterpriseApplicationTests {
 
 	private Mood mood = new Mood();
 	private Entry entry = new Entry();
+
+
+	private IUserService userService;
+	private User user = new User();
+
+	@MockBean
+	private IUserDAO userDAO;
 
 	@Test
 	void contextLoads() {
@@ -123,5 +138,28 @@ class EnterpriseApplicationTests {
 		int mood = entry.getMoodID();
 		assertEquals("I laid in bed all day.", reason);
 		assertEquals(3, mood);
+	}
+
+	@Test
+	void saveUser_validateUserIsSaved() throws Exception {
+		givenUserDataAreAvailable();
+		whenUserRegistersWithUniqueUsername();
+		thenSaveUserAndReturnIt();
+	}
+
+	private void givenUserDataAreAvailable() throws Exception {
+		Mockito.when(userDAO.save(user)).thenReturn(user);
+		userService = new UserService(userDAO);
+	}
+
+	private void whenUserRegistersWithUniqueUsername() {
+		user.setUserName("JustinHayward");
+		user.setPassword("ravioli");
+	}
+
+	private void thenSaveUserAndReturnIt() throws Exception {
+		User createdUser = userService.save(user);
+		assertEquals(user, createdUser);
+		verify(userDAO, atLeastOnce()).save(user);
 	}
 }
