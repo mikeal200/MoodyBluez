@@ -29,11 +29,15 @@
     </div>
     <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="longitude">Password</span>
+            <span class="input-group-text" id="Password">Password</span>
         </div>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Password" th:field="*{password}"/>
     </div>
     <button name="submit" type="submit" value="0">Submit</button>
+</form>
+
+<form action="#" th:action="@{/login}" th:object="${user}" enctype="multipart/form-data"  method="POST"><br />
+    <button name="Login" type="submit" value="0">Login</button>
 </form>
 
     <div class="container">

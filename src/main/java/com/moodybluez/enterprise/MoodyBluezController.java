@@ -26,7 +26,7 @@ public class MoodyBluezController {
         return "index";
     }
 
-    /**
+    /*
      * Handles the register endpoint where users register
      * with a unique username and password
      * @param user user object that will be saved into database
@@ -61,4 +61,6 @@ public class MoodyBluezController {
 
         return "index";
     }
+
+
 }
