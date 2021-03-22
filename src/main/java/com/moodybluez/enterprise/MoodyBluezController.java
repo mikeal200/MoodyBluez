@@ -26,23 +26,6 @@ public class MoodyBluezController {
         return "index";
     }
 
-    /*
-     * Handles the register endpoint where users register
-     * with a unique username and password
-     * @param user user object that will be saved into database
-     * @return returns index page
-     */
-    /*@RequestMapping("/register")
-    public String saveUser(User user) {
-        try {
-            userService.save(user);
-        } catch(Exception e) {
-            e.printStackTrace();
-            return "index";
-        }
-        return "index";
-    }*/
-
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
