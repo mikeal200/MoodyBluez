@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 @Repository
-//@Profile({"dev", "default"})
+@Profile({"dev", "default"})
 public class UserSQLDAO implements IUserDAO {
 
     @Autowired

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-//@Profile("test")
+@Profile("test")
 public class UserDAOStub implements IUserDAO {
 
     Map<Long, User> allUsers = new HashMap<>();
