@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.List;
+
 
 @Controller
 public class MoodyBluezController {
@@ -45,5 +47,13 @@ public class MoodyBluezController {
         return "index";
     }
 
+
+    @GetMapping("/users")
+    public String listUsers(Model model) {
+        List<User> listUsers = userService.findAll();
+        model.addAttribute("listUsers", listUsers);
+
+        return "users";
+    }
 
 }
