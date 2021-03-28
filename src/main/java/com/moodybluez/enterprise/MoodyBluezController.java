@@ -47,13 +47,4 @@ public class MoodyBluezController {
         return "index";
     }
 
-
-    @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> listUsers = userService.findAll();
-        model.addAttribute("listUsers", listUsers);
-
-        return "users";
-    }
-
 }
