@@ -1,33 +1,50 @@
 package com.moodybluez.enterprise;
 
-import com.moodybluez.enterprise.dto.Mood;
-import com.moodybluez.enterprise.service.IMoodService;
+import com.moodybluez.enterprise.dto.User;
+import com.moodybluez.enterprise.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.List;
+
 
 @Controller
 public class MoodyBluezController {
 
     @Autowired
-    IMoodService moodService;
+    IUserService userService;
+
     /**
      * Handles the root endpoint and returns index.html
-     * @return
+     * @return returns index page
      */
     @RequestMapping("/")
-    public String index(Model model) {
-        Mood mood = new Mood();
-        mood.setMoodID(1001);
-        mood.setMoodDesc("Happy");
-        model.addAttribute(mood);
+    public String index(User user) {
         return "index";
     }
 
-    @GetMapping("/mood")
-    public ResponseEntity fetchAllMoods() { return moodService.fetchAll(); }
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
+
+        return "index";
+    }
+
+
+    @PostMapping("/process_register")
+    public String processRegister(User user) throws Exception {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
+        userService.save(user);
+
+        return "index";
+    }
+
 }

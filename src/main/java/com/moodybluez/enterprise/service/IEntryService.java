@@ -6,9 +6,9 @@ import java.util.Map;
 
 public interface IEntryService {
 
-    Map<String, Entry> fetchAll();
+    Iterable<Entry> fetchAll();
 
-    void saveEntry(Entry entry);
+    boolean saveEntry(Entry entry) throws Exception;
 
     Entry fetchByDate(String date);
 

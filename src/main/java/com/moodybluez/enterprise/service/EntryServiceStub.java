@@ -1,46 +1,38 @@
 package com.moodybluez.enterprise.service;
 
+import com.moodybluez.enterprise.dao.IEntryDAO;
 import com.moodybluez.enterprise.dto.Date;
 import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import static java.lang.Integer.parseInt;
 
 
 @Component
 public class EntryServiceStub implements IEntryService {
 
-    Map<String, Entry> moodEntryMap = new HashMap<>();
+    private IEntryDAO entryDAO;
 
     @Override
-    public void saveEntry(Entry entry) {
-        moodEntryMap.put(entry.date.getDate(), entry);
+    public boolean saveEntry(Entry entry) throws Exception{
+        boolean result = entryDAO.saveEntry(entry);
+        return result;
     }
 
     @Override
     public Entry fetchByDate(String date) {
         Entry entry = new Entry();
         entry.setMoodID(3);
-        entry.setReasonDesc("I laid in bed all day.");
-
+        entry.setDescription("I laid in bed all day.");
         Date dateObj = new Date();
         dateObj.setDate("2/22/2021");
 
-        moodEntryMap.put(date, entry);
-
-        if(moodEntryMap.containsKey(date)){
-            return moodEntryMap.get(date);
-        }
-        else {
-            return null;
-        }
+        return entry;
     }
 
     @Override
-    public Map<String, Entry> fetchAll() {
-        return moodEntryMap;
+    public Iterable<Entry> fetchAll() {
+        return null;
     }
 }
