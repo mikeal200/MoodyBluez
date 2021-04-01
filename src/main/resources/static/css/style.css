@@ -6,6 +6,7 @@
 }
 
 body{
+  background-image: url("vintage-wallpaper.png");
   background-color: #12121f;
   overflow: hidden;
 }
@@ -116,4 +117,9 @@ html {
   padding-left:30px;
   padding-right:30px;
   font-size: 1.5rem;
+}
+
+h1 {
+    color: white;
+    text-align: center;
 }
