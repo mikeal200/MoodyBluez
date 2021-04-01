@@ -123,3 +123,28 @@ h1 {
     color: white;
     text-align: center;
 }
+
+.navBttn {
+    background-color: transparent;
+    border-radius: 25px;
+    border: solid;
+    border-color:#1c87c9;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#watermark
+{
+  position:fixed;
+ bottom:5px;
+ right:5px;
+ opacity:0.5;
+ z-index:99;
+ color:white;
+}
