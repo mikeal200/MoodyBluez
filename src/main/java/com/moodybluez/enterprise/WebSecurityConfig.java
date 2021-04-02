@@ -2,6 +2,7 @@ package com.moodybluez.enterprise;
 
 import javax.sql.DataSource;
 
+//import com.moodybluez.enterprise.service.CustomUserDetailsService;
 import com.moodybluez.enterprise.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -55,7 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/")
                     .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .logout().logoutSuccessUrl("/").permitAll()
+                .and()
+                .csrf().disable();
     }
 
 

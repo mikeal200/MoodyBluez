@@ -1,21 +1,19 @@
 package com.moodybluez.enterprise;
 
-import com.moodybluez.enterprise.dao.IEntryDAO;
-import com.moodybluez.enterprise.dao.IMoodDAO;
-import com.moodybluez.enterprise.dao.IUserDAO;
-import com.moodybluez.enterprise.dto.Date;
+import com.moodybluez.enterprise.dao.*;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
 import com.moodybluez.enterprise.service.IUserService;
-import com.moodybluez.enterprise.service.UserService;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.sql.Date;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Map;
@@ -30,9 +28,9 @@ import static org.mockito.Mockito.verify;
 class EnterpriseApplicationTests {
 
 	@Autowired
-	private IMoodDAO moodDAO;
+	private MoodDAOStub moodDAO;
 	@Autowired
-	private IEntryDAO entryDAO;
+	private EntryDAOStub entryDAO;
 
 	private Mood mood = new Mood();
 	private Entry entry = new Entry();
@@ -57,8 +55,8 @@ class EnterpriseApplicationTests {
 
 	private void givenMoodDataAreAvailable() {
 		mood.setDescription("Sad");
-		mood.setMoodID(3);
-		moodDAO.createEntry(mood);
+		mood.setMoodid(3);
+		moodDAO.saveEntry(mood);
 	}
 
 	private void whenMoodWithID3() {
@@ -92,14 +90,9 @@ class EnterpriseApplicationTests {
 
 		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
 
-		entry.setMoodID(moodID);
+		entry.setEntityid(moodID);
 		entry.setDescription(reasonForMood);
-		entry.setDate(new Date());
-		entry.setEntryID(1);
-		entry.setWeekDayID(dayOfWeek.getValue());
-		entry.getDate().setDate(entryDate);
-		entry.getDate().setWeekDayID(dayOfWeek.getValue());
-		entry.getDate().setWeekDay(dayOfWeek.name());
+		entry.setEntityid(1);
 
 		entryDAO.saveEntry(entry);
 	}
@@ -111,7 +104,7 @@ class EnterpriseApplicationTests {
 			int entryID = (int) mapElement.getKey();
 			Entry entry = (Entry) mapElement.getValue();
 
-			if (entry.getMoodID() == 3 && entry.getDescription().equals("I laid in bed all day.")
+			if (entry.getMoodid() == 3 && entry.getDescription().equals("I laid in bed all day.")
 					&& entryID == 1) {
 				moodEntryPresent = true;
 				break;
@@ -135,7 +128,7 @@ class EnterpriseApplicationTests {
 
 	private void thenReturnsEntryOnDate() {
 		String reason = entry.getDescription();
-		int mood = entry.getMoodID();
+		int mood = entry.getMoodid();
 		assertEquals("I laid in bed all day.", reason);
 		assertEquals(3, mood);
 	}
@@ -148,18 +141,17 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenUserDataAreAvailable() throws Exception {
-		Mockito.when(userDAO.save(user)).thenReturn(user);
-		userService = new UserService(userDAO);
+		Mockito.when(userDAO.saveEntry(user)).thenReturn(user);
 	}
 
 	private void whenUserRegistersWithUniqueUsername() {
-		user.setUserName("JustinHayward");
+		user.setUsername("JustinHayward");
 		user.setPassword("ravioli");
 	}
 
 	private void thenSaveUserAndReturnIt() throws Exception {
 		User createdUser = userService.save(user);
 		assertEquals(user, createdUser);
-		verify(userDAO, atLeastOnce()).save(user);
+		verify(userDAO, atLeastOnce()).saveEntry(user);
 	}
 }

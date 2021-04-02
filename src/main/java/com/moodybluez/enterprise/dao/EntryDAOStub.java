@@ -3,10 +3,8 @@ package com.moodybluez.enterprise.dao;
 import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Component
 public class EntryDAOStub implements IEntryDAO{
@@ -14,55 +12,64 @@ public class EntryDAOStub implements IEntryDAO{
     private Map<Integer, Entry> entries = new HashMap<>();
 
     @Override
-    public boolean saveEntry(Entry entry) {
-        entries.put(entry.getEntryID(), entry);
-        return entries.containsKey(entry.getEntryID());
+    public Entry saveEntry(Entry entry) {
+        entries.put(entry.getEntityid(), entry);
+        return entries.get(entry.getEntityid());
     }
 
     @Override
-    public Entry fetchByWeekDay(int weekDayID) {
-        List<Entry> entryList = new ArrayList<>(entries.values());
-        Entry requiredEntry = new Entry();
-
-        for (Entry entry : entryList) {
-            if (entry.getWeekDayID() == weekDayID) {
-                requiredEntry = entry;
+    public List<Entry> fetchByMonth(int year, int month) {
+        List<Entry> entryList = new ArrayList<>();
+        for (Entry entry : entries.values()){
+            if(entry.getDate().getYear()==year&&entry.getDate().getMonth()==month){
+                entryList.add(entry);
             }
         }
 
-        return requiredEntry;
-    }
-
-    @Override
-    public List<Entry> fetchByMood(int moodID) {
-        List<Entry> entryList = new ArrayList<>(entries.values());
-        List<Entry> requiredEntries = new ArrayList<>();
-
-        for (Entry entry : entryList) {
-            if (entry.getMoodID() == moodID) {
-                requiredEntries.add(entry);
-            }
-        }
-
-        return requiredEntries;
+        return entryList;
     }
 
     @Override
     public Entry fetchByDate(String date) {
-        List<Entry> entryList = new ArrayList<>(entries.values());
-        Entry requiredEntry = new Entry();
+        Date datef = new Date();
+        try{
+            datef = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        }
+        catch (Exception e){
+            return null;
+        }
 
-        for (Entry entry : entryList) {
-            if (entry.getDate().getDate().equals(date)) {
+        Entry requiredEntry = new Entry();
+        for (Entry entry : entries.values()) {
+            if (entry.getDate().equals(date)) {
                 requiredEntry = entry;
+                return requiredEntry;
             }
         }
 
-        return requiredEntry;
+        return null;
     }
+
+    @Override
+    public List<Entry> fetchByMood(int moodID) {
+        List<Entry> entryList = new ArrayList<>();
+        for (Entry entry : entries.values()){
+            if(entry.getEntityid()==moodID){
+                entryList.add(entry);
+            }
+        }
+        return entryList;
+    }
+
+
 
     @Override
     public Map<Integer, Entry> fetchAll() {
         return entries;
+    }
+
+    @Override
+    public Entry fetchByID(int id){
+        return entries.get(id);
     }
 }

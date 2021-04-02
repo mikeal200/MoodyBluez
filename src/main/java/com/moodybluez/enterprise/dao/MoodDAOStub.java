@@ -11,23 +11,9 @@ public class MoodDAOStub implements IMoodDAO{
     private Map<Integer, Mood> moods = new HashMap<>();
 
     @Override
-    public boolean createEntry(Mood mood) {
-        moods.put(mood.getMoodID(), mood);
-        return moods.containsKey(mood.getMoodID());
-    }
-
-    @Override
-    public Mood fetchByMood(String mood) {
-        List<Mood> moodList = new ArrayList<>(moods.values());
-        Mood matchedMood = new Mood();
-
-        for (Mood moodDTO : moodList) {
-            if (moodDTO.getDescription().equals(mood)) {
-                matchedMood = moodDTO;
-            }
-        }
-
-        return matchedMood;
+    public Mood saveEntry(Mood mood) {
+        moods.put(mood.getMoodid(), mood);
+        return moods.get(mood.getMoodid());
     }
 
     @Override
@@ -36,7 +22,7 @@ public class MoodDAOStub implements IMoodDAO{
         Mood matchedMood = new Mood();
 
         for (Mood moodDTO : moodList) {
-            if (moodDTO.getMoodID() == moodID) {
+            if (moodDTO.getMoodid() == moodID) {
                 matchedMood = moodDTO;
             }
         }
