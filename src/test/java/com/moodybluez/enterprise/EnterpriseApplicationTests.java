@@ -5,6 +5,7 @@ import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
 import com.moodybluez.enterprise.service.IUserService;
+import jdk.jshell.execution.Util;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
@@ -14,8 +15,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Map;
 
 import static java.lang.Integer.parseInt;
@@ -31,20 +36,15 @@ class EnterpriseApplicationTests {
 	private MoodDAOStub moodDAO;
 	@Autowired
 	private EntryDAOStub entryDAO;
+	@Autowired
+	private UserDAOStub userDAO;
 
 	private Mood mood = new Mood();
 	private Entry entry = new Entry();
-
-
-	private IUserService userService;
 	private User user = new User();
 
-	@MockBean
-	private IUserDAO userDAO;
 
-	@Test
-	void contextLoads() {
-	}
+
 
 	@Test
 	void fetchMoodByID_returnsSadForID3() {
@@ -78,21 +78,13 @@ class EnterpriseApplicationTests {
 	private void whenEntryIsCompleted() {
 		int moodID = 3;
 		String reasonForMood = "I laid in bed all day.";
-		String entryDate = "2/22/2021";
+		LocalDate date = LocalDate.of(2021,2,21);
 
-		String[] dateSplit = entryDate.split("/");
-		int month = parseInt(dateSplit[0]);
-		int day = parseInt(dateSplit[1]);
-		int year = parseInt(dateSplit[2]);
-
-		LocalDate localDate
-				= LocalDate.of(year, month, day);
-
-		DayOfWeek dayOfWeek = DayOfWeek.from(localDate);
-
-		entry.setEntityid(moodID);
+		entry.setDate(java.sql.Date.valueOf(date));
+		entry.setMoodid(moodID);
 		entry.setDescription(reasonForMood);
 		entry.setEntityid(1);
+
 
 		entryDAO.saveEntry(entry);
 	}
@@ -123,7 +115,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void whenDateIsClickedOnCalendar() {
-		entry = entryDAO.fetchByDate("2/22/2021");
+		entry = entryDAO.fetchByDate("2021-02-21");
 	}
 
 	private void thenReturnsEntryOnDate() {
@@ -141,7 +133,10 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenUserDataAreAvailable() throws Exception {
-		Mockito.when(userDAO.saveEntry(user)).thenReturn(user);
+		user.setUserid(123);
+		user.setUsername("123");
+		user.setPassword("123");
+		userDAO.saveEntry(user);
 	}
 
 	private void whenUserRegistersWithUniqueUsername() {
@@ -150,8 +145,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void thenSaveUserAndReturnIt() throws Exception {
-		User createdUser = userService.save(user);
+		User createdUser = userDAO.saveEntry(user);
 		assertEquals(user, createdUser);
-		verify(userDAO, atLeastOnce()).saveEntry(user);
 	}
 }
