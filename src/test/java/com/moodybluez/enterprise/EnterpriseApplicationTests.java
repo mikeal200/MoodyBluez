@@ -101,7 +101,7 @@ class EnterpriseApplicationTests {
 		entry.getDate().setWeekDayID(dayOfWeek.getValue());
 		entry.getDate().setWeekDay(dayOfWeek.name());
 
-		entryDAO.saveEntry(entry);
+		verify(entryDAO, atLeastOnce()).saveEntry(entry);
 	}
 
 	private void thenReturnMoodEntry() throws Exception {
