@@ -48,7 +48,7 @@ public class MoodyBluezController {
 
         userService.save(user);
 
-        return "index";
+        return "signup";
     }
 
 }
