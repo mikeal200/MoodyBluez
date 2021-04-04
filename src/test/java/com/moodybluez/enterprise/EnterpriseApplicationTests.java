@@ -71,7 +71,7 @@ class EnterpriseApplicationTests {
 	}
 
 	@Test
-	void saveMoodEntry() throws Exception {
+	void saveMoodEntry_thenValidateAndReturn() throws Exception {
 		givenMoodDataAreAvailable();
 		whenEntryIsCompleted();
 		thenReturnMoodEntry();
