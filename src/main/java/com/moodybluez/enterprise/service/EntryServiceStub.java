@@ -16,8 +16,7 @@ public class EntryServiceStub implements IEntryService {
 
     @Override
     public boolean saveEntry(Entry entry) throws Exception{
-        boolean result = entryDAO.saveEntry(entry);
-        return result;
+        return entryDAO.saveEntry(entry);
     }
 
     @Override
