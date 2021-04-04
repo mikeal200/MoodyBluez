@@ -28,6 +28,10 @@ public class MoodyBluezController {
         return "index";
     }
 
+    @RequestMapping("/signup")
+    public String signup(User user){
+        return "signup";
+    }
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
