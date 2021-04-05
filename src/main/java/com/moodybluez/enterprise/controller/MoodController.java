@@ -1,13 +1,7 @@
 package com.moodybluez.enterprise.controller;
 
-import com.moodybluez.enterprise.dao.EntrySQLDAO;
-import com.moodybluez.enterprise.dao.IEntryDAO;
-import com.moodybluez.enterprise.dao.IMoodDAO;
-import com.moodybluez.enterprise.dao.MoodSQLDAO;
-import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.service.IMoodService;
-import com.moodybluez.enterprise.service.MoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

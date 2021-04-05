@@ -5,10 +5,11 @@ import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.Map;
 
+@Service
 public class EntryService implements IEntryService {
 
     @Autowired
