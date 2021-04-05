@@ -2,13 +2,16 @@ package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Service
+@Repository
+@Profile({"dev", "default"})
 public class EntrySQLDAO implements IEntryDAO{
     @Autowired
     private EntryRepository entryRepository;

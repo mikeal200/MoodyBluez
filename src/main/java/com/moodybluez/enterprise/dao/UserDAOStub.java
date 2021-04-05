@@ -1,6 +1,5 @@
 package com.moodybluez.enterprise.dao;
 
-import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
@@ -16,7 +15,7 @@ public class UserDAOStub implements IUserDAO {
 
     Map<Integer, User> allUsers = new HashMap<>();
 
-    public User saveEntry(User user) {
+    public User save(User user) {
         allUsers.put(user.getUserid(), user);
         return allUsers.get(user.getUserid());
     }

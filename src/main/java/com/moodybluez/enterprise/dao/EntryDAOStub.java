@@ -1,12 +1,15 @@
 package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Entry;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@Component
+@Repository
+@Profile("test")
 public class EntryDAOStub implements IEntryDAO{
 
     private Map<Integer, Entry> entries = new HashMap<>();

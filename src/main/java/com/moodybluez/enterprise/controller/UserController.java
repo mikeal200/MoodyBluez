@@ -1,4 +1,4 @@
-package com.moodybluez.enterprise.controller;
+/*package com.moodybluez.enterprise.controller;
 
 import com.moodybluez.enterprise.dao.IMoodDAO;
 import com.moodybluez.enterprise.dao.IUserDAO;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class UserController {
     @Autowired
     private UserSQLDAO userDAO;
@@ -23,6 +23,7 @@ public class UserController {
 
     @PutMapping("/user")
     User modify(@RequestBody User user) {
-        return userDAO.saveEntry(user);
+        return userDAO.save(user);
     }
 }
+*/

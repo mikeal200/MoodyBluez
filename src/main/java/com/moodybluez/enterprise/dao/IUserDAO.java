@@ -6,7 +6,7 @@ import com.moodybluez.enterprise.dto.User;
 import java.util.Map;
 
 public interface IUserDAO {
-    User saveEntry(User user);
+    User save(User user);
 
     User fetchByUsername(String username);
 

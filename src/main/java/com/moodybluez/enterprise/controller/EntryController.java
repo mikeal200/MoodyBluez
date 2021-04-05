@@ -1,4 +1,4 @@
-package com.moodybluez.enterprise.controller;
+/*package com.moodybluez.enterprise.controller;
 
 import com.moodybluez.enterprise.dao.EntryRepository;
 import com.moodybluez.enterprise.dao.EntrySQLDAO;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RestController
+@Controller
 public class EntryController {
     @Autowired
     private EntrySQLDAO entryDAO;
@@ -60,3 +60,4 @@ public class EntryController {
         return entryDAO.saveEntry(entry);
     }
 }
+*/

@@ -19,7 +19,7 @@ public class UserSQLDAO implements IUserDAO {
     private UserRepository userRepository;
 
     @Override
-    public User saveEntry(User user){
+    public User save(User user){
         return userRepository.save(user);
     }
 

@@ -4,7 +4,9 @@ import com.moodybluez.enterprise.dao.*;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
+import com.moodybluez.enterprise.service.IMoodService;
 import com.moodybluez.enterprise.service.IUserService;
+import com.moodybluez.enterprise.service.MoodService;
 import jdk.jshell.execution.Util;
 import org.junit.jupiter.api.Test;
 
@@ -32,35 +34,49 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest
 class EnterpriseApplicationTests {
 
-	@Autowired
-	private MoodDAOStub moodDAO;
-	@Autowired
-	private EntryDAOStub entryDAO;
-	@Autowired
-	private UserDAOStub userDAO;
-
+	private IMoodService moodService;
 	private Mood mood = new Mood();
+
+	@MockBean
+	private IMoodDAO moodDAO;
+
+	@MockBean
+	private IEntryDAO entryDAO;
+
+
 	private Entry entry = new Entry();
+
+
+	private IUserService userService;
 	private User user = new User();
 
-
-
+	@MockBean
+	private IUserDAO userDAO;
 
 	@Test
 	void fetchMoodByID_returnsSadForID3() {
 		givenMoodDataAreAvailable();
 		whenMoodWithID3();
+		whenSearchMoodWithID3();
 		thenReturnOneSadMoodForID3();
 	}
 
+	private void whenSearchMoodWithID3() {
+		mood = moodService.fetchByID(3);
+	}
+
 	private void givenMoodDataAreAvailable() {
-		mood.setDescription("Sad");
-		mood.setMoodid(3);
-		moodDAO.saveEntry(mood);
+		Mockito.when(moodDAO.saveEntry(mood)).thenReturn(mood);
+		moodService = new MoodService(moodDAO);
 	}
 
 	private void whenMoodWithID3() {
-		mood = moodDAO.fetchByMoodID(3);
+		Mood mood = new Mood();
+		mood.setDescription("Sad");
+		mood.setMoodID(3);
+		//moodDAO.saveEntry(mood);
+
+		Mockito.when(moodDAO.fetchByID(3)).thenReturn(mood);
 	}
 
 	private void thenReturnOneSadMoodForID3() {
@@ -136,7 +152,7 @@ class EnterpriseApplicationTests {
 		user.setUserid(123);
 		user.setUsername("123");
 		user.setPassword("123");
-		userDAO.saveEntry(user);
+		userDAO.save(user);
 	}
 
 	private void whenUserRegistersWithUniqueUsername() {
@@ -145,7 +161,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void thenSaveUserAndReturnIt() throws Exception {
-		User createdUser = userDAO.saveEntry(user);
+		User createdUser = userDAO.save(user);
 		assertEquals(user, createdUser);
 	}
 }
