@@ -43,6 +43,7 @@ public class MoodyBluezController {
         user.setPassword(encodedPassword);
 
         userService.save(user);
+        user.setPassword(" ");
 
         return "index";
     }
