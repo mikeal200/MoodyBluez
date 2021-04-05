@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -36,6 +37,11 @@ public class EntryService implements IEntryService {
     }
 
     @Override
+    public Entry fetchByID(int id) {
+        return entryDAO.fetchByID(id);
+    }
+
+    @Override
     public Entry save(Entry entry) throws Exception {
         return entryDAO.save(entry);
     }
@@ -44,4 +50,8 @@ public class EntryService implements IEntryService {
     public Entry fetchByDate(String date) {
         return entryDAO.fetchByDate(date);
     }
+
+    public List<Entry> fetchByMonth(int year, int month) {return entryDAO.fetchByMonth(year, month);}
+
+    public List<Entry> fetchByMood(int moodID) {return entryDAO.fetchByMood(moodID);}
 }

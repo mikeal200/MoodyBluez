@@ -12,6 +12,7 @@ import java.util.Map;
 
 @Controller
 public class MoodController {
+
     @Autowired
     private IMoodService moodService;
 

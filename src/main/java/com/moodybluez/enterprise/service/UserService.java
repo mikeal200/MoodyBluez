@@ -20,4 +20,6 @@ public class UserService implements IUserService {
     public User save(User user) throws Exception {
         return userDAO.save(user);
     }
+
+    public User fetchByUsername(String username) {return userDAO.fetchByUsername(username);}
 }

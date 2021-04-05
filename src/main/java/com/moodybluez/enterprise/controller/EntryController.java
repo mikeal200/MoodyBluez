@@ -1,9 +1,7 @@
-/*package com.moodybluez.enterprise.controller;
+package com.moodybluez.enterprise.controller;
 
-import com.moodybluez.enterprise.dao.EntryRepository;
-import com.moodybluez.enterprise.dao.EntrySQLDAO;
-import com.moodybluez.enterprise.dao.IEntryDAO;
 import com.moodybluez.enterprise.dto.Entry;
+import com.moodybluez.enterprise.service.IEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -13,17 +11,18 @@ import java.util.*;
 
 @Controller
 public class EntryController {
+
     @Autowired
-    private EntrySQLDAO entryDAO;
+    private IEntryService entryService;
 
     @GetMapping("/entry/{id}")
     public Entry getByID(@PathVariable int id) {
-        return entryDAO.fetchByID(id);
+        return entryService.fetchByID(id);
     }
 
     @GetMapping("/entry/{year}/{month}")
     public Map<Integer, Entry> getByMonth(@PathVariable int year, @PathVariable int month) {
-        List<Entry> entries = entryDAO.fetchByMonth(year, month);
+        List<Entry> entries = entryService.fetchByMonth(year, month);
         Map<Integer, Entry> ret = new HashMap<>();
         for(Entry entry: entries){
             ret.put(entry.getDate().getDay(),entry);
@@ -33,19 +32,19 @@ public class EntryController {
 
     @GetMapping("/entry/{year}/{month}/{day}")
     Entry getByMonth(@PathVariable Integer year, @PathVariable Integer month, @PathVariable Integer day) {
-        Entry entry = entryDAO.fetchByDate(year.toString()+"-"+month.toString()+"-"+day.toString());
+        Entry entry = entryService.fetchByDate(year.toString()+"-"+month.toString()+"-"+day.toString());
         return entry;
     }
 
     @GetMapping("/entry/mood/{id}")
     List<Entry> getByMood(@PathVariable int id) {
-        return entryDAO.fetchByMood(id);
+        return entryService.fetchByMood(id);
     }
 
     @GetMapping("/entry/metric/{id}")
     List<Integer> getMetricByMood(@PathVariable int id) {
         List<Integer> ret = Arrays.asList(0,0,0,0,0,0,0);
-        List<Entry> entities = entryDAO.fetchByMood(id);
+        List<Entry> entities = entryService.fetchByMood(id);
 
         for(Entry entry:entities){
             int weekday = entry.getDate().getDay();
@@ -56,8 +55,7 @@ public class EntryController {
     }
 
     @PostMapping(path="/entry", consumes = "application/json", produces = "application/json")
-    public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) {
-        return entryDAO.saveEntry(entry);
+    public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) throws Exception {
+        return entryService.save(entry);
     }
 }
-*/
