@@ -1,5 +1,7 @@
 package com.moodybluez.enterprise.dto;
 
+import lombok.Data;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,41 +10,38 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-public class Entry {
-    private int entityid;
-    private int userid;
-    private int moodid;
+public @Data
+class Entry {
+    private int entryID;
+    private int userID;
+    private int moodID;
     private Date date;
     private String description;
 
     @Id
-    @Column(name = "entityid", nullable = false)
-    public int getEntityid() {
-        return entityid;
-    }
-
-    public void setEntityid(int entityid) {
-        this.entityid = entityid;
+    @Column(name = "entryID", nullable = false)
+    public int getEntryID() {
+        return entryID;
     }
 
     @Basic
-    @Column(name = "userid", nullable = false)
-    public int getUserid() {
-        return userid;
+    @Column(name = "userID", nullable = false)
+    public int getUserID() {
+        return userID;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     @Basic
-    @Column(name = "moodid", nullable = false)
-    public int getMoodid() {
-        return moodid;
+    @Column(name = "moodID", nullable = false)
+    public int getMoodID() {
+        return moodID;
     }
 
-    public void setMoodid(int moodid) {
-        this.moodid = moodid;
+    public void setMoodID(int moodID) {
+        this.moodID = moodID;
     }
 
     @Basic
@@ -70,11 +69,11 @@ public class Entry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Entry entry = (Entry) o;
-        return entityid == entry.entityid && userid == entry.userid && moodid == entry.moodid && Objects.equals(date, entry.date) && Objects.equals(description, entry.description);
+        return entryID == entry.entryID && userID == entry.userID && moodID == entry.moodID && Objects.equals(date, entry.date) && Objects.equals(description, entry.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(entityid, userid, moodid, date, description);
+        return Objects.hash(entryID, userID, moodID, date, description);
     }
 }

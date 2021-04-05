@@ -15,6 +15,6 @@ public interface EntryRepository extends CrudRepository<Entry, Integer> {
     @Query("SELECT e from Entry e where e.date = ?1")
     Entry findByDate(Date date);
 
-    @Query("SELECT e from Entry e where e.moodid = ?1")
+    @Query("SELECT e from Entry e where e.moodID = ?1")
     List<Entry> findByMood(int moodID);
 }

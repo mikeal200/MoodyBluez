@@ -10,6 +10,9 @@ import java.util.Map;
 
 public class MoodService implements IMoodService {
 
+    @Autowired
+    private IMoodDAO moodDAO;
+
     public MoodService() {
 
     }
@@ -18,9 +21,6 @@ public class MoodService implements IMoodService {
 
         this.moodDAO = moodDAO;
     }
-
-    @Autowired
-    private IMoodDAO moodDAO;
 
     @Override
     @CacheEvict(value="mood", key="#id")
@@ -36,8 +36,8 @@ public class MoodService implements IMoodService {
     }
 
     @Override
-    public Mood saveEntry(Mood mood) {
-        return moodDAO.saveEntry(mood);
+    public Mood save(Mood mood) {
+        return moodDAO.save(mood);
     }
 
     @Override

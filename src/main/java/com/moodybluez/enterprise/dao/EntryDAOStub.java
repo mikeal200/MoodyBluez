@@ -2,7 +2,6 @@ package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
@@ -15,9 +14,9 @@ public class EntryDAOStub implements IEntryDAO{
     private Map<Integer, Entry> entries = new HashMap<>();
 
     @Override
-    public Entry saveEntry(Entry entry) {
-        entries.put(entry.getEntityid(), entry);
-        return entries.get(entry.getEntityid());
+    public Entry save(Entry entry) {
+        entries.put(entry.getEntryID(), entry);
+        return entries.get(entry.getEntryID());
     }
 
     @Override
@@ -57,7 +56,7 @@ public class EntryDAOStub implements IEntryDAO{
     public List<Entry> fetchByMood(int moodID) {
         List<Entry> entryList = new ArrayList<>();
         for (Entry entry : entries.values()){
-            if(entry.getEntityid()==moodID){
+            if(entry.getEntryID()==moodID){
                 entryList.add(entry);
             }
         }
@@ -69,6 +68,11 @@ public class EntryDAOStub implements IEntryDAO{
     @Override
     public Map<Integer, Entry> fetchAll() {
         return entries;
+    }
+
+    @Override
+    public void delete(int entryID) {
+        entries.remove(entryID);
     }
 
     @Override

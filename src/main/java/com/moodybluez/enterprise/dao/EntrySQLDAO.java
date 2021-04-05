@@ -4,11 +4,9 @@ import com.moodybluez.enterprise.dto.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Repository
 @Profile({"dev", "default"})
@@ -17,7 +15,7 @@ public class EntrySQLDAO implements IEntryDAO{
     private EntryRepository entryRepository;
 
     @Override
-    public Entry saveEntry(Entry entry) {
+    public Entry save(Entry entry) {
 //        if(entryRepository.findById(entry.getEntityid()))
         return entryRepository.save(entry);
     }
@@ -49,9 +47,14 @@ public class EntrySQLDAO implements IEntryDAO{
     public Map<Integer, Entry> fetchAll() {
         Map<Integer, Entry> entities = new HashMap<>();
         entryRepository.findAll().forEach(entry -> {
-            entities.put(entry.getEntityid(),entry);
+            entities.put(entry.getEntryID(),entry);
         });
         return entities;
+    }
+
+    @Override
+    public void delete(int entryID) {
+        entryRepository.deleteById(entryID);
     }
 
     @Override

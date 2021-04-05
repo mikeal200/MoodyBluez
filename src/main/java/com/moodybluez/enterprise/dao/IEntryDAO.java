@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface IEntryDAO {
 
-    Entry saveEntry(Entry entry);
+    Entry save(Entry entry);
 
     List<Entry> fetchByMonth(int year, int month);
 
@@ -18,4 +18,6 @@ public interface IEntryDAO {
     Entry fetchByID(int id);
 
     Map<Integer, Entry> fetchAll();
+
+    void delete(int entryID);
 }

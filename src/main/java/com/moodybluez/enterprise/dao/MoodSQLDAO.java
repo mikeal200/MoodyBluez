@@ -16,7 +16,7 @@ public class MoodSQLDAO implements IMoodDAO {
     @Autowired
     MoodRepository moodRepository;
 
-    public Mood saveEntry(Mood mood){
+    public Mood save(Mood mood){
         return moodRepository.save(mood);
     }
 

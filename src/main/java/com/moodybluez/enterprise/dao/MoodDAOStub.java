@@ -14,7 +14,7 @@ public class MoodDAOStub implements IMoodDAO {
     private Map<Integer, Mood> moods = new HashMap<>();
 
     @Override
-    public Mood saveEntry(Mood mood) {
+    public Mood save(Mood mood) {
         moods.put(mood.getMoodID(), mood);
         return moods.get(mood.getMoodID());
     }

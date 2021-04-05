@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface IMoodDAO {
 
-    Mood saveEntry(Mood mood);
+    Mood save(Mood mood);
 
     Mood fetchByID(int moodID);
 

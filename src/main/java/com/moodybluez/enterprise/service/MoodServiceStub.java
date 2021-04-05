@@ -22,7 +22,7 @@ public class MoodServiceStub implements IMoodService {
     }
 
     @Override
-    public Mood saveEntry(Mood mood) {
+    public Mood save(Mood mood) {
         return null;
     }
 

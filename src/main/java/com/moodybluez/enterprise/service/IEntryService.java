@@ -2,15 +2,16 @@ package com.moodybluez.enterprise.service;
 
 import com.moodybluez.enterprise.dto.Entry;
 
+import java.sql.Date;
 import java.util.Map;
 
 public interface IEntryService {
 
-    Iterable<Entry> fetchAll();
+    Map<Integer, Entry> fetchAll();
 
-    boolean saveEntry(Entry entry) throws Exception;
+    Entry save(Entry entry) throws Exception;
 
     Entry fetchByDate(String date);
 
-
+    void delete(int entryID) throws Exception;
 }

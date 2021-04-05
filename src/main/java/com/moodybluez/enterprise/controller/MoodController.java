@@ -38,6 +38,6 @@ public class MoodController {
 
     @PutMapping("/mood")
     Mood modify(@RequestBody Mood mood) {
-        return moodService.saveEntry(mood);
+        return moodService.save(mood);
     }
 }

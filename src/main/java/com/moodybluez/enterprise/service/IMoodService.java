@@ -10,7 +10,7 @@ public interface IMoodService {
 
     Mood fetchByID(int moodID);
 
-    Mood saveEntry(Mood mood);
+    Mood save(Mood mood);
 
     Map<Integer, Mood> fetchAll();
 }

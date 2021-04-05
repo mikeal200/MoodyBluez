@@ -4,27 +4,15 @@ import com.moodybluez.enterprise.dao.*;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
-import com.moodybluez.enterprise.service.IMoodService;
-import com.moodybluez.enterprise.service.IUserService;
-import com.moodybluez.enterprise.service.MoodService;
-import com.moodybluez.enterprise.service.UserService;
-import jdk.jshell.execution.Util;
+import com.moodybluez.enterprise.service.*;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,12 +29,11 @@ class EnterpriseApplicationTests {
 	@MockBean
 	private IMoodDAO moodDAO;
 
-	@MockBean
-	private IEntryDAO entryDAO;
-
-
+	private IEntryService entryService;
 	private Entry entry = new Entry();
 
+	@MockBean
+	private IEntryDAO entryDAO;
 
 	private IUserService userService;
 	private User user = new User();
@@ -67,7 +54,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenMoodDataAreAvailable() {
-		Mockito.when(moodDAO.saveEntry(mood)).thenReturn(mood);
+		Mockito.when(moodDAO.save(mood)).thenReturn(mood);
 		moodService = new MoodService(moodDAO);
 	}
 
@@ -75,7 +62,6 @@ class EnterpriseApplicationTests {
 		Mood mood = new Mood();
 		mood.setDescription("Sad");
 		mood.setMoodID(3);
-		//moodDAO.saveEntry(mood);
 
 		Mockito.when(moodDAO.fetchByID(3)).thenReturn(mood);
 	}
@@ -92,38 +78,50 @@ class EnterpriseApplicationTests {
 		thenCreateNewMoodEntryAndReturnIt();
 	}
 
+	private void whenSearchEntryWithSpecificDate() {
+		LocalDate date = LocalDate.of(2021,2,21);
+		entry = entryService.fetchByDate(java.sql.Date.valueOf(date).toString());
+	}
+
 	private void whenEntryIsCompleted() {
-		int moodID = 3;
-		String reasonForMood = "I laid in bed all day.";
+		Entry dateEntry = new Entry();
 		LocalDate date = LocalDate.of(2021,2,21);
 
-		entry.setDate(java.sql.Date.valueOf(date));
-		entry.setMoodid(moodID);
-		entry.setDescription(reasonForMood);
-		entry.setEntityid(1);
+		dateEntry.setDate(java.sql.Date.valueOf(date));
+		dateEntry.setMoodID(3);
+		dateEntry.setDescription("I laid in bed all day.");
+		dateEntry.setEntryID(1);
+
+		Mockito.when(entryDAO.fetchByDate(java.sql.Date.valueOf(date).toString())).thenReturn(dateEntry);
 	}
 
 	private void thenCreateNewMoodEntryAndReturnIt() throws Exception {
-		Mood moodEntry = moodService.saveEntry(mood);
+		Mood moodEntry = moodService.save(mood);
 		assertEquals(mood, moodEntry);
-		verify(moodDAO, atLeastOnce()).saveEntry(mood);
+		verify(moodDAO, atLeastOnce()).save(mood);
 	}
 
 	@Test
 	void fetchEntryByDate_DateHasEntry() {
-		givenMoodDataAreAvailable();
+		givenEntryDataAreAvailable();
 		whenEntryIsCompleted();
 		whenDateIsClickedOnCalendar();
 		thenReturnsEntryOnDate();
 	}
 
+	private void givenEntryDataAreAvailable() {
+		Mockito.when(entryDAO.save(entry)).thenReturn(entry);
+		entryService = new EntryService(entryDAO);
+	}
+
 	private void whenDateIsClickedOnCalendar() {
-		entry = entryDAO.fetchByDate("2021-02-21");
+		String date = "2021-02-21";
+		entry = entryService.fetchByDate(date);
 	}
 
 	private void thenReturnsEntryOnDate() {
 		String reason = entry.getDescription();
-		int mood = entry.getMoodid();
+		int mood = entry.getMoodID();
 		assertEquals("I laid in bed all day.", reason);
 		assertEquals(3, mood);
 	}
