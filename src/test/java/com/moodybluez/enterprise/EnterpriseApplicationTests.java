@@ -88,7 +88,7 @@ class EnterpriseApplicationTests {
 	void saveMoodEntry() throws Exception {
 		givenMoodDataAreAvailable();
 		whenEntryIsCompleted();
-		thenReturnMoodEntry();
+		thenCreateNewMoodEntryAndReturnIt();
 	}
 
 	private void whenEntryIsCompleted() {
@@ -100,26 +100,12 @@ class EnterpriseApplicationTests {
 		entry.setMoodid(moodID);
 		entry.setDescription(reasonForMood);
 		entry.setEntityid(1);
-
-
-		entryDAO.saveEntry(entry);
 	}
 
-	private void thenReturnMoodEntry() throws Exception {
-		Map<Integer, Entry> moodEntries = entryDAO.fetchAll();
-		boolean moodEntryPresent = false;
-		for (Map.Entry mapElement : moodEntries.entrySet()) {
-			int entryID = (int) mapElement.getKey();
-			Entry entry = (Entry) mapElement.getValue();
-
-			if (entry.getMoodid() == 3 && entry.getDescription().equals("I laid in bed all day.")
-					&& entryID == 1) {
-				moodEntryPresent = true;
-				break;
-			}
-		}
-
-		assertTrue(moodEntryPresent);
+	private void thenCreateNewMoodEntryAndReturnIt() throws Exception {
+		Mood moodEntry = moodService.saveEntry(mood);
+		assertEquals(mood, moodEntry);
+		verify(moodDAO, atLeastOnce()).saveEntry(mood);
 	}
 
 	@Test
