@@ -8,4 +8,7 @@ class Date {
     private int dateID;
     private int weekDayID;
     private String weekDay;
+
+    @OnetoMany(mappedBy = "date")
+    private List<Entry> entries;
 }
