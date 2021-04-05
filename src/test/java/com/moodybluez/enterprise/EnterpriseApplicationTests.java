@@ -7,6 +7,7 @@ import com.moodybluez.enterprise.dto.User;
 import com.moodybluez.enterprise.service.IMoodService;
 import com.moodybluez.enterprise.service.IUserService;
 import com.moodybluez.enterprise.service.MoodService;
+import com.moodybluez.enterprise.service.UserService;
 import jdk.jshell.execution.Util;
 import org.junit.jupiter.api.Test;
 
@@ -135,10 +136,8 @@ class EnterpriseApplicationTests {
 	}
 
 	private void givenUserDataAreAvailable() throws Exception {
-		user.setUserid(123);
-		user.setUsername("123");
-		user.setPassword("123");
-		userDAO.save(user);
+		Mockito.when(userDAO.save(user)).thenReturn(user);
+		userService = new UserService(userDAO);
 	}
 
 	private void whenUserRegistersWithUniqueUsername() {
@@ -147,7 +146,8 @@ class EnterpriseApplicationTests {
 	}
 
 	private void thenSaveUserAndReturnIt() throws Exception {
-		User createdUser = userDAO.save(user);
+		User createdUser = userService.save(user);
 		assertEquals(user, createdUser);
+		verify(userDAO, atLeastOnce()).save(user);
 	}
 }
