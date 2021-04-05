@@ -23,13 +23,13 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="Username">Username</span>
         </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Username" th:field="*{userName}"/>
+        <input autocomplete="off" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Username" th:field="*{userName}"/>
     </div>
     <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="Password">Password</span>
         </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Password" th:field="*{password}"/>
+        <input  autocomplete="off" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Password" th:field="*{password}"/>
     </div>
     <button name="submit" type="submit" value="0">Submit</button>
 </form>
