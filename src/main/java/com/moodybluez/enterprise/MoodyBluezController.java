@@ -24,7 +24,7 @@ public class MoodyBluezController {
      * @return returns index page
      */
     @RequestMapping("/")
-    public String index(User user) {
+    public String index() {
         return "index";
     }
 
@@ -35,6 +35,11 @@ public class MoodyBluezController {
         return "index";
     }
 
+    @GetMapping("/registration")
+    public String showRegistration(User user) {
+
+        return "registration";
+    }
 
     @PostMapping("/process_register")
     public String processRegister(User user) throws Exception {
