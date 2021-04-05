@@ -30,7 +30,7 @@ class Entry {
         return userId;
     }
 
-    public void setUserID(int userID) {
+    public void setUserId(int userID) {
         this.userId = userID;
     }
 
