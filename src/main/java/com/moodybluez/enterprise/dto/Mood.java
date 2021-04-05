@@ -13,7 +13,7 @@ public @Data
 class Mood {
 
     @Id
-    @Column(name = "moodid", nullable = false)
+    @Column(name = "moodId", nullable = false)
     private int moodID;
 
     @Basic

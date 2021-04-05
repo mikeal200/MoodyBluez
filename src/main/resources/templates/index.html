@@ -112,7 +112,7 @@
         function openDialog(day){
             var sel_year = $('#sel_year').val();
             var sel_month = $('#sel_month').val();
-            $.get('/entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
+            $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
                 if(data==undefined||data==""){
                     $('#entryid').val('');
                     $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
@@ -249,7 +249,7 @@
 <!--    <div class="container">-->
         <h2>Mood Entry</h2>
         <form class="bs-example bs-example-form" role="form">
-            <input id="entryid" type="hidden" class="form-control" hidden="hidden" display="None">
+            <input id="entryID" type="hidden" class="form-control" hidden="hidden" display="None">
             <div class="input-group">
                 <span class="input-group-addon">Date(yyyy-mm-dd)</span>
                 <input id="date" type="text" class="form-control">
