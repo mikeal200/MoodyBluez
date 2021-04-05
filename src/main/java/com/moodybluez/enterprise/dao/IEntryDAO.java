@@ -13,11 +13,11 @@ public interface IEntryDAO {
 
     Entry fetchByDate(String date);
 
-    List<Entry> fetchByMood(int moodID);
+    List<Entry> fetchByMood(int moodId);
 
-    Entry fetchByID(int id);
+    Entry fetchById(int id);
 
     Map<Integer, Entry> fetchAll();
 
-    void delete(int entryID);
+    void delete(int entryId);
 }

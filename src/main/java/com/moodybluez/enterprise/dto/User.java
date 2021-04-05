@@ -8,18 +8,18 @@ import java.util.Objects;
 
 @Entity
 public class User {
-    private int userid;
+    private int userId;
     private String username;
     private String password;
 
     @Id
-    @Column(name = "userid", nullable = false)
-    public int getUserid() {
-        return userid;
+    @Column(name = "userId", nullable = false)
+    public int getUserId() {
+        return userId;
     }
 
     public void setUserid(int userid) {
-        this.userid = userid;
+        this.userId = userid;
     }
 
     @Basic
@@ -47,11 +47,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userid == user.userid && Objects.equals(username, user.username) && Objects.equals(password, user.password);
+        return userId == user.userId && Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userid, username, password);
+        return Objects.hash(userId, username, password);
     }
 }

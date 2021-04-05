@@ -47,7 +47,7 @@ public class EntrySQLDAO implements IEntryDAO{
     public Map<Integer, Entry> fetchAll() {
         Map<Integer, Entry> entities = new HashMap<>();
         entryRepository.findAll().forEach(entry -> {
-            entities.put(entry.getEntryID(),entry);
+            entities.put(entry.getEntryId(),entry);
         });
         return entities;
     }
@@ -58,7 +58,7 @@ public class EntrySQLDAO implements IEntryDAO{
     }
 
     @Override
-    public Entry fetchByID(int id){
+    public Entry fetchById(int id){
         return entryRepository.findById(id).get();
     }
 }

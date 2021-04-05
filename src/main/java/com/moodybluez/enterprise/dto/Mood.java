@@ -14,7 +14,7 @@ class Mood {
 
     @Id
     @Column(name = "moodId", nullable = false)
-    private int moodID;
+    private int moodId;
 
     @Basic
     @Column(name = "description", nullable = false, length = 15)
@@ -26,11 +26,11 @@ class Mood {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Mood mood = (Mood) o;
-        return moodID == mood.moodID && Objects.equals(description, mood.description);
+        return moodId == mood.moodId && Objects.equals(description, mood.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(moodID, description);
+        return Objects.hash(moodId, description);
     }
 }

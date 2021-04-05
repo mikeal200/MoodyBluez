@@ -16,8 +16,8 @@ public class MoodController {
     private IMoodService moodService;
 
     @GetMapping("/mood/{id}")
-    Mood getByID(@PathVariable int id) {
-        return moodService.fetchByID(id);
+    Mood getById(@PathVariable int id) {
+        return moodService.fetchById(id);
     }
 
     @GetMapping("/mood")

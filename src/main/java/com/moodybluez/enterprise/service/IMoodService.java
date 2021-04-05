@@ -8,7 +8,7 @@ public interface IMoodService {
 
     void delete(int moodID) throws Exception;
 
-    Mood fetchByID(int moodID);
+    Mood fetchById(int moodID);
 
     Mood save(Mood mood);
 

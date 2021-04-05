@@ -12,36 +12,36 @@ import java.util.Objects;
 @Entity
 public @Data
 class Entry {
-    private int entryID;
-    private int userID;
-    private int moodID;
+    private int entryId;
+    private int userId;
+    private int moodId;
     private Date date;
     private String description;
 
     @Id
-    @Column(name = "entryID", nullable = false)
-    public int getEntryID() {
-        return entryID;
+    @Column(name = "entryId", nullable = false)
+    public int getEntryId() {
+        return entryId;
     }
 
     @Basic
-    @Column(name = "userID", nullable = false)
-    public int getUserID() {
-        return userID;
+    @Column(name = "userId", nullable = false)
+    public int getUserId() {
+        return userId;
     }
 
     public void setUserID(int userID) {
-        this.userID = userID;
+        this.userId = userID;
     }
 
     @Basic
     @Column(name = "moodID", nullable = false)
     public int getMoodID() {
-        return moodID;
+        return moodId;
     }
 
     public void setMoodID(int moodID) {
-        this.moodID = moodID;
+        this.moodId = moodID;
     }
 
     @Basic
@@ -69,11 +69,11 @@ class Entry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Entry entry = (Entry) o;
-        return entryID == entry.entryID && userID == entry.userID && moodID == entry.moodID && Objects.equals(date, entry.date) && Objects.equals(description, entry.description);
+        return entryId == entry.entryId && userId == entry.userId && moodId == entry.moodId && Objects.equals(date, entry.date) && Objects.equals(description, entry.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(entryID, userID, moodID, date, description);
+        return Objects.hash(entryId, userId, moodId, date, description);
     }
 }

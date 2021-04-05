@@ -33,7 +33,7 @@ public class UserSQLDAO implements IUserDAO {
     public Map<Integer, User> fetchAll() {
         Map<Integer, User> entities = new HashMap<>();
         userRepository.findAll().forEach(entry -> {
-            entities.put(entry.getUserid(),entry);
+            entities.put(entry.getUserId(),entry);
         });
         return entities;
     }

@@ -15,8 +15,8 @@ public class EntryDAOStub implements IEntryDAO{
 
     @Override
     public Entry save(Entry entry) {
-        entries.put(entry.getEntryID(), entry);
-        return entries.get(entry.getEntryID());
+        entries.put(entry.getEntryId(), entry);
+        return entries.get(entry.getEntryId());
     }
 
     @Override
@@ -53,10 +53,10 @@ public class EntryDAOStub implements IEntryDAO{
     }
 
     @Override
-    public List<Entry> fetchByMood(int moodID) {
+    public List<Entry> fetchByMood(int moodId) {
         List<Entry> entryList = new ArrayList<>();
         for (Entry entry : entries.values()){
-            if(entry.getEntryID()==moodID){
+            if(entry.getEntryId()==moodId){
                 entryList.add(entry);
             }
         }
@@ -71,12 +71,12 @@ public class EntryDAOStub implements IEntryDAO{
     }
 
     @Override
-    public void delete(int entryID) {
-        entries.remove(entryID);
+    public void delete(int entryId) {
+        entries.remove(entryId);
     }
 
     @Override
-    public Entry fetchByID(int id){
+    public Entry fetchById(int id){
         return entries.get(id);
     }
 }

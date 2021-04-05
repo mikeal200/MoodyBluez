@@ -16,8 +16,8 @@ public class UserDAOStub implements IUserDAO {
     Map<Integer, User> allUsers = new HashMap<>();
 
     public User save(User user) {
-        allUsers.put(user.getUserid(), user);
-        return allUsers.get(user.getUserid());
+        allUsers.put(user.getUserId(), user);
+        return allUsers.get(user.getUserId());
     }
 
     public User fetchByUsername(String username){

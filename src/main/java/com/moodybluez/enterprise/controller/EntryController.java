@@ -15,8 +15,8 @@ public class EntryController {
     private IEntryService entryService;
 
     @GetMapping("/entry/{id}")
-    public Entry getByID(@PathVariable int id) {
-        return entryService.fetchByID(id);
+    public Entry getById(@PathVariable int id) {
+        return entryService.fetchById(id);
     }
 
     @GetMapping("entry/{year}/{month}")

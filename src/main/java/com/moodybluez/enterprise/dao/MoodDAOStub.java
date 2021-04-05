@@ -15,8 +15,8 @@ public class MoodDAOStub implements IMoodDAO {
 
     @Override
     public Mood save(Mood mood) {
-        moods.put(mood.getMoodID(), mood);
-        return moods.get(mood.getMoodID());
+        moods.put(mood.getMoodId(), mood);
+        return moods.get(mood.getMoodId());
     }
 
     @Override
@@ -25,7 +25,7 @@ public class MoodDAOStub implements IMoodDAO {
         Mood matchedMood = new Mood();
 
         for (Mood moodDTO : moodList) {
-            if (moodDTO.getMoodID() == moodID) {
+            if (moodDTO.getMoodId() == moodID) {
                 matchedMood = moodDTO;
             }
         }

@@ -27,7 +27,7 @@ public class MoodSQLDAO implements IMoodDAO {
     public Map<Integer, Mood> fetchAll(){
         Map<Integer, Mood> entities = new HashMap<>();
         moodRepository.findAll().forEach(entry -> {
-            entities.put(entry.getMoodID(),entry);
+            entities.put(entry.getMoodId(),entry);
         });
         return entities;
     }

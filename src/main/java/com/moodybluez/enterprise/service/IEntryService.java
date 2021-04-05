@@ -14,11 +14,11 @@ public interface IEntryService {
 
     Entry fetchByDate(String date);
 
-    void delete(int entryID) throws Exception;
+    void delete(int entryId) throws Exception;
 
-    Entry fetchByID(int id);
+    Entry fetchById(int id);
 
     List<Entry> fetchByMonth(int year, int month);
 
-    List<Entry> fetchByMood(int moodID);
+    List<Entry> fetchByMood(int moodId);
 }

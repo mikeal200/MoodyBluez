@@ -50,7 +50,7 @@ class EnterpriseApplicationTests {
 	}
 
 	private void whenSearchMoodWithID3() {
-		mood = moodService.fetchByID(3);
+		mood = moodService.fetchById(3);
 	}
 
 	private void givenMoodDataAreAvailable() {
@@ -61,7 +61,7 @@ class EnterpriseApplicationTests {
 	private void whenMoodWithID3() {
 		Mood mood = new Mood();
 		mood.setDescription("Sad");
-		mood.setMoodID(3);
+		mood.setMoodId(3);
 
 		Mockito.when(moodDAO.fetchByID(3)).thenReturn(mood);
 	}
@@ -90,7 +90,7 @@ class EnterpriseApplicationTests {
 		dateEntry.setDate(java.sql.Date.valueOf(date));
 		dateEntry.setMoodID(3);
 		dateEntry.setDescription("I laid in bed all day.");
-		dateEntry.setEntryID(1);
+		dateEntry.setEntryId(1);
 
 		Mockito.when(entryDAO.fetchByDate(java.sql.Date.valueOf(date).toString())).thenReturn(dateEntry);
 	}

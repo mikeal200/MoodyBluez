@@ -37,8 +37,8 @@ public class EntryService implements IEntryService {
     }
 
     @Override
-    public Entry fetchByID(int id) {
-        return entryDAO.fetchByID(id);
+    public Entry fetchById(int id) {
+        return entryDAO.fetchById(id);
     }
 
     @Override
