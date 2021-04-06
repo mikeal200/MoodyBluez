@@ -59,10 +59,10 @@
             var html_var = '';
             for(var i=0;i<data.length;i++){
                 if(i==0){
-                    html_var+='<option value="'+data[i].moodid+'" selected="selected">'+data[i].description+'</option>';
+                    html_var+='<option value="'+data[i].moodId+'" selected="selected">'+data[i].description+'</option>';
                 }
                 else{
-                    html_var+='<option value="'+data[i].moodid+'">'+data[i].description+'</option>';
+                    html_var+='<option value="'+data[i].moodId+'">'+data[i].description+'</option>';
                 }
             }
             $('#mood').html(html_var);
