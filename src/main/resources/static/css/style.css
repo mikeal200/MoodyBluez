@@ -117,3 +117,8 @@ html {
   padding-right:30px;
   font-size: 1.5rem;
 }
+
+td {
+  text-align:center;
+  width: 80px;
+}

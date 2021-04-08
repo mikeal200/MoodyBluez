@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Moody Bluez</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments/topnav :: navbar">
+
+</div>
+
+<div class="container">
+    <span class="input-group-addon">Mood</span>
+    <select id="mood" class="form-control"></select>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" >
+            <div id="main" style="width: 600px;height: 400px">
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    function updateChart(){
+        var moodid = $('#mood').val();
+        $.get('/entry/metric/'+moodid, function (data){
+            var myChart = echarts.init(document.getElementById('main'));
+            var option = {
+                xAxis: {
+                    type: 'category',
+                    data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: data,
+                    type: 'bar'
+                }]
+            };
+            myChart.setOption(option);
+        });
+    };
+    function initDialog(){
+        $.get("/mood",function (data){
+            var html_var = '';
+            for(var i=0;i<data.length;i++){
+                if(i==0){
+                    html_var+='<option value="'+data[i].moodId+'" selected="selected">'+data[i].description+'</option>';
+                }
+                else{
+                    html_var+='<option value="'+data[i].moodId+'">'+data[i].description+'</option>';
+                }
+            }
+            $('#mood').html(html_var);
+            updateChart();
+        });
+    };
+
+    initDialog();
+
+    $('#mood').change(function (){
+        updateChart();
+    });
+
+
+
+</script>
+</body>
+</html>

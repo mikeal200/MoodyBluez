@@ -6,11 +6,12 @@ import java.util.Map;
 
 public interface IMoodDAO {
 
-    boolean createEntry(Mood mood);
+    Mood save(Mood mood);
 
-    Mood fetchByMood(String mood);
-
-    Mood fetchByMoodID(int moodID);
+    Mood fetchByID(int moodID);
 
     Map<Integer, Mood> fetchAll();
+
+    void delete(int moodID);
 }
+
