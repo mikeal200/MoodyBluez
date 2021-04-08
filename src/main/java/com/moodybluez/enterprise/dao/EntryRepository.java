@@ -1,7 +1,6 @@
 package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Entry;
-import com.moodybluez.enterprise.dto.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -15,6 +14,6 @@ public interface EntryRepository extends CrudRepository<Entry, Integer> {
     @Query("SELECT e from Entry e where e.date = ?1")
     Entry findByDate(Date date);
 
-    @Query("SELECT e from Entry e where e.moodID = ?1")
-    List<Entry> findByMood(int moodID);
+    @Query("SELECT e from Entry e where e.moodId = ?1")
+    List<Entry> findByMood(int moodId);
 }

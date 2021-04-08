@@ -119,9 +119,8 @@
                     $('#description').val('');
                 }
                 else{
-                    $('#entryid').val(data.entityid.toString());
                     $('#date').val(data.date);
-                    $('#mood').val(data.moodid.toString());
+                    $('#mood').val(data.moodId.toString());
                     $('#description').val(data.description);
                 }
                 $( "#dialog" ).dialog( "open" );
@@ -146,7 +145,6 @@
             var date = $('#date').val();
             var mood = $('#mood').val();
             var description = $('#description').val();
-            var id = $("#entryid").val();
 
             if(isValidDate(date)==false){
                 alert('error date format');
@@ -163,17 +161,18 @@
                 return;
             }
 
-            var d = {date:date, moodid:parseInt(mood),description:description, userid:1};
-            if(id!=undefined&&id!=""){
-                d['entityid'] = id;
-            }
+            var d = {date:date, moodId:mood, description:description};
+
+
+            console.log(d);
+            console.log(JSON.stringify(d));
 
             $.ajax({
                 url:'/entry',
                 type:'POST',
                 data:JSON.stringify(d),
                 contentType: "application/json",
-                // dataType: "json",
+                //dataType: "json",
                 success:function (data){
                     closeDialog();
                 }
@@ -188,10 +187,10 @@
                 var html_var = '';
                 for(var i=0;i<data.length;i++){
                     if(i==0){
-                        html_var+='<option value="'+data[i].moodid+'" selected="selected">'+data[i].description+'</option>';
+                        html_var+='<option value="'+data[i].moodId+'" selected="selected">'+data[i].description+'</option>';
                     }
                     else{
-                        html_var+='<option value="'+data[i].moodid+'">'+data[i].description+'</option>';
+                        html_var+='<option value="'+data[i].moodId+'">'+data[i].description+'</option>';
                     }
                 }
                 $('#mood').html(html_var);

@@ -53,5 +53,5 @@ public class EntryService implements IEntryService {
 
     public List<Entry> fetchByMonth(int year, int month) {return entryDAO.fetchByMonth(year, month);}
 
-    public List<Entry> fetchByMood(int moodID) {return entryDAO.fetchByMood(moodID);}
+    public List<Entry> fetchByMood(int moodId) {return entryDAO.fetchByMood(moodId);}
 }

@@ -1,22 +1,20 @@
 package com.moodybluez.enterprise;
 
-import com.moodybluez.enterprise.dao.*;
+import com.moodybluez.enterprise.dao.IEntryDAO;
+import com.moodybluez.enterprise.dao.IMoodDAO;
+import com.moodybluez.enterprise.dao.IUserDAO;
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import com.moodybluez.enterprise.dto.User;
 import com.moodybluez.enterprise.service.*;
 import org.junit.jupiter.api.Test;
-
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDate;
 
-import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
@@ -88,7 +86,7 @@ class EnterpriseApplicationTests {
 		LocalDate date = LocalDate.of(2021,2,21);
 
 		dateEntry.setDate(java.sql.Date.valueOf(date));
-		dateEntry.setMoodID(3);
+		dateEntry.setMoodId(3);
 		dateEntry.setDescription("I laid in bed all day.");
 		dateEntry.setEntryId(1);
 
@@ -121,7 +119,7 @@ class EnterpriseApplicationTests {
 
 	private void thenReturnsEntryOnDate() {
 		String reason = entry.getDescription();
-		int mood = entry.getMoodID();
+		int mood = entry.getMoodId();
 		assertEquals("I laid in bed all day.", reason);
 		assertEquals(3, mood);
 	}

@@ -260,7 +260,7 @@ function submitEntry(){
         return;
     }
 
-    var data = {date:date, moodid:parseInt(mood),description:description, userid:1};
+    var data = {date:date, moodId:parseInt(mood),description:description, userid:1};
     if(id!=undefined&&id!=""){
         data['entityid'] = id;
     }
@@ -282,10 +282,10 @@ function initDialog(){
         var html_var = '';
         for(var i=0;i<jdata.length;i++){
             if(i==0){
-                html_var+='<option value="'+jdata[i].moodid+'" selected="selected">'+jdata[i].description+'</option>';
+                html_var+='<option value="'+jdata[i].moodId+'" selected="selected">'+jdata[i].description+'</option>';
             }
             else{
-                html_var+='<option value="'+jdata[i].moodid+'">'+jdata[i].description+'</option>';
+                html_var+='<option value="'+jdata[i].moodId+'">'+jdata[i].description+'</option>';
             }
         }
         $('#mood').innerHTML = html_var;

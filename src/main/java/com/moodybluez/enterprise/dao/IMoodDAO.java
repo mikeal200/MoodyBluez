@@ -8,10 +8,10 @@ public interface IMoodDAO {
 
     Mood save(Mood mood);
 
-    Mood fetchByID(int moodID);
+    Mood fetchByID(int moodId);
 
     Map<Integer, Mood> fetchAll();
 
-    void delete(int moodID);
+    void delete(int moodId);
 }
 

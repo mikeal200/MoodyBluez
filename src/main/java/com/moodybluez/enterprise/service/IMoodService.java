@@ -6,9 +6,9 @@ import java.util.Map;
 
 public interface IMoodService {
 
-    void delete(int moodID) throws Exception;
+    void delete(int moodId) throws Exception;
 
-    Mood fetchById(int moodID);
+    Mood fetchById(int moodId);
 
     Mood save(Mood mood);
 

@@ -2,10 +2,7 @@ package com.moodybluez.enterprise.dto;
 
 import lombok.Data;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -19,6 +16,7 @@ class Entry {
     private String description;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "entryId", nullable = false)
     public int getEntryId() {
         return entryId;
@@ -35,13 +33,13 @@ class Entry {
     }
 
     @Basic
-    @Column(name = "moodID", nullable = false)
-    public int getMoodID() {
+    @Column(name = "moodId", nullable = false)
+    public int getMoodId() {
         return moodId;
     }
 
-    public void setMoodID(int moodID) {
-        this.moodId = moodID;
+    public void setMoodId(int moodId) {
+        this.moodId = moodId;
     }
 
     @Basic

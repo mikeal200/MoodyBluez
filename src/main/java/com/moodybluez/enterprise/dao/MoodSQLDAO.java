@@ -1,11 +1,9 @@
 package com.moodybluez.enterprise.dao;
 
-import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.Mood;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,8 +18,8 @@ public class MoodSQLDAO implements IMoodDAO {
         return moodRepository.save(mood);
     }
 
-    public Mood fetchByID(int moodID){
-        return moodRepository.findById(moodID).get();
+    public Mood fetchByID(int moodId){
+        return moodRepository.findById(moodId).get();
     }
 
     public Map<Integer, Mood> fetchAll(){
@@ -33,7 +31,7 @@ public class MoodSQLDAO implements IMoodDAO {
     }
 
     @Override
-    public void delete(int moodID) {
-        moodRepository.deleteById(moodID);
+    public void delete(int moodId) {
+        moodRepository.deleteById(moodId);
     }
 }

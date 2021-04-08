@@ -16,7 +16,6 @@ public class EntrySQLDAO implements IEntryDAO{
 
     @Override
     public Entry save(Entry entry) {
-//        if(entryRepository.findById(entry.getEntityid()))
         return entryRepository.save(entry);
     }
 
@@ -39,8 +38,8 @@ public class EntrySQLDAO implements IEntryDAO{
     }
 
     @Override
-    public List<Entry> fetchByMood(int moodID) {
-        return entryRepository.findByMood(moodID);
+    public List<Entry> fetchByMood(int moodId) {
+        return entryRepository.findByMood(moodId);
     }
 
     @Override

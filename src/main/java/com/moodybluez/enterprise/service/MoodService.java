@@ -26,14 +26,14 @@ public class MoodService implements IMoodService {
 
     @Override
     @CacheEvict(value="mood", key="#id")
-    public void delete(int moodID) throws Exception {
-        moodDAO.delete(moodID);
+    public void delete(int moodId) throws Exception {
+        moodDAO.delete(moodId);
     }
 
     @Override
     @Cacheable(value="mood", key="#id")
-    public Mood fetchById(int moodID) {
-        Mood foundMood = moodDAO.fetchByID(moodID);
+    public Mood fetchById(int moodId) {
+        Mood foundMood = moodDAO.fetchByID(moodId);
         return foundMood;
     }
 

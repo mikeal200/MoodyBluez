@@ -35,8 +35,8 @@
 
 <script type="text/javascript">
     function updateChart(){
-        var moodid = $('#mood').val();
-        $.get('/entry/metric/'+moodid, function (data){
+        var moodId = $('#mood').val();
+        $.get('/entry/metric/'+moodId, function (data){
             var myChart = echarts.init(document.getElementById('main'));
             var option = {
                 xAxis: {

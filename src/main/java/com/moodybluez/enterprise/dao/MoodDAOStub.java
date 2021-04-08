@@ -2,10 +2,12 @@ package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Mood;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 @Profile("test")
@@ -20,12 +22,12 @@ public class MoodDAOStub implements IMoodDAO {
     }
 
     @Override
-    public Mood fetchByID(int moodID) {
+    public Mood fetchByID(int moodId) {
         List<Mood> moodList = new ArrayList<>(moods.values());
         Mood matchedMood = new Mood();
 
         for (Mood moodDTO : moodList) {
-            if (moodDTO.getMoodId() == moodID) {
+            if (moodDTO.getMoodId() == moodId) {
                 matchedMood = moodDTO;
             }
         }
@@ -39,7 +41,7 @@ public class MoodDAOStub implements IMoodDAO {
     }
 
     @Override
-    public void delete(int moodID) {
-        moods.remove(moodID);
+    public void delete(int moodId) {
+        moods.remove(moodId);
     }
 }
