@@ -20,6 +20,8 @@
         }
     </style>
     <script type="text/javascript">
+        var id = null;
+
         function refresh(){
             var table_obj = $('#table');
             var t = $('#sel_year').val();
@@ -119,6 +121,7 @@
                     $('#description').val('');
                 }
                 else{
+                    id = data.entryId;
                     $('#date').val(data.date);
                     $('#mood').val(data.moodId.toString());
                     $('#description').val(data.description);
@@ -163,11 +166,11 @@
 
             date = new Date($('#date').val());
             date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
-            var d = {date:date, moodId:mood, description:description};
+            var d = {date:date, moodId:mood, description:description, entryId:id};
 
             $.ajax({
                 url:'/entry',
-                type:'POST',
+                type:'PUT',
                 data:JSON.stringify(d),
                 contentType: "application/json",
                 success:function (data){

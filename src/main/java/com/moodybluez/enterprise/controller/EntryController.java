@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EntryController {
@@ -53,8 +56,10 @@ public class EntryController {
         return ret;
     }
 
-    @PostMapping(path="entry", consumes = "application/json", produces = "application/json")
+    @PutMapping(path="entry", consumes = "application/json", produces = "application/json")
     public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) throws Exception {
         return entryService.save(entry);
     }
 }
+
+
