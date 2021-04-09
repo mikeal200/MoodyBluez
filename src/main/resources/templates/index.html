@@ -36,10 +36,10 @@
             }
 
             var dateObj = new Date();
-            dateObj.setFullYear(sel_year);
-            dateObj.setMonth(sel_month-1);
-            dateObj.setDate(1);
-            var beginWeek = dateObj.getDay();
+            dateObj.setUTCFullYear(sel_year);
+            dateObj.setUTCMonth(sel_month-1);
+            dateObj.setUTCDate(1);
+            var beginWeek = dateObj.getUTCDate();
             var rowNum = (beginWeek+total_day)/7+((beginWeek+total_day)%7==0?0:1);
 
             var showData = new Array(rowNum*7);
@@ -69,8 +69,8 @@
             var sel_obj = $('#sel_year');
             var sel_month_obj = $('#sel_month');
             var date_obj = new Date();
-            var year = date_obj.getFullYear();
-            var month = date_obj.getMonth();
+            var year = date_obj.getUTCFullYear();
+            var month = date_obj.getUTCMonth();
 
             var html_str = '';
             for(var i=year-3;i<=year;i++){
@@ -136,13 +136,13 @@
             var regEx = /^\d{4}-\d{2}-\d{2}$/;
             if(!dateString.match(regEx)) return false;  // Invalid format
             var d = new Date(dateString);
-            var dNum = d.getTime();
+            var dNum = d.getUTCMilliseconds();
             if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
             return d.toISOString().slice(0,10) === dateString;
         }
 
         function submitEntry(){
-            var date = $('#date').val();
+            let date = $('#date').val();
             var mood = $('#mood').val();
             var description = $('#description').val();
 
@@ -161,25 +161,19 @@
                 return;
             }
 
+            date = new Date($('#date').val());
+            date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
             var d = {date:date, moodId:mood, description:description};
-
-
-            console.log(d);
-            console.log(JSON.stringify(d));
 
             $.ajax({
                 url:'/entry',
                 type:'POST',
                 data:JSON.stringify(d),
                 contentType: "application/json",
-                //dataType: "json",
                 success:function (data){
                     closeDialog();
                 }
             });
-            // $.post('/entry', d ,function(data, status){
-            //     closeDialog();
-            // });
         }
 
         function initDialog(){
