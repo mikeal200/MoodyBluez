@@ -1,12 +1,13 @@
-package com.moodybluez.enterprise.iDateDAO;
+package com.moodybluez.enterprise.dao;
 
-interface iDateDAO {
-    Date save(Date date) throws Exception;
-    List<Date> fetchAll();
+import com.moodybluez.enterprise.dto.Date;
 
-    Date fetch(string date);
+public interface IDateDAO {
 
-    void delete(string date);
+    boolean createEntry(Date date);
 
-    List<Date> fetchDatesByDayOfWeekId(int dayofweekId)
+    Date fetchByWeekDay(int weekDayID);
+
+    Date fetchByDate(String date);
+
 }

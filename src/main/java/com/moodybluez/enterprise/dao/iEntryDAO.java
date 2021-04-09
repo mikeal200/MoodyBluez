@@ -1,14 +1,19 @@
-package com.moodybluez.enterprise.iEntryDAO;
+package com.moodybluez.enterprise.dao;
 
-interface iEntryDAO {
-    Entry save(Entry entry) throws Exception;
+import com.moodybluez.enterprise.dto.Entry;
 
-    List<Entry> fetchAll();
+import java.util.List;
+import java.util.Map;
 
-    Entry fetch(int DayOfWeekId);
+public interface IEntryDAO {
 
-    void delete(int DayOfWeekId);
+    boolean saveEntry(Entry entry);
 
-    List<Entry> fetchEntriesbyDayOfWeekId(int DayOfWeekId);
+    Entry fetchByWeekDay(int weekDayID);
 
+    List<Entry> fetchByMood(int moodID);
+
+    Entry fetchByDate(String date);
+
+    Map<Integer, Entry> fetchAll();
 }

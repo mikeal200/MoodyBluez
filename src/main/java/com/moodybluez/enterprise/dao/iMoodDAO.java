@@ -1,14 +1,16 @@
-package com.moodybluez.enterprise.iMoodDAO;
+package com.moodybluez.enterprise.dao;
 
-interface iMoodDAO {
-    Mood save(Mood mood) throws Exception;
+import com.moodybluez.enterprise.dto.Mood;
 
-    List<Mood> fetchAll();
+import java.util.Map;
 
-    Mood fetch(int MoodId);
+public interface IMoodDAO {
 
-    void delete(int MoodId);
+    boolean createEntry(Mood mood);
 
-    List<Mood> fetchMoodsByMoodId(int moodId);
+    Mood fetchByMood(String mood);
 
+    Mood fetchByMoodID(int moodID);
+
+    Map<Integer, Mood> fetchAll();
 }
