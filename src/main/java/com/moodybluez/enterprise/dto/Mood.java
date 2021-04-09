@@ -33,4 +33,7 @@ class Mood {
     public int hashCode() {
         return Objects.hash(moodId, description);
     }
+
+    @OneToMany(mappedBy = "Date")
+    privateList<User> users;
 }
