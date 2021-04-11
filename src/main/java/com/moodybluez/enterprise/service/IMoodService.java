@@ -2,11 +2,15 @@ package com.moodybluez.enterprise.service;
 
 import com.moodybluez.enterprise.dto.Mood;
 
+import java.util.Map;
+
 public interface IMoodService {
-    /**
-     * fetch a mood with a given ID
-     * @param id unique identifier for a mood
-     * @return the matching mood, or null if no matches found
-     */
-    Mood fetchById(int id);
+
+    void delete(int moodId) throws Exception;
+
+    Mood fetchById(int moodId);
+
+    Mood save(Mood mood);
+
+    Map<Integer, Mood> fetchAll();
 }

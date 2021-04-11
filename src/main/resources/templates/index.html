@@ -4,61 +4,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Moody Bluez</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link href="/css/style.css" rel="stylesheet">
-    </head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!--    <link href="/css/style.css" rel="stylesheet">-->
+<!--    <script src="/js/script.js}" type="text/javascript"></script>-->
+
+    <style type="text/css">
+        td {
+            text-align:center;
+            width: 80px;
+        }
+    </style>
+    <script type="text/javascript">
+        var id = null;
+
+        function refresh(){
+            var table_obj = $('#table');
+            var t = $('#sel_year').val();
+            var sel_year = parseInt($('#sel_year').val());
+            var sel_month = parseInt($('#sel_month').val());
+
+            var month_day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            var total_day = month_day[sel_month-1];
+            if(sel_month==2){
+                if(sel_year%400==0||(sel_year%4==0&&sel_year%100!=0)){
+                    total_day = 29;
+                }
+            }
+
+            var dateObj = new Date();
+            dateObj.setUTCFullYear(sel_year);
+            dateObj.setUTCMonth(sel_month-1);
+            dateObj.setUTCDate(1);
+            var beginWeek = dateObj.getUTCDate();
+            var rowNum = (beginWeek+total_day)/7+((beginWeek+total_day)%7==0?0:1);
+
+            var showData = new Array(rowNum*7);
+            for(var i=0;i<total_day;i++){
+                showData[i+beginWeek] = i+1;
+            }
+
+            var html_str = '';
+            for(var i=0;i<rowNum;i++){
+                html_str += '<tr>';
+                for(var j=i*7;j<(i+1)*7;j++){
+                    if(showData[j]==undefined){
+                        html_str += '<td></td>'
+                    }
+                    else{
+                        // html_str += '<td><a href="#" οnclick="openDialog('+showData[j].toString()+')">'+showData[j].toString()+'</a></td>';
+                        html_str += '<td><button type="button" class="btn btn-default" ' +
+                            'onclick="openDialog('+showData[j].toString()+')">'+showData[j].toString().padStart(2,'0')+'</button></td>';
+                    }
+                }
+                html_str += '</tr>';
+            }
+            table_obj.html(html_str);
+        };
+
+        function refreshSel(){
+            var sel_obj = $('#sel_year');
+            var sel_month_obj = $('#sel_month');
+            var date_obj = new Date();
+            var year = date_obj.getUTCFullYear();
+            var month = date_obj.getUTCMonth();
+
+            var html_str = '';
+            for(var i=year-3;i<=year;i++){
+                if(i==year){
+                    html_str+='<option value="'+i.toString()+'" selected="selected">';
+                }
+                else{
+                    html_str+='<option value="'+i.toString()+'">';
+                }
+
+                html_str+=i.toString();
+                html_str+='</option>';
+            }
+            sel_obj.html(html_str);
+
+            html_str = '';
+            for(var i=1;i<=12;i++){
+                if(i==month+1){
+                    html_str+='<option value="'+i.toString()+'" selected="selected">';
+                }
+                else{
+                    html_str+='<option value="'+i.toString()+'">';
+                }
+
+                html_str+=i.toString();
+                html_str+='</option>';
+            }
+            sel_month_obj.html(html_str);
+
+            sel_obj.change(function(){
+                refresh();
+            });
+
+            sel_month_obj.change(function(){
+                refresh();
+            });
+        };
+
+        function openDialog(day){
+            var sel_year = $('#sel_year').val();
+            var sel_month = $('#sel_month').val();
+            $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
+                if(data==undefined||data==""){
+                    $('#entryid').val('');
+                    $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
+                    $('#description').val('');
+                }
+                else{
+                    id = data.entryId;
+                    $('#date').val(data.date);
+                    $('#mood').val(data.moodId.toString());
+                    $('#description').val(data.description);
+                }
+                $( "#dialog" ).dialog( "open" );
+            });
+
+        }
+
+        function closeDialog(){
+            $( "#dialog" ).dialog({ autoOpen: false,width:'500px' });
+        }
+
+        function isValidDate(dateString) {
+            var regEx = /^\d{4}-\d{2}-\d{2}$/;
+            if(!dateString.match(regEx)) return false;  // Invalid format
+            var d = new Date(dateString);
+            var dNum = d.getUTCMilliseconds();
+            if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
+            return d.toISOString().slice(0,10) === dateString;
+        }
+
+        function submitEntry(){
+            let date = $('#date').val();
+            var mood = $('#mood').val();
+            var description = $('#description').val();
+
+            if(isValidDate(date)==false){
+                alert('error date format');
+                return;
+            }
+
+            if(mood==undefined||mood==""){
+                alert('error mood selection');
+                return;
+            }
+
+            if(description==undefined||description==""){
+                alert('error description');
+                return;
+            }
+
+            date = new Date($('#date').val());
+            date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+            var d = {date:date, moodId:mood, description:description, entryId:id};
+
+            $.ajax({
+                url:'/entry',
+                type:'PUT',
+                data:JSON.stringify(d),
+                contentType: "application/json",
+                success:function (data){
+                    closeDialog();
+                }
+            });
+        }
+
+        function initDialog(){
+            $.get("/mood",function (data){
+                var html_var = '';
+                for(var i=0;i<data.length;i++){
+                    if(i==0){
+                        html_var+='<option value="'+data[i].moodId+'" selected="selected">'+data[i].description+'</option>';
+                    }
+                    else{
+                        html_var+='<option value="'+data[i].moodId+'">'+data[i].description+'</option>';
+                    }
+                }
+                $('#mood').html(html_var);
+            });
+        }
+
+        function init(){
+            initDialog();
+            closeDialog();
+            refreshSel();
+            refresh();
+        };
+    </script>
+
+</head>
 <body>
 
 <div th:replace="fragments/topnav :: navbar">
 
 </div>
 
-<form action="#" th:action="@{/process_register}" th:object="${user}" enctype="multipart/form-data"  method="POST"><br />
-    <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="Username">Username</span>
+<div class="container">
+    <div class="row text-center ">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <span class="input-group-addon">Year</span>
+            <select id="sel_year" class="form-control"></select>
         </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Username" th:field="*{userName}"/>
-    </div>
-    <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="Password">Password</span>
+        <div class="col-md-3">
+            <span class="input-group-addon">Month</span>
+            <select id="sel_month" class="form-control"></select>
         </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="Password" th:field="*{password}"/>
+        <div class="col-md-3"></div>
     </div>
-    <button name="submit" type="submit" value="0">Submit</button>
-</form>
 
-    <div class="container">
-        <div class="calendar">
-            <div class="month">
-                <i class="fas fa-angle-left prev"></i>
-                <div class="date">
-                    <h1></h1>
-                    <p></p>
-                </div>
-                <i class="fas fa-angle-right next"></i>
+</div>
+<div class="container">
+    <table style="margin: auto;width: 600px;" class="table">
+        <thead>
+        <td>Sunday</td>
+        <td>Monday</td>
+        <td>Tuesday</td>
+        <td>Wednesday</td>
+        <td>Thursday</td>
+        <td>Friday</td>
+        <td>Saturday</td>
+        </thead>
+        <tbody  id = 'table'>
+
+        </tbody>
+    </table>
+</div>
+
+<div id="dialog" title="Moody" style="width: 500px;height: 600px">
+<!--    <div class="container">-->
+        <h2>Mood Entry</h2>
+        <form class="bs-example bs-example-form" role="form">
+            <input id="entryID" type="hidden" class="form-control" hidden="hidden" display="None">
+            <div class="input-group">
+                <span class="input-group-addon">Date(yyyy-mm-dd)</span>
+                <input id="date" type="text" class="form-control">
             </div>
-            <div class="weekdays">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">Mood</span>
+                <select id="mood" type="text" class="form-control"></select>
             </div>
-            <div class="days">
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">Description</span>
+                <input id="description" type="text" class="form-control">
             </div>
-        </div>
-    </div>
-<script src="js/script.js"></script>
+            <div class="input-group">
+<!--                <span class="input-group-addon"></span>-->
+<!--                <input type="submit" class="form-control" value="Submit" onclick="submitEntry()">-->
+                <button class="btn btn-dark" style="margin: auto" onclick="submitEntry()">Submit</button>
+            </div>
+        </form>
+<!--    </div>-->
+</div>
+
+
+<script type="text/javascript">
+    init();
+</script>
 </body>
 </html>

@@ -1,21 +1,55 @@
 package com.moodybluez.enterprise.dto;
 
-import lombok.Data;
-
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "USERS")
-public @Data
-class User {
+public class User {
+    private int userId;
+    private String username;
+    private String password;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "userId", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
 
-    @Column(name = "username", nullable = false, unique = true, length = 45)
-    private String userName;
+    public void setUserId(int userid) {
+        this.userId = userid;
+    }
 
-    @Column(nullable = false, length = 64)
-    private String password;
+    @Basic
+    @Column(name = "username", nullable = false, length = 20)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "password", nullable = false, length = 1000)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userId == user.userId && Objects.equals(username, user.username) && Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, username, password);
+    }
 }
