@@ -138,13 +138,9 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
 }
+  
+td {
+  text-align:center;
+  width: 80px;
 
-#watermark
-{
-  position:fixed;
- bottom:5px;
- right:5px;
- opacity:0.5;
- z-index:99;
- color:white;
 }
