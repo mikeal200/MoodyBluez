@@ -7,13 +7,17 @@ import java.util.Map;
 
 public interface IEntryDAO {
 
-    boolean saveEntry(Entry entry);
+    Entry save(Entry entry);
 
-    Entry fetchByWeekDay(int weekDayID);
-
-    List<Entry> fetchByMood(int moodID);
+    List<Entry> fetchByMonth(int year, int month);
 
     Entry fetchByDate(String date);
 
+    List<Entry> fetchByMood(int moodId);
+
+    Entry fetchById(int id);
+
     Map<Integer, Entry> fetchAll();
+
+    void delete(int entryId);
 }
