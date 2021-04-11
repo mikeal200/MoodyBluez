@@ -7,14 +7,13 @@
 
 body{
   background-image: url("vintage-wallpaper.png");
-  background-color: #12121f;
   overflow: hidden;
 }
 
 html {
   font-size: 62.5%;
 }
-
+/*
 .container {
   width: 100%;
   height: 100vh;
@@ -22,7 +21,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+}*/
 
 .calendar {
   width: 45rem;
@@ -124,21 +123,6 @@ h1 {
     text-align: center;
 }
 
-.navBttn {
-    background-color: transparent;
-    border-radius: 25px;
-    border: solid;
-    border-color:#1c87c9;
-    color: white;
-    padding: 20px 34px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-  
 td {
   text-align:center;
   width: 80px;
