@@ -1,0 +1,104 @@
+2021-04-12 00:07:03,736 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 15976 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:07:03,741 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:07:03,741 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:07:07,629 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 15976 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:07:07,631 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:07:07,632 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:07:08,605 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 15976 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:07:08,605 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:07:08,606 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:07:09,412 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 15976 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:07:09,412 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:07:09,412 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:07:29,421 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 13196 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:07:29,423 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:07:29,423 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:07:33,246 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.156 seconds (JVM running for 5.14)
+2021-04-12 00:11:47,034 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 7368 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:11:47,035 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:11:47,036 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:11:50,910 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.218 seconds (JVM running for 5.094)
+2021-04-12 00:11:57,070 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 13964 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:11:57,072 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:11:57,072 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:11:59,403 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.632 seconds (JVM running for 3.359)
+2021-04-12 00:12:23,185 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 2872 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:12:23,186 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:12:23,186 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:12:27,198 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.351 seconds (JVM running for 5.365)
+2021-04-12 00:12:37,385 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 18676 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:12:37,388 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:12:37,388 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:12:39,743 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.735 seconds (JVM running for 3.439)
+2021-04-12 00:13:09,855 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 21416 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:13:09,857 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:13:09,858 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:13:12,585 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 3.062 seconds (JVM running for 3.871)
+2021-04-12 00:19:01,913 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 12224 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:19:01,914 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:19:01,915 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:19:04,329 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.737 seconds (JVM running for 3.46)
+2021-04-12 00:25:06,048 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 7348 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:25:06,050 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:25:06,050 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:25:08,379 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.633 seconds (JVM running for 3.455)
+2021-04-12 00:25:54,120 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 4632 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:25:54,122 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:25:54,122 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:25:56,509 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.709 seconds (JVM running for 3.468)
+2021-04-12 00:26:29,629 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 22676 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:26:29,631 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:26:29,631 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:26:31,920 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.612 seconds (JVM running for 3.37)
+2021-04-12 00:28:15,134 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 20244 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:28:15,136 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:28:15,136 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:28:17,455 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.677 seconds (JVM running for 3.524)
+2021-04-12 00:28:55,299 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 20512 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:28:55,301 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:28:55,301 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:28:57,722 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.73 seconds (JVM running for 3.416)
+2021-04-12 00:30:39,355 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 6980 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:30:39,358 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:30:39,358 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:30:41,713 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.692 seconds (JVM running for 3.441)
+2021-04-12 00:33:11,675 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 18956 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:33:11,677 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:33:11,677 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:33:14,672 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 3.387 seconds (JVM running for 4.257)
+2021-04-12 00:33:34,477 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 21960 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:33:34,478 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:33:34,478 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:33:38,896 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.829 seconds (JVM running for 6.05)
+2021-04-12 00:33:44,316 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 4816 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:33:44,318 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:33:44,318 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:33:46,797 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.818 seconds (JVM running for 3.56)
+2021-04-12 00:37:21,466 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 23428 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:37:21,467 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:37:21,468 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:37:25,240 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.112 seconds (JVM running for 5.085)
+2021-04-12 00:37:33,068 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 16524 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:37:33,070 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:37:33,070 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:37:35,461 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.703 seconds (JVM running for 3.421)
+2021-04-12 00:38:38,728 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 19088 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:38:38,730 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:38:38,730 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:38:41,057 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.634 seconds (JVM running for 3.318)
+2021-04-12 00:39:43,586 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 2004 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:39:43,588 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:39:43,588 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:39:45,928 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.659 seconds (JVM running for 3.357)
+2021-04-12 00:41:34,401 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 23464 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:41:34,403 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:41:34,403 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:41:36,757 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.661 seconds (JVM running for 3.366)
+2021-04-12 00:41:51,046 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on DESKTOP-9UQRET4 with PID 22660 (D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez\target\classes started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:41:51,048 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:41:51,048 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:41:53,421 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.696 seconds (JVM running for 3.398)
+2021-04-12 00:42:03,660 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 11.0.10 on DESKTOP-9UQRET4 with PID 14684 (started by param in D:\UC\Ent App Dev Spring 2021\repos\MoodyBluez)
+2021-04-12 00:42:03,662 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-12 00:42:03,662 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-12 00:42:07,556 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 4.256 seconds (JVM running for 5.248)
