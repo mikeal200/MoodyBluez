@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class EntryController {
@@ -27,15 +24,17 @@ public class EntryController {
         List<Entry> entries = entryService.fetchByMonth(year, month);
         Map<Integer, Entry> ret = new HashMap<>();
         for(Entry entry: entries){
-            ret.put(entry.getDate().getDay(),entry);
+            Calendar calendarInstance = Calendar.getInstance();
+            calendarInstance.setTime(entry.getDate());
+            int dayOfWeek = calendarInstance.get(Calendar.DAY_OF_WEEK);
+            ret.put(dayOfWeek,entry);
         }
         return ret;
     }
 
     @GetMapping("entry/{year}/{month}/{day}")
     Entry getByMonth(@PathVariable Integer year, @PathVariable Integer month, @PathVariable Integer day) {
-        Entry entry = entryService.fetchByDate(year.toString()+"-"+month.toString()+"-"+day.toString());
-        return entry;
+        return entryService.fetchByDate(year.toString()+"-"+month.toString()+"-"+day.toString());
     }
 
     @GetMapping("entry/mood/{id}")
@@ -49,7 +48,9 @@ public class EntryController {
         List<Entry> entities = entryService.fetchByMood(id);
 
         for(Entry entry:entities){
-            int weekday = entry.getDate().getDay();
+            Calendar calendarInstance = Calendar.getInstance();
+            calendarInstance.setTime(entry.getDate());
+            int weekday = calendarInstance.get(Calendar.DAY_OF_WEEK);
             ret.set(weekday, ret.get(weekday)+1);
         }
 
