@@ -37,11 +37,11 @@
             dateObj.setUTCMonth(sel_month-1);
             dateObj.setUTCDate(1);
             var beginWeek = dateObj.getUTCDate();
-            var rowNum = (beginWeek+total_day)/7+((beginWeek+total_day)%7==0?0:1);
+            var rowNum = parseInt((beginWeek+total_day)/7+((beginWeek+total_day)%7==0?0:1));
 
             var showData = new Array(rowNum*7);
             for(var i=0;i<total_day;i++){
-                showData[i+beginWeek] = i+1;
+                showData[i + (rowNum - 1)] = i + 1;
             }
 
             var html_str = '';
