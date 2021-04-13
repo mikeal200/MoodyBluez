@@ -1,15 +1,9 @@
 package com.moodybluez.enterprise.controller;
 
 import com.moodybluez.enterprise.dto.User;
-import com.moodybluez.enterprise.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class MoodyBluezController {
@@ -38,6 +32,10 @@ public class MoodyBluezController {
         return "index";
     }
 
+    @GetMapping("/aboutus")
+    public String aboutus() {
+        return "aboutus";
+    }
 
 
 //    @PostMapping("/process_register")

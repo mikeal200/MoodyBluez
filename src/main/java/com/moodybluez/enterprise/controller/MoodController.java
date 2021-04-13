@@ -22,12 +22,8 @@ public class MoodController {
 
     @GetMapping("/mood")
     List<Mood> get() {
-        List<Mood> ret = new ArrayList<>();
         Map<Integer, Mood> entities =  moodService.fetchAll();
-        for(Mood mood:entities.values()){
-            ret.add(mood);
-        }
-        return ret;
+        return new ArrayList<>(entities.values());
     }
 
     @PutMapping("/mood")
