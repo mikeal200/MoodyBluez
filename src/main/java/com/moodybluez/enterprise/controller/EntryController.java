@@ -50,8 +50,8 @@ public class EntryController {
         for(Entry entry:entities){
             Calendar calendarInstance = Calendar.getInstance();
             calendarInstance.setTime(entry.getDate());
-            int weekday = calendarInstance.get(Calendar.DAY_OF_WEEK);
-            ret.set(weekday, ret.get(weekday)+1);
+             int weekday = calendarInstance.get(Calendar.DAY_OF_WEEK) - 1;
+            ret.set(weekday, ret.get(weekday) + 1);
         }
 
         return ret;
