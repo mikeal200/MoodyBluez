@@ -1,6 +1,5 @@
 package com.moodybluez.enterprise.dao;
 
-import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -25,8 +24,7 @@ public class UserSQLDAO implements IUserDAO {
 
     @Override
     public User fetchByUsername(String username){
-        User user = userRepository.findByUsername(username);
-        return user;
+        return userRepository.findByUsername(username);
     }
 
     @Override

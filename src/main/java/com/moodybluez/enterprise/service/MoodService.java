@@ -33,8 +33,7 @@ public class MoodService implements IMoodService {
     @Override
     @Cacheable(value="mood", key="#id")
     public Mood fetchById(int moodId) {
-        Mood foundMood = moodDAO.fetchByID(moodId);
-        return foundMood;
+        return moodDAO.fetchByID(moodId);
     }
 
     @Override
