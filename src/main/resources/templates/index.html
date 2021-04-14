@@ -11,202 +11,11 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-<!--    <script src="/js/script.js}" type="text/javascript"></script>-->
-
-    <!--
-    <script type="text/javascript">
-
-        var id = null;
-
-        function refresh(){
-            var table_obj = $('#table');
-            var t = $('#sel_year').val();
-            var sel_year = parseInt($('#sel_year').val());
-            var sel_month = parseInt($('#sel_month').val());
-
-            var month_day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-            var total_day = month_day[sel_month-1];
-            if(sel_month==2){
-                if(sel_year%400==0||(sel_year%4==0&&sel_year%100!=0)){
-                    total_day = 29;
-                }
-            }
-
-            var dateObj = new Date();
-            dateObj.setUTCFullYear(sel_year);
-            dateObj.setUTCMonth(sel_month-1);
-            dateObj.setUTCDate(1);
-            var beginWeek = dateObj.getUTCDate();
-            var rowNum = parseInt((beginWeek+total_day)/7+((beginWeek+total_day)%7==0?0:1));
-
-            var showData = new Array(rowNum*7);
-            for(var i=0;i<total_day;i++){
-                showData[i + (rowNum - 1)] = i + 1;
-            }
-
-            var html_str = '';
-            for(var i=0;i<rowNum;i++){
-                html_str += '<tr>';
-                for(var j=i*7;j<(i+1)*7;j++){
-                    if(showData[j]==undefined){
-                        html_str += '<td></td>'
-                    }
-                    else{
-                        // html_str += '<td><a href="#" οnclick="openDialog('+showData[j].toString()+')">'+showData[j].toString()+'</a></td>';
-                        html_str += '<td><button type="button" class="btn btn-default" ' +
-                            'onclick="openDialog('+showData[j].toString()+')">'+showData[j].toString().padStart(2,'0')+'</button></td>';
-                    }
-                }
-                html_str += '</tr>';
-            }
-            table_obj.html(html_str);
-        };
-
-        function refreshSel(){
-            var sel_obj = $('#sel_year');
-            var sel_month_obj = $('#sel_month');
-            var date_obj = new Date();
-            var year = date_obj.getUTCFullYear();
-            var month = date_obj.getUTCMonth();
-
-            var html_str = '';
-            for(var i=year-3;i<=year;i++){
-                if(i==year){
-                    html_str+='<option value="'+i.toString()+'" selected="selected">';
-                }
-                else{
-                    html_str+='<option value="'+i.toString()+'">';
-                }
-
-                html_str+=i.toString();
-                html_str+='</option>';
-            }
-            sel_obj.html(html_str);
-
-            html_str = '';
-            for(var i=1;i<=12;i++){
-                if(i==month+1){
-                    html_str+='<option value="'+i.toString()+'" selected="selected">';
-                }
-                else{
-                    html_str+='<option value="'+i.toString()+'">';
-                }
-
-                html_str+=i.toString();
-                html_str+='</option>';
-            }
-            sel_month_obj.html(html_str);
-
-            sel_obj.change(function(){
-                refresh();
-            });
-
-            sel_month_obj.change(function(){
-                refresh();
-            });
-        };
-
-        function openDialog(day){
-            var sel_year = $('#sel_year').val();
-            var sel_month = $('#sel_month').val();
-            $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
-                if(data==undefined||data==""){
-                    $('#entryid').val('');
-                    $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
-                    $('#description').val('');
-                }
-                else{
-                    id = data.entryId;
-                    $('#date').val(data.date);
-                    $('#mood').val(data.moodId.toString());
-                    $('#description').val(data.description);
-                }
-                $( "#dialog" ).dialog( "open" );
-            });
-
-        }
-
-        function closeDialog(){
-            $( "#dialog" ).dialog({ autoOpen: false,width:'500px' });
-        }
-
-        function isValidDate(dateString) {
-            var regEx = /^\d{4}-\d{2}-\d{2}$/;
-            if(!dateString.match(regEx)) return false;  // Invalid format
-            var d = new Date(dateString);
-            var dNum = d.getUTCMilliseconds();
-            if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
-            return d.toISOString().slice(0,10) === dateString;
-        }
-
-        function submitEntry(){
-            let date = $('#date').val();
-            var mood = $('#mood').val();
-            var description = $('#description').val();
-
-            if(isValidDate(date)==false){
-                alert('error date format');
-                return;
-            }
-
-            if(mood==undefined||mood==""){
-                alert('error mood selection');
-                return;
-            }
-
-            if(description==undefined||description==""){
-                alert('error description');
-                return;
-            }
-
-            date = new Date($('#date').val());
-            date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
-            var d = {date:date, moodId:mood, description:description, entryId:id};
-
-            $.ajax({
-                url:'/entry',
-                type:'PUT',
-                data:JSON.stringify(d),
-                contentType: "application/json",
-                success:function (data){
-                    closeDialog();
-                }
-            });
-        }
-
-        function initDialog(){
-            $.get("/mood",function (data){
-                var html_var = '';
-                for(var i=0;i<data.length;i++){
-                    if(i==0){
-                        html_var+='<option value="'+data[i].moodId+'" selected="selected">'+data[i].description+'</option>';
-                    }
-                    else{
-                        html_var+='<option value="'+data[i].moodId+'">'+data[i].description+'</option>';
-                    }
-                }
-                $('#mood').html(html_var);
-            });
-        }
-
-        $(document).ready(function(){
-            initDialog();
-            closeDialog();
-            refreshSel();
-            refresh();
-        });
-
-    </script>
-
 </head>
 
-<body>
--->
 <div th:replace="fragments/topnav :: navbar">
 
 </div>
-
     <div class="container">
         <div class="calendar">
             <div class="month">
@@ -230,10 +39,10 @@
             </div>
         </div>
     </div>
+
     <script src="js/script.js"></script>
 
     <div id="dialog" title="Moody" hidden="true">
-<!--    <div class="container">-->
         <h2>Mood Entry</h2>
         <form class="bs-example bs-example-form" role="form">
             <input id="entryID" type="hidden" class="form-control" hidden="hidden" display="None">
@@ -256,8 +65,7 @@
                 <button class="btn btn-dark" style="margin: auto" onclick="submitEntry()">Submit</button>
             </div>
         </form>
-<!--    </div>-->
-</div>
+    </div>
 
 </body>
 </html>
