@@ -71,36 +71,35 @@ const renderCalendar = () => {
     for (let i = 1; i <= lastDay; i++) {
         if(i === new Date().getDate() &&
             date.getMonth() === new Date().getMonth()) {
-            document.querySelector(".today").addEventListener("click", () => {
-                console.log("date clicked");
+            document.querySelector(".today").addEventListener("click", (e) => {
                 openDialog(document.querySelector(".today").innerHTML);
                 renderCalendar();
             });
         }
         else if(i < 10){
-            document.querySelector(".\\3" + i).addEventListener("click", () => {
-                console.log("date clicked");
+            document.querySelector(".\\3" + i).addEventListener("click", (e) => {
+                openDialog(e.target.innerText);
                 renderCalendar();
             });
         }
         else if(i >= 10 && i < 20) {
             j = i - 10
-            document.querySelector(".\\31 " + j).addEventListener("click", () => {
-                console.log("date clicked");
+            document.querySelector(".\\31 " + j).addEventListener("click", (e) => {
+                openDialog(e.target.innerText);
                 renderCalendar();
             });
         }
         else if(i >= 20 && i < 30) {
             j = i - 20
-            document.querySelector(".\\32 " + j).addEventListener("click", () => {
-                console.log("date clicked");
+            document.querySelector(".\\32 " + j).addEventListener("click", (e) => {
+                openDialog(e.target.innerText);
                 renderCalendar();
             });
         }
         else if(i >= 30) {
             j = i - 30
-            document.querySelector(".\\33 " + j).addEventListener("click", () => {
-                console.log("date clicked");
+            document.querySelector(".\\33 " + j).addEventListener("click", (e) => {
+                openDialog(e.target.innerText);
                 renderCalendar();
             });
         }
@@ -126,7 +125,7 @@ function openDialog(day){
     var sel_year = date.getUTCFullYear().toString();
     var sel_month = date.getUTCMonth() + 1;
     sel_month = sel_month.toString();
-    
+
     $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
         if(data==undefined||data==""){
             $('#entryid').val('');
