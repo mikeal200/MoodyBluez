@@ -361,3 +361,7 @@
 2021-04-13 23:04:17,035 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
 2021-04-13 23:04:17,035 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
 2021-04-13 23:04:19,443 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.779 seconds (JVM running for 3.485)
+2021-04-13 23:09:44,674 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.9 on DESKTOP-0CRP3I5 with PID 7644 (C:\Users\Michael\IdeaProjects\MoodyBluez\target\classes started by Michael in C:\Users\Michael\IdeaProjects\MoodyBluez)
+2021-04-13 23:09:44,676 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-13 23:09:44,676 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-13 23:09:47,085 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.86 seconds (JVM running for 3.584)

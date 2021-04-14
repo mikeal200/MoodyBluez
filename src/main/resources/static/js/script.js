@@ -124,7 +124,9 @@ function initDialog(){
 
 function openDialog(day){
     var sel_year = date.getUTCFullYear().toString();
-    var sel_month = date.getUTCMonth().toString();
+    var sel_month = date.getUTCMonth() + 1;
+    sel_month = sel_month.toString();
+    
     $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
         if(data==undefined||data==""){
             $('#entryid').val('');
