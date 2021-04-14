@@ -1,4 +1,5 @@
 const date = new Date();
+var id = null;
 
 var opt = {
     autoOpen: false,
@@ -143,6 +144,53 @@ function openDialog(day){
 
 }
 
+function submitEntry(){
+    let date = $('#date').val();
+    var mood = $('#mood').val();
+    var description = $('#description').val();
+
+    if(isValidDate(date)==false){
+        alert('error date format');
+        return;
+    }
+
+    if(mood==undefined||mood==""){
+        alert('error mood selection');
+        return;
+    }
+
+    if(description==undefined||description==""){
+        alert('error description');
+        return;
+    }
+
+    date = new Date($('#date').val());
+    date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+    var d = {date:date, moodId:mood, description:description, entryId:id};
+
+    $.ajax({
+        url:'/entry',
+        type:'PUT',
+        data:JSON.stringify(d),
+        contentType: "application/json",
+        success:function (data){
+            closeDialog();
+        }
+    });
+}
+
+function closeDialog(){
+    $( "#dialog" ).dialog({ autoOpen: false,width:'500px' });
+}
+
+function isValidDate(dateString) {
+    var regEx = /^\d{4}-\d{2}-\d{2}$/;
+    if(!dateString.match(regEx)) return false;  // Invalid format
+    var d = new Date(dateString);
+    var dNum = d.getUTCMilliseconds();
+    if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
+    return d.toISOString().slice(0,10) === dateString;
+}
 
 document.querySelector(".prev").addEventListener("click", () => {
     date.setMonth(date.getMonth() - 1);
@@ -155,5 +203,6 @@ document.querySelector(".next").addEventListener("click", () => {
 
 $(document).ready(function(){
     initDialog();
+    closeDialog();
     renderCalendar();
 });
