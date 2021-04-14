@@ -3,8 +3,8 @@ const date = new Date();
 var opt = {
     autoOpen: false,
     modal: false,
-    width: 550,
-    height: 650,
+    width: 500,
+    height: 360,
     title: 'Moody'
 };
 
