@@ -2,7 +2,7 @@ const date = new Date();
 
 var opt = {
     autoOpen: false,
-    modal: true,
+    modal: false,
     width: 550,
     height:650,
     title: 'Details'
