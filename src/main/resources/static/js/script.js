@@ -4,8 +4,8 @@ var opt = {
     autoOpen: false,
     modal: false,
     width: 550,
-    height:650,
-    title: 'Details'
+    height: 650,
+    title: 'Moody'
 };
 
 const renderCalendar = () => {
