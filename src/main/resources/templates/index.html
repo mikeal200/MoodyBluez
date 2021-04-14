@@ -13,6 +13,7 @@
     <link href="/css/style.css" rel="stylesheet">
 <!--    <script src="/js/script.js}" type="text/javascript"></script>-->
 
+    <!--
     <script type="text/javascript">
 
         var id = null;
@@ -201,44 +202,37 @@
 </head>
 
 <body>
-
+-->
 <div th:replace="fragments/topnav :: navbar">
 
 </div>
-    <h1>Moody Bluez<i class="far fa-laugh-wink"></i></h1>
+
     <div class="container">
-    <div class="row text-center ">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
-            <span class="input-group-addon">Year</span>
-            <select id="sel_year" class="form-control"></select>
+        <div class="calendar">
+            <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">
+                    <h1></h1>
+                    <p></p>
+                </div>
+                <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days">
+            </div>
         </div>
-        <div class="col-md-3">
-            <span class="input-group-addon">Month</span>
-            <select id="sel_month" class="form-control"></select>
-        </div>
-        <div class="col-md-3"></div>
     </div>
+    <script src="js/script.js"></script>
 
-</div>
-<div class="container">
-    <table style="margin: auto;width: 600px;" class="table">
-        <thead>
-        <td>Sunday</td>
-        <td>Monday</td>
-        <td>Tuesday</td>
-        <td>Wednesday</td>
-        <td>Thursday</td>
-        <td>Friday</td>
-        <td>Saturday</td>
-        </thead>
-        <tbody  id = 'table'>
-
-        </tbody>
-    </table>
-</div>
-
-<div id="dialog" title="Moody" style="width: 500px;height: 600px">
+    <div id="dialog" title="Moody" hidden="true">
 <!--    <div class="container">-->
         <h2>Mood Entry</h2>
         <form class="bs-example bs-example-form" role="form">
