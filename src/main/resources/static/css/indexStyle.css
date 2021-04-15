@@ -8,10 +8,6 @@
 body{
   background: url("wavy.png") center no-repeat;
   background-size: cover;
-
-  /*
-  I think this looks better
-  background-color: #12121f;*/
   overflow: hidden;
 }
 
