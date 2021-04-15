@@ -28,15 +28,15 @@ html {
 }
 
 .calendar {
-  width: 45rem;
-  height: 52rem;
+  width: 67.5rem;
+  height: 78rem;
   background-color: #222227;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
 
 .month {
   width: 100%;
-  height: 12rem;
+  height: 18rem;
   background-color: #167e56;
   display: flex;
   justify-content: space-between;
@@ -75,7 +75,7 @@ html {
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
-  width: calc(44.2rem / 7);
+  width: calc((44.2rem / 7) * 1.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,10 +90,10 @@ html {
 }
 
 .days div {
-  font-size: 1.4rem;
-  margin: 0.3rem;
-  width: calc(40.2rem / 7);
-  height: 5rem;
+  font-size: 2.1rem;
+  margin: 0.45rem;
+  width: calc((40.2rem / 7) * 1.5);
+  height: 7.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
