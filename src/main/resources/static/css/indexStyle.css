@@ -6,7 +6,8 @@
 }
 
 body{
-  background-image: url("vintage-wallpaper.png");
+  background: url("wavy.png") center no-repeat;
+  background-size: cover;
 
   /*
   I think this looks better
