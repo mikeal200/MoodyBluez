@@ -5,10 +5,22 @@ function updateChart(){
         var option = {
             xAxis: {
                 type: 'category',
-                data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'white'
+                    }
+                }
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'white'
+                    }
+                }
             },
             series: [{
                 data: data,
