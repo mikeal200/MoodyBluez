@@ -13,7 +13,18 @@ function updateChart(){
             series: [{
                 data: data,
                 type: 'bar'
-            }]
+            }],
+            title:
+             {
+                text: 'Mood Frequency By Day    ',
+                left: 'center',
+                top: 10,
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 20,
+                    color: 'white'
+                }
+            }
         };
         myChart.setOption(option);
     });
