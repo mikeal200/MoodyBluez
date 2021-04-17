@@ -18,7 +18,7 @@
 <!--        </div>-->
 <!--    </nav>-->
 <!--</div>-->
-<div th:fragment="navbar">
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -34,6 +34,9 @@
                     </li>
                     <li class="navbar-nav">
                         <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/register}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/login}">Login</a>

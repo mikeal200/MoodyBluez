@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up - CodeJava</title>
+    <script src="https://kit.fontawesome.com/9cf0b47c7c.js" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>User Registration - Sign Up</h1>
+    </div>
+    <form th:action="@{/process_register}" th:object="${user}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">UserName: </label>
+                <div class="col-8">
+                    <input type="username" th:field="*{username}" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Password: </label>
+                <div class="col-8">
+                    <input type="password" th:field="*{password}" class="form-control"
+                           required minlength="6" maxlength="10"/>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
