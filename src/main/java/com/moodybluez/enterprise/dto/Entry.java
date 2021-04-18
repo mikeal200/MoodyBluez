@@ -43,7 +43,7 @@ class Entry {
     }
 
     @Basic
-    @Column(name = "date", nullable = false, unique = true)
+    @Column(name = "date", nullable = false, unique = false)
     public Date getDate() {
         return date;
     }

@@ -6,4 +6,6 @@ public interface IUserService {
     User save(User user) throws Exception;
 
     User fetchByUsername(String username);
+
+    boolean userExists(String username);
 }

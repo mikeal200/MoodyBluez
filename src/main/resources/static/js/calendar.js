@@ -1,5 +1,6 @@
 const date = new Date();
 var id = null;
+var userId;
 
 var opt = {
     autoOpen: false,
@@ -126,23 +127,25 @@ function openDialog(day){
     var sel_month = date.getUTCMonth() + 1;
     sel_month = sel_month.toString();
 
-    $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
-        if(data==undefined||data==""){
-            $('#entryid').val('');
-            $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
-            $('#description').val('');
-        }
-        else{
-            id = data.entryId;
-            $('#date').val(data.date);
-            $('#mood').val(data.moodId.toString());
-            $('#description').val(data.description);
-        }
-        $(document).ready(function() {
-            $("#dialog").dialog(opt).dialog("open");
+    $.get('userId', function (user) {
+        $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
+            if(data==undefined || data=="" || data.userId != user){
+                $('#entryid').val('');
+                $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
+                $('#description').val('');
+            }
+            else{
+                id = data.entryId;
+                $('#date').val(data.date);
+                $('#mood').val(data.moodId.toString());
+                $('#description').val(data.description);
+            }
+            $(document).ready(function() {
+                $("#dialog").dialog(opt).dialog("open");
+            });
         });
+        userId = user;
     });
-
 }
 
 function submitEntry(){
@@ -167,7 +170,7 @@ function submitEntry(){
 
     date = new Date($('#date').val());
     date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
-    var d = {date:date, moodId:mood, description:description, entryId:id};
+    var d = {date:date, moodId:mood, description:description, entryId:id, userId:userId};
 
     $.ajax({
         url:'/entry',

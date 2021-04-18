@@ -1,24 +1,4 @@
-<!--<div th:fragment="navbar">-->
-<!--    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
-<!--        <div class="container-fluid">-->
-<!--            <a class="navbar-brand" href="#">Moody Bluez</a>-->
-<!--            <div class="collapse navbar-collapse" id="navbarNav">-->
-<!--                <ul class="navbar-nav">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link active" aria-current="page" href="#">Home</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="#">Metrics</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" th:href="@{/login}">Login</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</div>-->
-<div th:fragment="navbar">
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -32,8 +12,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/metric">Metrics</a>
                     </li>
-                    <li class="navbar-nav">
-                        <a class="nav-link" href="/aboutus">About Us</a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/logout}">Sign Out</a>
                     </li>
                 </ul>
             </div>
