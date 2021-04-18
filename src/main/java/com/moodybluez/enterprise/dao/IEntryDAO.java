@@ -10,6 +10,8 @@ import java.util.Map;
  */
 
 /**
+ * Allows the user to enter their entry for the day
+ *
  * @param year the year which the entry was entered
  * @param month the month which the entry was entered
  *
