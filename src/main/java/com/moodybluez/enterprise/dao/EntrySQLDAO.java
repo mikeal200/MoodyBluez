@@ -71,7 +71,13 @@ public class EntrySQLDAO implements IEntryDAO{
 
     @Override
     public List<Entry> fetchByMood(int moodId) {
-        return entryRepository.findByMood(moodId);
+        int userId = 0;
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            Object principal = authentication.getPrincipal();
+            userId = ((CustomUserDetails) principal).getUserId();
+        }
+        return entryRepository.findByMood(moodId, userId);
     }
 
     @Override
