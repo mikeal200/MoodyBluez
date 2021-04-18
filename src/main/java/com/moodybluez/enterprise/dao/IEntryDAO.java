@@ -5,6 +5,15 @@ import com.moodybluez.enterprise.dto.Entry;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author
+ */
+
+/**
+ * @param year the year which the entry was entered
+ * @param month the month which the entry was entered
+ *
+ */
 public interface IEntryDAO {
 
     Entry save(Entry entry);
