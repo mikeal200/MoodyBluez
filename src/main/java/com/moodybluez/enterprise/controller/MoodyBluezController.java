@@ -10,8 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MoodyBluezController {
@@ -35,6 +34,19 @@ public class MoodyBluezController {
         }
         else {
             return showRegistrationForm(model);
+        }
+    }
+
+    @RequestMapping(value = "/userId", method = RequestMethod.GET)
+    @ResponseBody
+    public int currentUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            Object principal = authentication.getPrincipal();
+            return ((CustomUserDetails)principal).getUserId();
+        }
+        else {
+            return 0;
         }
     }
 
