@@ -16,7 +16,7 @@ public class UserController {
     }
 
     @PutMapping("/user")
-    User modify(@RequestBody User user) throws Exception {
+    User save(@RequestBody User user) throws Exception {
         return userService.save(user);
     }
 }

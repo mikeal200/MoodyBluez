@@ -11,6 +11,7 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<!--
 <div class="container text-center">
     <div>
         <h1>User Registration - Sign Up</h1>
@@ -38,5 +39,18 @@
         </div>
     </form>
 </div>
+-->
+
+<form th:action="@{/process_register}" th:object="${user}" method="POST" enctype="utf8">
+    <div>
+        <label>Username</label>
+        <input th:field="*{username}"/>
+    </div>
+    <div>
+        <label>Password</label>
+        <input th:field="*{password}"/>
+    <button type="submit">submit</button>
+    </div>
+</form>
 </body>
 </html>
