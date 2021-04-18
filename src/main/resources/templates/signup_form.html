@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Sign Up - CodeJava</title>
-    <script src="https://kit.fontawesome.com/9cf0b47c7c.js" crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Register</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <link href="/css/register.css" rel="stylesheet">
 </head>
 <body>
-<form th:action="@{/process_register}" th:object="${user}" method="POST" enctype="utf8">
-    <div>
-        <label>Username</label>
-        <input th:field="*{username}"/>
-    </div>
-    <div>
-        <label>Password</label>
-        <input th:field="*{password}"/>
-    <button type="submit">submit</button>
-    </div>
-    <h1>If you already have an account click here</h1>
-    <a th:href="@{/login}">Login</a>
-</form>
+<div class="container">
+    <form th:action="@{/process_register}" th:object="${user}" method="POST" enctype="utf8">
+        <h2 class="form-signin-heading">Please Register</h2>
+        <p>
+            <label class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus th:field="*{username}"/>
+        </p>
+        <p>
+            <label class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required th:field="*{password}"/>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <a th:href="@{/login}">Have an account? Login</a>
+    </form>
+</div>
 </body>
 </html>

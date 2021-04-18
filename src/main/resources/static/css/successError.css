@@ -1,0 +1,44 @@
+body{
+    background: url("wavy.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.container{
+    width: 500px;
+    height: 300px;
+    background: rgba(50, 129, 168, .3);
+    color: #fff;
+    top: 35%;
+    left: 40%;
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 20px
+}
+
+h3 {
+    font-size: 40px;
+    color: white;
+    margin-top: 20%;
+}
+
+.container a{
+    text-decorations: none;
+    color: darkgrey;
+    font-size: 20px;
+}
+
+.container a:hover{
+    color: pink;
+}
+
+h4 {
+    margin-top: 10%;
+}
