@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * allows user to enter details about themself
  *
- * @param username
+ * @param username the name the user chooses for themself
  */
 public interface IUserDAO {
     User save(User user);
