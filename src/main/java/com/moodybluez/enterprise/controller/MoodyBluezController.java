@@ -50,14 +50,14 @@ public class MoodyBluezController {
         }
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/metric")
     public String metric() {
         return "metric";
-    }
-
-    @GetMapping("/aboutus")
-    public String aboutus() {
-        return "aboutus";
     }
 
     @GetMapping("/user/registration")
@@ -69,7 +69,7 @@ public class MoodyBluezController {
     }
 
     @PostMapping("/process_register")
-    public String processRegister(User user) throws Exception {
+    public String processRegister(User user) {
         User savedUser;
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

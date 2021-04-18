@@ -1,0 +1,68 @@
+body{
+    background: url("wavy.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 320px;
+    height: 400px;
+    background: rgba(50, 129, 168, .3);
+    color: #fff;
+    top: 35%;
+    left: 45%;
+    position: absolute;
+    transform: translate(-50%, -50);
+    box-sizing: border-box;
+    border-radius: 20px
+}
+
+h2{
+    margin-top: 30px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#password, #username {
+    top: 30px;
+    padding: 0;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 20%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+#username:hover, #password:hover{
+    width: 230px;
+    margin-left: 15px;
+}
+
+.container button[type="submit"] {
+    margin-top: 100px;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgba(96, 196, 141, .5);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.container button[type="submit"]:hover {
+    cursor: pointer;
+    background: rgba(217, 131, 235, .5);
+    width: 230px;
+    margin-left: 15px;
+}
