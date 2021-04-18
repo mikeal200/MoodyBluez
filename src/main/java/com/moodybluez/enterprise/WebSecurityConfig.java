@@ -1,8 +1,5 @@
 package com.moodybluez.enterprise;
 
-import javax.sql.DataSource;
-
-
 import com.moodybluez.enterprise.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -52,14 +51,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                    .usernameParameter("username")
-                    .defaultSuccessUrl("/")
-                    .permitAll()
+                .usernameParameter("username")
+                .defaultSuccessUrl("/")
+                .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll()
                 .and()
                 .csrf().disable();
     }
-
-
 }

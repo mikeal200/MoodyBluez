@@ -11,36 +11,6 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<!--
-<div class="container text-center">
-    <div>
-        <h1>User Registration - Sign Up</h1>
-    </div>
-    <form th:action="@{/process_register}" th:object="${user}"
-          method="post" style="max-width: 600px; margin: 0 auto;">
-        <div class="m-3">
-            <div class="form-group row">
-                <label class="col-4 col-form-label">UserName: </label>
-                <div class="col-8">
-                    <input type="username" th:field="*{username}" class="form-control" required />
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-4 col-form-label">Password: </label>
-                <div class="col-8">
-                    <input type="password" th:field="*{password}" class="form-control"
-                           required minlength="6" maxlength="10"/>
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-        </div>
-    </form>
-</div>
--->
-
 <form th:action="@{/process_register}" th:object="${user}" method="POST" enctype="utf8">
     <div>
         <label>Username</label>

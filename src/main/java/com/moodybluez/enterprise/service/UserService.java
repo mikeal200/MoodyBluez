@@ -22,8 +22,18 @@ public class UserService implements IUserService {
 
     @Override
     public User save(User user) throws Exception {
+        if(userExists(user.getUsername())) {
+            throw new Exception("There is an account with that email address: "
+                    + user.getUsername());
+        }
         return userDAO.save(user);
     }
 
-    public User fetchByUsername(String username) {return userDAO.fetchByUsername(username);}
+    public boolean userExists(String username) {
+        return userDAO.fetchByUsername(username) != null;
+    }
+
+    public User fetchByUsername(String username) {
+        return userDAO.fetchByUsername(username);
+    }
 }

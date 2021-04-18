@@ -34,7 +34,7 @@ public class MoodyBluezController {
         return "aboutus";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/user/registration")
     public String showRegistrationForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -44,11 +44,19 @@ public class MoodyBluezController {
 
     @PostMapping("/process_register")
     public String processRegister(User user) throws Exception {
+        User savedUser;
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
-        User savedUser = userService.save(user);
+        try {
+            savedUser = userService.save(user);
+        } catch (Exception e) {
+            return "error";
+        }
+
+
 
         if(savedUser != null) {
             return "register_success";
