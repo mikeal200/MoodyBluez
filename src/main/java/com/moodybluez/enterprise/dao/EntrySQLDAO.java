@@ -1,10 +1,14 @@
 package com.moodybluez.enterprise.dao;
 
 import com.moodybluez.enterprise.dto.Entry;
+import com.moodybluez.enterprise.service.CustomUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
@@ -32,6 +36,8 @@ public class EntrySQLDAO implements IEntryDAO{
     @Override
     public Entry fetchByDate(String date) {
         Date d = new Date();
+        Entry entry = new Entry();
+        int userId = 0;
 
         try {
             d = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(date);
@@ -39,7 +45,28 @@ public class EntrySQLDAO implements IEntryDAO{
             LOG.error("Failed to Parse Date, please check if the date is in correct format. Date : " + date, e);
         }
 
-        return entryRepository.findByDate(d);
+        List<Entry> entries = entryRepository.findByDate(d);
+
+        if(entries.size() == 0) {
+            entry = null;
+        }
+        else if(entries.size() == 1) {
+            entry = entries.get(0);
+        }
+        else {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (!(authentication instanceof AnonymousAuthenticationToken)) {
+                Object principal = authentication.getPrincipal();
+                userId = ((CustomUserDetails) principal).getUserId();
+            }
+            for (Entry e : entries) {
+                if(e.getUserId() == userId) {
+                    entry = e;
+                }
+            }
+        }
+
+        return entry;
     }
 
     @Override
