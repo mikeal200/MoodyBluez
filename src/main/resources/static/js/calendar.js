@@ -207,3 +207,22 @@ $(document).ready(function(){
     closeDialog();
     renderCalendar();
 });
+
+document.getElementById("xlogin").onclick = function() {
+    var xLogout = document.getElementById("xlogout");
+    xLogout.style.display = "block";
+    loginLogout();
+}
+
+function loginLogout() {
+    var xLogin = document.getElementById("xlogin");
+    var xLogout = document.getElementById("xlogout");
+    var xRegister = document.getElementById("xregister");
+    if (xLogout.style.display === "none") {
+        xLogin.style.display = "block";
+        xRegister.style.display = "block";
+    } else {
+        xLogin.style.display = "block";
+        xRegister.style.display = "block";
+    }
+}
