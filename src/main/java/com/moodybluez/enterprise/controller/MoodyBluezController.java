@@ -1,6 +1,7 @@
 package com.moodybluez.enterprise.controller;
 
 import com.moodybluez.enterprise.dto.User;
+import com.moodybluez.enterprise.service.CustomUserDetails;
 import com.moodybluez.enterprise.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -18,6 +19,8 @@ public class MoodyBluezController {
     @Autowired
     private IUserService userService;
 
+    int userId;
+
     /**
      * Handles the root endpoint and returns index.html
      * @return returns index page
@@ -26,7 +29,8 @@ public class MoodyBluezController {
     public String index(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            String currentUserName = authentication.getName();
+            Object principal = authentication.getPrincipal();
+            userId = ((CustomUserDetails)principal).getUserId();
             return "index";
         }
         else {
