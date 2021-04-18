@@ -218,11 +218,13 @@ function loginLogout() {
     var xLogin = document.getElementById("xlogin");
     var xLogout = document.getElementById("xlogout");
     var xRegister = document.getElementById("xregister");
-    if (xLogout.style.display === "none") {
-        xLogin.style.display = "block";
-        xRegister.style.display = "block";
+    if (xLogout.style.visibility === "hidden") {
+        xLogin.style.visibility = "hidden";
+        xRegister.style.visibility = "hidden";
+        xLogout.style.visibility = "visible";
     } else {
-        xLogin.style.display = "block";
-        xRegister.style.display = "block";
+        xLogin.style.visibility = "visible";
+        xRegister.style.visibility = "visible";
+        xLogout.style.visibility = "hidden";
     }
 }
