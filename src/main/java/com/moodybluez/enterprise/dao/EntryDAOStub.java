@@ -6,9 +6,19 @@ import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+/**
+ * @author
+ */
 
 @Repository
 @Profile("test")
+
+/**
+ *
+ *
+ * @param entry
+ * @return the details of the entry
+ */
 public class EntryDAOStub implements IEntryDAO{
 
     private Map<Integer, Entry> entries = new HashMap<>();
