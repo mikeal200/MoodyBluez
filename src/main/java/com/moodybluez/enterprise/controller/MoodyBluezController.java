@@ -13,6 +13,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.hibernate.jdbc.Expectations;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @Controller
 public class MoodyBluezController {
@@ -27,7 +31,11 @@ public class MoodyBluezController {
      * @return returns index page
      */
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model) {        
+        log.debug("Accessed Index Endpoint");
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (!(authentication instanceof AnonymousAuthenticationToken)) {
         int userId = 0;
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -36,49 +44,81 @@ public class MoodyBluezController {
             String userName = ((CustomUserDetails)principal).getUsername();
             log.info("Logged in as: " + userName);
             return "index";
-        }
-        else {
-            return showRegistrationForm(model);
+            }
+            else {
+                return showRegistrationForm(model);
+            }
+        } catch (Exception e) {
+            log.error("Failed Index", e);
+            return "error";
         }
     }
 
     @RequestMapping(value = "/userId", method = RequestMethod.GET)
     @ResponseBody
     public int currentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            Object principal = authentication.getPrincipal();
-            return ((CustomUserDetails)principal).getUserId();
-        }
-        else {
-            return 0;
+
+        log.debug("/userID Endpoint Hit");
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (!(authentication instanceof AnonymousAuthenticationToken)) {
+                Object principal = authentication.getPrincipal();
+                return ((CustomUserDetails)principal).getUserId();
+            }
+            else {
+                return 0;
+            }
+        } catch (Exception e) {
+            log.error("/userID Failed", e);
+            return -1;
         }
     }
 
     @GetMapping("/login")
     public String login() {
-        log.info("Login");
-        return "login";
+
+        log.debug("Accessed Login Endpoint");
+        try {
+            return "login";
+        } catch (Exception e) {
+            log.error("Login Failed ", e);
+            return "error";
+        }
+        
     }
 
     @GetMapping("/metric")
     public String metric() {
-        log.info("Metrics");
-        return "metric";
+
+        log.debug("Accessed Metrics Endpoint");
+        try {
+            return "metric";
+        } catch (Exception e) {
+            log.error("Failed Metrics ", e);
+            return "error";
+        }
+        
     }
 
     @GetMapping("/user/registration")
     public String showRegistrationForm(Model model) {
+
+        log.debug("User Registration");
         User user = new User();
-        model.addAttribute("user", user);
-        log.info("User Registration");
-        return "signup_form";
+        try {
+            model.addAttribute("user", user);
+            return "signup_form";
+        } catch (Exception e) {
+            log.error("Failed Signup", e);
+            return "error";
+        }
     }
 
     @PostMapping("/process_register")
     public String processRegister(User user) {
         log.debug("Registering new user.");
         User savedUser;
+        String result = "";
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -87,17 +127,13 @@ public class MoodyBluezController {
         try {
             savedUser = userService.save(user);
             log.info("New user " + user.getUsername() + " was registered.");
+            if(savedUser != null)
+            {
+                result = "register_success";
+            }
+            return result;
         } catch (Exception e) {
-            log.error("Unable to register new user, user already exists.");
-            return "error";
-        }
-
-
-
-        if(savedUser != null) {
-            return "register_success";
-        }
-        else {
+            log.error("Unable to register new user, user already exists." , e);
             return "error";
         }
     }
