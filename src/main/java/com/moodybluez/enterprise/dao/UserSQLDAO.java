@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * @param user the user that is logged into the app
- * @param username
+ * @param username name being used by the user
  *
  */
 public class UserSQLDAO implements IUserDAO {

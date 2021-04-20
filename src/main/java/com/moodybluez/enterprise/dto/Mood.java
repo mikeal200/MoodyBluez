@@ -6,6 +6,10 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+
+/**
+ * @
+ */
 public @Data
 class Mood {
 

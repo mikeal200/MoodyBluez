@@ -15,12 +15,22 @@ public class MoodDAOStub implements IMoodDAO {
 
     private Map<Integer, Mood> moods = new HashMap<>();
 
+/**
+ *
+ * @param mood
+ * @return mood
+ */
     @Override
     public Mood save(Mood mood) {
         moods.put(mood.getMoodId(), mood);
         return moods.get(mood.getMoodId());
     }
 
+/**
+ *
+ * @param moodId
+ * @return matchedMood
+ */
     @Override
     public Mood fetchByID(int moodId) {
         List<Mood> moodList = new ArrayList<>(moods.values());
