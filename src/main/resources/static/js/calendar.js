@@ -139,6 +139,8 @@ function openDialog(day){
                 $('#date').val(data.date);
                 $('#mood').val(data.moodId.toString());
                 $('#description').val(data.description);
+                var dButton = document.getElementById("deleteButton");
+                dButton.style.visibility = "visible";
             }
             $(document).ready(function() {
                 $("#dialog").dialog(opt).dialog("open");
