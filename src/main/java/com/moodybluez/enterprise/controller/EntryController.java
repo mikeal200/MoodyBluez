@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 
 @RestController
@@ -14,8 +17,11 @@ public class EntryController {
     @Autowired
     private IEntryService entryService;
 
+    Logger log = LoggerFactory.getLogger(this.getClass());
+
     @GetMapping("/entry/{id}")
     public Entry getById(@PathVariable int id) {
+        
         return entryService.fetchById(id);
     }
 

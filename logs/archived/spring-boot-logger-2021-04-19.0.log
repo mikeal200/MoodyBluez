@@ -1,0 +1,28 @@
+2021-04-19 12:01:31,158 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 15664 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 12:01:31,159 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 18876 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 12:01:31,158 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 6488 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 12:01:31,169 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 12:01:31,170 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 12:01:31,171 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 12:01:31,158 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 9640 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 12:01:31,173 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 12:01:31,174 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 12:01:31,175 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 12:01:31,178 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 12:01:31,179 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 12:02:18,498 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 51.284 seconds (JVM running for 69.225)
+2021-04-19 12:02:39,626 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 2260 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 12:02:39,632 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 12:02:39,633 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 12:02:47,609 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 8.889 seconds (JVM running for 10.876)
+2021-04-19 14:50:48,315 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 14780 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 14:50:48,385 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 14:50:48,386 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 14:51:15,214 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 27.622 seconds (JVM running for 29.232)
+2021-04-19 21:17:23,977 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 17664 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 21:17:23,982 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 21:17:23,984 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 21:17:31,216 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 13604 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-19 21:17:31,221 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-19 21:17:31,223 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-19 21:17:45,668 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 15.218 seconds (JVM running for 16.692)

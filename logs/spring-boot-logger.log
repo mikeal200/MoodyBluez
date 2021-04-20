@@ -1,0 +1,87 @@
+2021-04-20 07:05:16,559 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 9044 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in c:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 07:05:16,566 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 07:05:16,567 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 07:05:34,245 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 19.685 seconds (JVM running for 24.489)
+2021-04-20 07:45:32,741 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 17032 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 07:45:32,745 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 07:45:32,746 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 07:45:41,085 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 9.297 seconds (JVM running for 9.967)
+2021-04-20 07:56:31,737 DEBUG com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-8] Registering new user.
+2021-04-20 07:56:32,215 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-8] New usercom.moodybluez.enterprise.dto.User@59829e06was registered.
+2021-04-20 08:03:56,730 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 6880 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:03:56,737 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:03:56,737 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:04:04,654 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 8.772 seconds (JVM running for 9.386)
+2021-04-20 08:04:39,258 DEBUG com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Registering new user.
+2021-04-20 08:04:39,723 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] New usercom.moodybluez.enterprise.dto.User@bb7210ddwas registered.
+2021-04-20 08:09:21,059 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 17084 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:09:21,065 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:09:21,066 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:09:33,131 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 13.205 seconds (JVM running for 14.006)
+2021-04-20 08:09:54,204 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-10] Metrics
+2021-04-20 08:09:56,001 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-7] Metrics
+2021-04-20 08:09:56,609 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-2] Metrics
+2021-04-20 08:10:00,284 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-6] Metrics
+2021-04-20 08:11:49,553 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-2] Metrics
+2021-04-20 08:16:19,324 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 11612 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:16:19,334 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:16:19,335 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:16:31,732 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 13.512 seconds (JVM running for 14.243)
+2021-04-20 08:16:38,496 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Metrics
+2021-04-20 08:16:43,183 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-7] Metrics
+2021-04-20 08:16:51,778 DEBUG com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-6] Registering new user.
+2021-04-20 08:16:51,904 ERROR com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-6] Unable to register new user
+2021-04-20 08:17:04,973 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Metrics
+2021-04-20 08:25:20,504 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-8] Metrics
+2021-04-20 08:25:42,430 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-10] Metrics
+2021-04-20 08:30:59,641 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 17732 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:30:59,654 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:30:59,656 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:31:08,573 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 9.862 seconds (JVM running for 10.546)
+2021-04-20 08:31:35,223 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Login
+2021-04-20 08:31:38,197 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-4] Login
+2021-04-20 08:34:16,182 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 2424 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:34:16,189 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:34:16,190 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:34:25,373 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 10.124 seconds (JVM running for 10.872)
+2021-04-20 08:37:32,913 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 1984 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:37:32,919 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:37:32,920 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:37:42,580 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 10.934 seconds (JVM running for 11.934)
+2021-04-20 08:37:54,993 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Login
+2021-04-20 08:37:58,494 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-5] Logged in as: 
+2021-04-20 08:38:03,981 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-10] Logged in as: 
+2021-04-20 08:39:05,224 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 17148 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:39:05,233 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:39:05,233 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:39:14,379 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 10.102 seconds (JVM running for 10.817)
+2021-04-20 08:39:17,152 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-2] User Registration
+2021-04-20 08:40:32,758 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-7] Login
+2021-04-20 08:41:22,310 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-7] User Registration
+2021-04-20 08:41:26,051 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-10] Login
+2021-04-20 08:41:28,032 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-3] User Registration
+2021-04-20 08:41:28,891 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-6] Login
+2021-04-20 08:41:29,563 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-9] User Registration
+2021-04-20 08:48:06,344 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 1956 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:48:06,350 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:48:06,351 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:48:14,776 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 9.345 seconds (JVM running for 10.043)
+2021-04-20 08:48:30,972 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Login
+2021-04-20 08:48:33,942 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-5] Logged in as: org.springframework.security.core.userdetails.User$UserBuilder@7a22ae76
+2021-04-20 08:49:07,722 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] User Registration
+2021-04-20 08:49:14,743 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 9152 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:49:14,762 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:49:14,763 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:49:23,022 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 9.162 seconds (JVM running for 9.841)
+2021-04-20 08:50:10,039 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] Login
+2021-04-20 08:50:12,612 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-5] Logged in as: 1
+2021-04-20 08:53:16,452 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-3] User Registration
+2021-04-20 08:53:22,347 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.10 on PC-ERWAGNER with PID 10592 (C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez\target\classes started by Erich S. Wagner in C:\Users\Erich S. Wagner\Documents\GitHub\zoo-tycoon\MoodyBluez)
+2021-04-20 08:53:22,360 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-04-20 08:53:22,362 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2021-04-20 08:53:30,944 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 9.471 seconds (JVM running for 10.301)
+2021-04-20 08:53:39,602 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-1] User Registration
+2021-04-20 08:53:42,322 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-4] Login
+2021-04-20 08:53:44,779 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-8] Logged in as: erswagner
+2021-04-20 08:54:17,885 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-3] Metrics
+2021-04-20 08:54:26,266 INFO com.moodybluez.enterprise.controller.MoodyBluezController [http-nio-8080-exec-9] Metrics
