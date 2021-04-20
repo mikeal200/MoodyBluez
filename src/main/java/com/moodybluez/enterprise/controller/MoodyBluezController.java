@@ -13,10 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.hibernate.jdbc.Expectations;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 @Controller
 public class MoodyBluezController {
@@ -31,19 +27,16 @@ public class MoodyBluezController {
      * @return returns index page
      */
     @GetMapping("/")
-    public String index(Model model) {        
+    public String index(Model model) {
         log.debug("Accessed Index Endpoint");
+
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (!(authentication instanceof AnonymousAuthenticationToken)) {
-        int userId = 0;
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            Object principal = authentication.getPrincipal();
-            userId = ((CustomUserDetails)principal).getUserId();
-            String userName = ((CustomUserDetails)principal).getUsername();
-            log.info("Logged in as: " + userName);
-            return "index";
+                Object principal = authentication.getPrincipal();
+                String userName = ((CustomUserDetails)principal).getUsername();
+                log.info("Logged in as: " + userName);
+                return "index";
             }
             else {
                 return showRegistrationForm(model);
@@ -57,8 +50,8 @@ public class MoodyBluezController {
     @RequestMapping(value = "/userId", method = RequestMethod.GET)
     @ResponseBody
     public int currentUserId() {
-
         log.debug("/userID Endpoint Hit");
+
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -76,15 +69,14 @@ public class MoodyBluezController {
 
     @GetMapping("/login")
     public String login() {
-
         log.debug("Accessed Login Endpoint");
+
         try {
             return "login";
         } catch (Exception e) {
             log.error("Login Failed ", e);
             return "error";
         }
-        
     }
 
     @GetMapping("/metric")
@@ -97,13 +89,12 @@ public class MoodyBluezController {
             log.error("Failed Metrics ", e);
             return "error";
         }
-        
     }
 
     @GetMapping("/user/registration")
     public String showRegistrationForm(Model model) {
-
         log.debug("User Registration");
+
         User user = new User();
         try {
             model.addAttribute("user", user);
@@ -117,6 +108,7 @@ public class MoodyBluezController {
     @PostMapping("/process_register")
     public String processRegister(User user) {
         log.debug("Registering new user.");
+
         User savedUser;
         String result = "";
 
