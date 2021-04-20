@@ -9,6 +9,12 @@ import java.util.*;
 
 @Repository
 @Profile("test")
+
+/**
+ *
+ * @param entry
+ * @return the details of the entry
+ */
 public class EntryDAOStub implements IEntryDAO{
 
     private Map<Integer, Entry> entries = new HashMap<>();

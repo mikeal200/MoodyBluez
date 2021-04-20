@@ -3,6 +3,8 @@ package com.moodybluez.enterprise.controller;
 import com.moodybluez.enterprise.dto.User;
 import com.moodybluez.enterprise.service.CustomUserDetails;
 import com.moodybluez.enterprise.service.IUserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,6 +17,7 @@ import org.hibernate.jdbc.Expectations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 @Controller
 public class MoodyBluezController {
 
@@ -23,22 +26,22 @@ public class MoodyBluezController {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
-    int userId;
-
     /**
      * Handles the root endpoint and returns index.html
      * @return returns index page
      */
     @GetMapping("/")
-    public String index(Model model) {
-        
+    public String index(Model model) {        
         log.debug("Accessed Index Endpoint");
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (!(authentication instanceof AnonymousAuthenticationToken)) {
+        int userId = 0;
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
             Object principal = authentication.getPrincipal();
             userId = ((CustomUserDetails)principal).getUserId();
-            String userName = ((CustomUserDetails)principal).getUsername().toString();
+            String userName = ((CustomUserDetails)principal).getUsername();
             log.info("Logged in as: " + userName);
             return "index";
             }

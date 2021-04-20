@@ -126,6 +126,8 @@ function openDialog(day){
     var sel_year = date.getUTCFullYear().toString();
     var sel_month = date.getUTCMonth() + 1;
     sel_month = sel_month.toString();
+    var dButton = document.getElementById("deleteButton");
+    var sButton = document.getElementById("submitButton");
 
     $.get('userId', function (user) {
         $.get('entry/'+sel_year+'/'+sel_month+'/'+day.toString(),function (data){
@@ -133,12 +135,18 @@ function openDialog(day){
                 $('#entryid').val('');
                 $('#date').val(sel_year+'-'+sel_month.padStart(2,'0')+'-'+day.toString().padStart(2,'0'));
                 $('#description').val('');
+                dButton.style.visibility = "hidden";
+                sButton.style.marginLeft = "200px";
+                dButton.style.marginLeft = "0px";
             }
             else{
                 id = data.entryId;
                 $('#date').val(data.date);
                 $('#mood').val(data.moodId.toString());
                 $('#description').val(data.description);
+                dButton.style.visibility = "visible";
+                sButton.style.marginLeft = "150px";
+                dButton.style.marginLeft = "15px";
             }
             $(document).ready(function() {
                 $("#dialog").dialog(opt).dialog("open");
