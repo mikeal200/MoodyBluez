@@ -5,11 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-
 /**
  * Helps identify the moods and sorting of moods
  */
+@Entity
 public @Data
 class Mood {
 

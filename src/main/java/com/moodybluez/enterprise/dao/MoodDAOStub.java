@@ -15,10 +15,11 @@ public class MoodDAOStub implements IMoodDAO {
 
     private Map<Integer, Mood> moods = new HashMap<>();
 
+
 /**
  *
- * @param mood
- * @return mood
+ * @param mood correlates to the mood identified by the user
+ * @return moods the various modds the user has inputted
  */
     @Override
     public Mood save(Mood mood) {
@@ -28,8 +29,8 @@ public class MoodDAOStub implements IMoodDAO {
 
 /**
  *
- * @param moodId
- * @return matchedMood
+ * @param moodId correlates to a mood in the database
+ * @return matchedMood the mood that correlates to the specific identifier passed in by moodId
  */
     @Override
     public Mood fetchByID(int moodId) {

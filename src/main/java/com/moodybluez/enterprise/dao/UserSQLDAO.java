@@ -9,25 +9,30 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Repository
 @Profile({"dev", "default"})
 @Service
-
-/**
- * @param user the user that is logged into the app
- * @param username name being used by the user
- *
- */
 public class UserSQLDAO implements IUserDAO {
 
     @Autowired
     private UserRepository userRepository;
 
+
+/**
+ * @param user the user that is logged into the app
+ * @return userRepository.user valid users
+ */
     @Override
     public User save(User user){
         return userRepository.save(user);
     }
 
+/**
+ *
+ * @param username
+ * @return userRepository.username valid usernames
+ */
     @Override
     public User fetchByUsername(String username){
         return userRepository.findByUsername(username);

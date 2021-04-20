@@ -8,16 +8,6 @@ import java.util.Objects;
 
 @Entity
 public @Data
-
-/**
- * getters and setters
- *
- * @param entryId the entryId is a unique identifier for each entry
- * @param userId the userId is a unique identifier for each user
- * @param moodId the moodId is a unique identifier for each mood
- * @param date the date is the date of the entry
- * @param description the description is the description provided by the user
- */
 class Entry {
     private int entryId;
     private int userId;
@@ -25,26 +15,24 @@ class Entry {
     private Date date;
     private String description;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "entryId", nullable = false)
-
 /**
  *
  * Gets the unique identifier for the entry.
  * @return entryId
  */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "entryId", nullable = false)
     public int getEntryId() {
         return entryId;
     }
-
-    @Basic
-    @Column(name = "userId", nullable = false)
 
 /**
  * Gets the unique identifier for the user.
  * @return userId
  */
+    @Basic
+    @Column(name = "userId", nullable = false)
     public int getUserId() {
         return userId;
     }
@@ -53,13 +41,12 @@ class Entry {
         this.userId = userID;
     }
 
-    @Basic
-    @Column(name = "moodId", nullable = false)
-
 /**
  * Gets the unique identifier for the mood.
  * @return moodId
  */
+    @Basic
+    @Column(name = "moodId", nullable = false)
     public int getMoodId() {
         return moodId;
     }
@@ -72,13 +59,12 @@ class Entry {
         this.moodId = moodId;
     }
 
-    @Basic
-    @Column(name = "date", nullable = false, unique = false)
-
 /**
  * Gets the date of the entry.
  * @return date
  */
+    @Basic
+    @Column(name = "date", nullable = false, unique = false)
     public Date getDate() {
         return date;
     }
@@ -91,12 +77,12 @@ class Entry {
         this.date = date;
     }
 
-    @Basic
-    @Column(name = "description", nullable = true, length = 500)
 /**
  * Gets the description of the entry.
  * @return description
  */
+    @Basic
+    @Column(name = "description", nullable = true, length = 500)
     public String getDescription() {
         return description;
     }

@@ -15,23 +15,25 @@ public class EntryDAOStub implements IEntryDAO{
 
     private Map<Integer, Entry> entries = new HashMap<>();
 
-    @Override
+
 /**
  *
  * @param entry
  * @return the details of the entry
  */
+    @Override
     public Entry save(Entry entry) {
         entries.put(entry.getEntryId(), entry);
         return entries.get(entry.getEntryId());
     }
 
-    @Override
+
 /**
  * @param year the year the entry was entered
  * @param month the month the entry was entered
  * @return the entryList
  */
+    @Override
     public List<Entry> fetchByMonth(int year, int month) {
         List<Entry> entryList = new ArrayList<>();
         for (Entry entry : entries.values()){
@@ -43,12 +45,13 @@ public class EntryDAOStub implements IEntryDAO{
         return entryList;
     }
 
-    @Override
+
 /**
  *
  * @param date the date of the entry
  *
  */
+    @Override
     public Entry fetchByDate(String date) {
         Date datef = new Date();
         try{
