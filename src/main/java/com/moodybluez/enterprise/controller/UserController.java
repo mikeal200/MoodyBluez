@@ -17,13 +17,25 @@ public class UserController {
 
     @GetMapping("/user/{username}")
     User getByID(@PathVariable String username) {
-        log.debug("Getting User");
-        return userService.fetchByUsername(username);
+        log.debug("Getting User Endpoint");
+        try {
+            return userService.fetchByUsername(username);
+        } catch (Exception e) {
+            log.error("/user/username Failed ", e);
+            return new User();
+        }
+        
     }
 
     @PutMapping("/user")
     User save(@RequestBody User user) throws Exception {
-        log.info("Saving User");
-        return userService.save(user);
+        log.debug("Saving User Endpoint");
+        try {
+            return userService.save(user);
+        } catch (Exception e) {
+            log.error("/user Failed ", e);
+            return new User();
+        }
+        
     }
 }
