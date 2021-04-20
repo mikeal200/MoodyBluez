@@ -12,11 +12,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 public class MoodyBluezController {
 
     @Autowired
     private IUserService userService;
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     int userId;
 
@@ -30,6 +35,8 @@ public class MoodyBluezController {
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             Object principal = authentication.getPrincipal();
             userId = ((CustomUserDetails)principal).getUserId();
+            String userName = ((CustomUserDetails)principal).getUsername().toString();
+            log.info("Logged in as: " + userName);
             return "index";
         }
         else {
@@ -52,11 +59,13 @@ public class MoodyBluezController {
 
     @GetMapping("/login")
     public String login() {
+        log.info("Login");
         return "login";
     }
 
     @GetMapping("/metric")
     public String metric() {
+        log.info("Metrics");
         return "metric";
     }
 
@@ -64,21 +73,24 @@ public class MoodyBluezController {
     public String showRegistrationForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-
+        log.info("User Registration");
         return "signup_form";
     }
 
     @PostMapping("/process_register")
     public String processRegister(User user) {
+        log.debug("Registering new user.");
         User savedUser;
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
+        
         try {
             savedUser = userService.save(user);
+            log.info("New user " + user.getUsername() + " was registered.");
         } catch (Exception e) {
+            log.error("Unable to register new user, user already exists.");
             return "error";
         }
 
