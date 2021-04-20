@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 
 /**
- * @
+ * Helps identify the moods and sorting of moods
  */
 public @Data
 class Mood {
