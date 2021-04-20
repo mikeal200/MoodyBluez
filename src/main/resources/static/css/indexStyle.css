@@ -134,3 +134,8 @@ td {
 thead {
   color: white;
 }
+
+#dialog h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
