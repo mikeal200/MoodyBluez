@@ -31,7 +31,7 @@ public class EntryService implements IEntryService {
     }
 
     @Override
-    @CacheEvict(value="mood", key="#id")
+    @CacheEvict(value="mood")
     public void delete(int entryID) throws Exception {
         entryDAO.delete(entryID);
     }

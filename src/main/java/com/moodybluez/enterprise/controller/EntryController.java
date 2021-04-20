@@ -2,12 +2,11 @@ package com.moodybluez.enterprise.controller;
 
 import com.moodybluez.enterprise.dto.Entry;
 import com.moodybluez.enterprise.service.IEntryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -66,6 +65,19 @@ public class EntryController {
     @PutMapping(path="entry", consumes = "application/json", produces = "application/json")
     public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) throws Exception {
         return entryService.save(entry);
+    }
+
+    @DeleteMapping("/entry/{id}")
+    public void delete(@PathVariable int id) {
+
+        log.debug("/deleteEntry/{id} endpoint hit");
+        try {
+            entryService.delete(id);
+            log.info("Entry " + id + " deleted");
+        }
+        catch(Exception e) {
+            log.error("Entry couldn't be deleted ", e);
+        }
     }
 }
 

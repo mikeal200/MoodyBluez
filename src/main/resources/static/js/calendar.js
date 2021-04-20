@@ -156,6 +156,15 @@ function openDialog(day){
     });
 }
 
+function deleteEntry() {
+    $.ajax({
+        url: '/entry/' + id,
+        type: 'DELETE',
+        success: function(result) {
+        }
+    });
+}
+
 function submitEntry(){
     let date = $('#date').val();
     var mood = $('#mood').val();
