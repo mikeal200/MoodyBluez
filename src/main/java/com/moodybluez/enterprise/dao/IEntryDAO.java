@@ -5,6 +5,13 @@ import com.moodybluez.enterprise.dto.Entry;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Allows the user to enter their entry for the day
+ *
+ * @param year the year which the entry was entered
+ * @param month the month which the entry was entered
+ *
+ */
 public interface IEntryDAO {
 
     Entry save(Entry entry);
