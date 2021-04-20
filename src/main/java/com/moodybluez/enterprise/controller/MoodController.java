@@ -22,17 +22,38 @@ public class MoodController {
 
     @GetMapping("/mood/{id}")
     Mood getById(@PathVariable int id) {
-        return moodService.fetchById(id);
+        log.debug("/mood/id Endpoint");
+        try {
+            return moodService.fetchById(id);
+        } catch (Exception e) {
+            log.error("/mood/id Failed ", e);
+            return null;
+        }
+        
     }
 
     @GetMapping("/mood")
     List<Mood> get() {
-        Map<Integer, Mood> entities =  moodService.fetchAll();
+        log.debug("/mood Endpoint");
+        try {
+            Map<Integer, Mood> entities =  moodService.fetchAll();
         return new ArrayList<>(entities.values());
+        } catch (Exception e) {
+            log.error("/mood Failed ", e);
+            return null;
+        }
+        
     }
 
     @PutMapping("/mood")
     Mood modify(@RequestBody Mood mood) {
-        return moodService.save(mood);
+        log.debug("/mood Endpoint");
+        try {
+            return moodService.save(mood);
+        } catch (Exception e) {
+            log.error("/mood Failed ", e);
+            return null;
+        }
+        
     }
 }
