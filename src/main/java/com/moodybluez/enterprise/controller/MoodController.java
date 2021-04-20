@@ -15,6 +15,11 @@ public class MoodController {
     @Autowired
     private IMoodService moodService;
 
+/**
+ *
+ * @param id the unique identifier for the mood
+ * @return moodService.id the specific id related to the mood
+ */
     @GetMapping("/mood/{id}")
     Mood getById(@PathVariable int id) {
         return moodService.fetchById(id);

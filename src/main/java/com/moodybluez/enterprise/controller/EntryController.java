@@ -14,11 +14,22 @@ public class EntryController {
     @Autowired
     private IEntryService entryService;
 
+/**
+ *
+ * @param id
+ * @return entryService.id
+ */
     @GetMapping("/entry/{id}")
     public Entry getById(@PathVariable int id) {
         return entryService.fetchById(id);
     }
 
+/**
+ *
+ * @param year year the entry was made
+ * @param month month the entry was made
+ * @return ret the date of entry
+ */
     @GetMapping("entry/{year}/{month}")
     public Map<Integer, Entry> getByMonth(@PathVariable int year, @PathVariable int month) {
         List<Entry> entries = entryService.fetchByMonth(year, month);
