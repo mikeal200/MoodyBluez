@@ -12,6 +12,12 @@ import java.util.Map;
 @Repository
 @Profile({"dev", "default"})
 @Service
+
+/**
+ * @param user the user that is logged into the app
+ * @param username
+ *
+ */
 public class UserSQLDAO implements IUserDAO {
 
     @Autowired
