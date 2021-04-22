@@ -15,8 +15,13 @@ public class UserController {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     *
+     * @param username username of the user that will be used to grab the user by username
+     * @return returns a single user object
+     */
     @GetMapping("/user/{username}")
-    User getByID(@PathVariable String username) {
+    User getByUsername(@PathVariable String username) {
         log.debug("Getting User Endpoint");
 
         try {
@@ -27,6 +32,11 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     * @param user user object that will be saved into the database
+     * @return returns a single user object that was just saved 
+     */
     @PutMapping("/user")
     User save(@RequestBody User user) {
         log.debug("Saving User Endpoint");
