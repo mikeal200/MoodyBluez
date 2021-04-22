@@ -19,6 +19,11 @@ public class MoodController {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     *
+     * @param id id that corresponds to a certain mood within the databse
+     * @return
+     */
     @GetMapping("/mood/{id}")
     Mood getById(@PathVariable int id) {
         log.debug("/mood/id Endpoint");
@@ -31,6 +36,10 @@ public class MoodController {
         }
     }
 
+    /**
+     *
+     * @return returns a list of all moods from the database
+     */
     @GetMapping("/mood")
     List<Mood> get() {
         log.debug("/mood Endpoint");
@@ -44,6 +53,11 @@ public class MoodController {
         }
     }
 
+    /**
+     *
+     * @param mood mood that will be saved to the database
+     * @return returns a single mood object that was saved to the database
+     */
     @PutMapping("/mood")
     Mood modify(@RequestBody Mood mood) {
         log.debug("/mood Endpoint");
