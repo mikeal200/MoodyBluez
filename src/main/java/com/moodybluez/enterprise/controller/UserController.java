@@ -35,7 +35,7 @@ public class UserController {
     /**
      *
      * @param user user object that will be saved into the database
-     * @return returns a single user object that was just saved 
+     * @return returns a single user object that was just saved
      */
     @PutMapping("/user")
     User save(@RequestBody User user) {
