@@ -21,7 +21,7 @@ public class MoodController {
 
     /**
      *
-     * @param id id that corresponds to a certain mood within the databse
+     * @param id id that corresponds to a certain mood within the database
      * @return
      */
     @GetMapping("/mood/{id}")
