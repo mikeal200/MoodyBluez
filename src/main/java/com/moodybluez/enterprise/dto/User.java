@@ -1,44 +1,26 @@
 package com.moodybluez.enterprise.dto;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class User {
-    private int userId;
-    private String username;
-    private String password;
+public @Data
+class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId", nullable = false)
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userid) {
-        this.userId = userid;
-    }
+    private int userId;
 
     @Basic
     @Column(name = "username", nullable = false, length = 20)
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    private String username;
 
     @Basic
     @Column(name = "password", nullable = false, length = 1000)
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private String password;
 
     @Override
     public boolean equals(Object o) {

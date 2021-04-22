@@ -9,58 +9,27 @@ import java.util.Objects;
 @Entity
 public @Data
 class Entry {
-    private int entryId;
-    private int userId;
-    private int moodId;
-    private Date date;
-    private String description;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "entryId", nullable = false)
-    public int getEntryId() {
-        return entryId;
-    }
+    private int entryId;
 
     @Basic
     @Column(name = "userId", nullable = false)
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userID) {
-        this.userId = userID;
-    }
+    private int userId;
 
     @Basic
     @Column(name = "moodId", nullable = false)
-    public int getMoodId() {
-        return moodId;
-    }
-
-    public void setMoodId(int moodId) {
-        this.moodId = moodId;
-    }
+    private int moodId;
 
     @Basic
     @Column(name = "date", nullable = false, unique = false)
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    private Date date;
 
     @Basic
     @Column(name = "description", nullable = true, length = 500)
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    private String description;
 
     @Override
     public boolean equals(Object o) {
