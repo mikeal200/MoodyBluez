@@ -18,39 +18,42 @@ public class EntryController {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     *
+     * @param id id of the entry in the database
+     * @return returns a single entry that is linked to the var id in the database
+     */
     @GetMapping("/entry/{id}")
     public Entry getById(@PathVariable int id) {
-        log.debug("/entry/id Endpoint");
-
-        try {
-            return entryService.fetchById(id);
-        } catch (Exception e) {
-            log.error("/entry/id Failed", e);
-            return null;
-        }
+        return entryService.fetchById(id);
     }
 
+    /**
+     *
+     * @param year grabs the year that is requested
+     * @param month grabs the month that is requested
+     * @return returns a Map that has all entries from a given month of a certain year
+     */
     @GetMapping("entry/{year}/{month}")
     public Map<Integer, Entry> getByMonth(@PathVariable int year, @PathVariable int month) {
-        log.debug("entry/year/month Endpoint");
-
-        try {
-            List<Entry> entries = entryService.fetchByMonth(year, month);
-            Map<Integer, Entry> ret = new HashMap<>();
-            for(Entry entry: entries){
-                Calendar calendarInstance = Calendar.getInstance();
-                calendarInstance.setTime(entry.getDate());
-                int dayOfWeek = calendarInstance.get(Calendar.DAY_OF_WEEK);
-                ret.put(dayOfWeek,entry);
-            }
-
-            return ret;
-        } catch (Exception e) {
-            log.error("/entry/year/month Failed ", e);
-            return null;
+        List<Entry> entries = entryService.fetchByMonth(year, month);
+        Map<Integer, Entry> ret = new HashMap<>();
+        for(Entry entry: entries){
+            Calendar calendarInstance = Calendar.getInstance();
+            calendarInstance.setTime(entry.getDate());
+            int dayOfWeek = calendarInstance.get(Calendar.DAY_OF_WEEK);
+            ret.put(dayOfWeek,entry);
         }
+        return ret;
     }
 
+    /**
+     *
+     * @param year grabs the year that is requested
+     * @param month grabs the month that is requested
+     * @param day grabs the day that is requested
+     * @return returns a single entry that is on this specific date by a user
+     */
     @GetMapping("entry/{year}/{month}/{day}")
     Entry getByMonth(@PathVariable Integer year, @PathVariable Integer month, @PathVariable Integer day) {
         log.debug("entry/year/month/day Endpoint");
@@ -63,6 +66,11 @@ public class EntryController {
         }
     }
 
+    /**
+     *
+     * @param id this is the id of the mood in the database
+     * @return returns a list of all entries that have this mood id
+     */
     @GetMapping("entry/mood/{id}")
     List<Entry> getByMood(@PathVariable int id) {
         log.debug("entry/mood/id Endpoint");
@@ -75,6 +83,13 @@ public class EntryController {
         }
     }
 
+    /**
+     *
+     * @param id this is the id of the mood in the database
+     * @return returns a list of integers, each integer represents the
+     * amount of entries that have been saved by a user that have a certain
+     * mood and on a certain day
+     */
     @GetMapping("entry/metric/{id}")
     List<Integer> getMetricByMood(@PathVariable int id) {
         log.debug("entry/metric/id");
@@ -97,8 +112,13 @@ public class EntryController {
         }
     }
 
+    /**
+     *
+     * @param entry this is the entry that will be modified/saved into the database
+     * @return returns a single entry, this was the entry that was saved into the database
+     */
     @PutMapping(path="entry", consumes = "application/json", produces = "application/json")
-    public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) throws Exception {
+    public Entry modify(@RequestBody @DateTimeFormat(pattern = "yyyy-MM-dd") Entry entry) {
         log.debug("entry Endpoint");
 
         try {
@@ -109,6 +129,10 @@ public class EntryController {
         }
     }
 
+    /**
+     *
+     * @param id this is the id that corresponds to the entry that will be deleted
+     */
     @DeleteMapping("/entry/{id}")
     public void delete(@PathVariable int id) {
         log.debug("/deleteEntry/{id} endpoint hit");
